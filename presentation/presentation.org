@@ -1,0 +1,52 @@
+#+begin_src emacs-lisp
+(require 'org-babel-ocaml)
+#+end_src
+
+* Role in SE
+  + A function programming language
+
+
+
+* Role within SDLC
+
+* Similar tools
+
+* Strengths and weaknesses
+
+* Business readiness
+  - License
+  - Who backs it
+
+
+* Who uses it
+
+* Demonstration
+#+tblname: example-table
+| 1 | 2 |
+| 2 | 3 |
+| 3 | 4 |
+
+#+source ocaml-length
+#+begin_src ocaml :var table=example-table
+let t = (fun b -> b);;
+let u = (fun a -> (Array.to_list (Array.map t a)));;
+let w = Array.to_list (Array.map u table);;
+#+end_src
+
+#+results:
+| [1 2] | [2 3] | [3 4] |
+
+
+#+source ocaml-to_list
+#+begin_src ocaml
+  let atable = [|[|1;2;3|];[|4;5;6|]|];;
+  let rec to_list tablex n = if n = 0 then [] else
+      List.append (to_list tablex (n-1)) (Array.to_list (Array.get tablex n));;
+  let n = Array.length atable;;
+  let m = n - 1;;
+  
+#+end_srcy
+
+#+results:
+: 1
+
