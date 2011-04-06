@@ -11,6 +11,14 @@
 ** http://caml.inria.fr/pub/docs/u3-ocaml/emacs/index.html
 
 
+** http://caml.inria.fr/pub/docs/u3-ocaml/index.html
+
+** http://pauillac.inria.fr/~ddr/camlp5/
+
+** http://caml.inria.fr/pub/docs/tutorial-camlp4/index.html
+
+** 
+
 * Role in SE
   + A function programming language
 
