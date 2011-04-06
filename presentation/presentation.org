@@ -44,8 +44,8 @@ let w = Array.to_list (Array.map u table);;
       List.append (to_list tablex (n-1)) (Array.to_list (Array.get tablex n));;
   let n = Array.length atable;;
   let m = n - 1;;
-  
-#+end_srcy
+  [6;9] @ [0;8];;
+#+end_src
 
 #+results:
 : 1
