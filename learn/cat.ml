@@ -4,6 +4,8 @@ let echo chan =
   with End_of_file -> ();;
 
 let rec echo_files argv =
-  match argv with h::t -> (echo (open_in h)) ; echo_files t | [] -> echo stdin;;
+  match argv with h::t -> (echo (open_in h)) ; echo_files t | [] -> ();;
 
-match (Array.to_list Sys.argv) with h::t -> echo_files t | [] -> echo stdin;;
+let files = match (Array.to_list Sys.argv) with h::t -> t | [] -> [];;
+
+match files with h::t -> echo_files files | [] -> echo stdin;;
