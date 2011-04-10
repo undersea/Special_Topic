@@ -16,14 +16,33 @@
 
 ** http://caml.inria.fr/pub/docs/tutorial-camlp4/index.html
 
+** http://www.oreillynet.com/mac/blog/2006/03/haskell_vs_ocamlwhich_do_you_p.html
 
+* Notes                                                            :noexport:
+** Right fold
+   1 + (2 + (3 + (4 + 5)))
+
+   ocaml
+   ---------------------------------
+   List.right_fold (+) [1;2;3;4] 1;;
+   - : int = 11
+   ---------------------------------
+
+** Left Fold
+   (((1 + 2) + 3) + 4) + 5
+   
+   ocaml
+   ---------------------------------
+   List.fold_left (+) 1 [1;2;3;4];;
+   - : int = 11
+   ---------------------------------
 * Role in SE
-  + A function programming language
-
+  + A functional programming language
+    
 
 
 * Role within SDLC
-
+  
 * Similar tools
 
 * Strengths and weaknesses
