@@ -18,6 +18,9 @@
 
 ** http://www.oreillynet.com/mac/blog/2006/03/haskell_vs_ocamlwhich_do_you_p.html
 
+** http://ocaml.janestreet.com/?q=node/13
+   Janes street ocaml Open-source software
+
 * Notes                                                            :noexport:
 ** Right fold
    1 + (2 + (3 + (4 + 5)))
@@ -36,8 +39,8 @@
    List.fold_left (+) 1 [1;2;3;4];;
    - : int = 11
    ---------------------------------
-** Up to
-*** Polymorphism and return values of functions
+** Ocsigen - ocaml web framework??
+
 * Role in SE
   + A functional programming language
     
@@ -62,15 +65,24 @@
 | 2 | 3 |
 | 3 | 4 |
 
-#+source ocaml-length
-#+begin_src ocaml :var table=example-table
-let t = (fun b -> b);;
-let u = (fun a -> (Array.to_list (Array.map t a)));;
-let w = Array.to_list (Array.map u table);;
-#+end_src
 
+#+tblname: example-table2
+|  4 |  5 |  6 |
+|  7 |  8 |  9 |
+| 10 | 11 | 12 |
+
+#+source ocaml-length
+#+begin_src ocaml :var table=example-table :var table2=example-table2
+  let rec 
+  let rec array_to_list array pos = match pos < Array.length array with
+      true -> 
+  
+#+end_src
+  
 #+results:
-| [1 2] | [2 3] | [3 4] |
+|  4 |  5 |  6 |
+|  7 |  8 |  9 |
+| 10 | 11 | 12 |
 
 
 #+source ocaml-to_list
