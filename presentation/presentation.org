@@ -36,6 +36,8 @@
    List.fold_left (+) 1 [1;2;3;4];;
    - : int = 11
    ---------------------------------
+** Up to
+*** Polymorphism and return values of functions
 * Role in SE
   + A functional programming language
     
