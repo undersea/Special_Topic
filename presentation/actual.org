@@ -29,7 +29,9 @@
 
 ** Version of ML (Meta Language)
 
-** Useful for meta programming
+** Useful for meta programming                                     :noexport:
+
+** Has imperative features
 
 *** compilers                                                      :noexport:
 
@@ -37,7 +39,7 @@
 
 * Features of OCaml covered
 
-** Variables are immutable
+** Immutable variables 
 
 ** Everything is an expression
 
