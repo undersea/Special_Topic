@@ -1,0 +1,74 @@
+#+TITLE:     OCaml
+#+AUTHOR:    James Hurford
+#+EMAIL:     terrasea@gmail.com
+#+DATE:
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [presentation]
+#+BEAMER_FRAME_LEVEL: 1
+
+#+BEAMER_HEADER_EXTRA: \usetheme{default}\usecolortheme{default}
+#+COLUMNS: %45ITEM %10BEAMER_env(Env) %10BEAMER_envargs(Env Args) %4BEAMER_col(Col) %8BEAMER_extra(Extra)
+#+PROPERTY: BEAMER_col_ALL 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 :ETC
+
+
+
+
+* What is OCaml?
+** Extended functional language
+
+** Version of ML (Meta Language)
+
+** Useful for meta programming
+
+*** compilers                                                      :noexport:
+
+*** interpreters                                                   :noexport:
+
+* Features of OCaml
+
+** Variables are immutable
+
+** Everything is a expression
+
+** Higher order functions
+
+*** functions are values like all other values in OCaml            :noexport:
+
+** Dynamic top loop system
+
+*** Lisp/Scheme/SmallTalk                                          :noexport:
+
+*** type/compile/load incrementally                                :noexport:
+
+** Type inference
+
+** Pattern matching
+
+** Parametric polymorphism
+
+** Functors
+
+***   higher-order modules                                         :noexport:
+
+* Basics
+
+** Variable declaration and type inference
+   #+begin_src ocaml
+   let x = 3;;
+   #+end_src
+
+   #+results:
+   : 3
+
+** 
