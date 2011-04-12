@@ -35,40 +35,271 @@
 
 *** interpreters                                                   :noexport:
 
-* Features of OCaml
+* Features of OCaml covered
 
 ** Variables are immutable
 
-** Everything is a expression
-
-** Higher order functions
-
-*** functions are values like all other values in OCaml            :noexport:
-
-** Dynamic top loop system
-
-*** Lisp/Scheme/SmallTalk                                          :noexport:
-
-*** type/compile/load incrementally                                :noexport:
+** Everything is an expression
 
 ** Type inference
 
+** Functions and higher order functions
+
+*** functions are values like all other values in OCaml            :noexport:
+
 ** Pattern matching
 
-** Parametric polymorphism
+* Features not covered
+** Built-in types
+** Type system
+** Imperative features
+** Modules
+** ...
 
-** Functors
 
-***   higher-order modules                                         :noexport:
+* Variable declaration, type inference and type compatibilities
+  #+begin_src ocaml
+    let x = 3 + 1;;
+    
+  #+end_src
+  -------
+  #+begin_example
+   val x : int = 4
+  #+end_example
+  -------
+  #+begin_src ocaml
+      let x = 3.0 + 1.3;;
+  #+end_src
+  -------
+  #+begin_example
+  let x = 3.0 + 1.3;;
+          ^^^
+  Error: This expression has type float but an expression was 
+         expected of type int
+  #+end_example
+  -------
+  #+begin_src ocaml
+  let x = 3.0 +. 1.3;;
+  #+end_src
+  -------
+  #+begin_example
+  val x : float = 4.3
+  #+end_example
+  -------
+* Type comparison
+  #+begin_src ocaml
+    3.0 = 3;;
+  #+end_src
+  -------
+  #+begin_example 
+  Error: This expression has type int but an expression was 
+         expected of type float
+  #+end_example
+  -------
+  #+begin_src ocaml
+    3.0 = float_of_int 3;;
+  #+end_src
+  -------
+  #+begin_example
+  - : bool = true
+  #+end_example
+  -------
+* Functions
+  #+begin_src ocaml
+    let tmp x = x + x;;
+  #+end_src
+  ------
+  #+begin_example
+  val tmp : int -> int = <fun>
+  #+end_example
+  ------
+  #+begin_src ocaml
+    tmp 1;;
+  #+end_src
+  ------
+  #+begin_example
+  - : int = 2
+  #+end_example
+  ------
+  #+begin_src ocaml
+    let tmp x = x +. x;;
+  #+end_src
+  ------
+  #+begin_example
+  val tmp : float -> float = <fun>
+  #+end_example
+* Anonymous functions
+  A function without a name
+  #+begin_src ocaml
+    let one = function x -> x + x;;
+  #+end_src
+  ------
+  #+begin_example
+  val one : int -> int = <fun>
+  #+end_example
+  ------
+  #+begin_src ocaml
+    (fun y -> y + y) (one 1);;
+  #+end_src
+  ------
+  #+begin_example
+  : int = 4
+  #+end_example
+  
+* Lists and polymorphism
+  #+begin_src ocaml
+    let list = [1;2;3;4];;
+  #+end_src
+  -------
+  #+begin_example
+  val list : int list = [1; 2; 3; 4]
+  #+end_example
+  -------
+  #+begin_src ocaml
+    let prepend n l = n::l;;
+  #+end_src
+  -----
+  #+begin_example
+  val prepend : 'a -> 'a list -> 'a list = <fun>
+  #+end_example
+  -----
+  
 
-* Basics
+* Polymorphism continued
+  
+  #+begin_src ocaml
+        let rec sort = function
+          | [] -> []
+          | x :: l -> insert x (sort l)
+          
+        and insert elem = function
+          | [] -> [elem]
+          | x :: l -> 
+            if elem < x then elem :: x :: l 
+            else x :: insert elem l;;
+  #+end_src
+  ------
+  #+begin_example
+  val sort : 'a list -> 'a list = <fun>
+  val insert : 'a -> 'a list -> 'a list = <fun>
+  #+end_example
+  ------
+  #+begin_src ocaml
+    sort [3;1;5;0];;
+  #+end_src
+  ------
+  #+begin_example
+  - : int list = [0; 1; 3; 5]
+  #+end_example
+* Heads and tails and pattern matching
+  #+begin_src ocaml
+    let head l = match l with h::t -> h;;
+  #+end_src
+  ------
+  #+begin_example
+  Warning P: this pattern-matching is not exhaustive.
+  Here is an example of a value that is not matched:
+  []
+  val head : 'a list -> 'a = <fun>
+  #+end_example
+  ------
+  #+begin_src ocaml
+    let head l = match l with h::t -> h | [] -> -1;;
+  #+end_src
+  ------
+  #+begin_example
+  val head : int list -> int = <fun>
+  #+end_example
+  ------
+  #+begin_src ocaml
+    head [1;2;3];;
+  #+end_src
+  ------
+  #+begin_example
+  - : int = 1
+  #+end_example
+  ------
+* Recursive functions, higher order functions
+  #+begin_src ocaml
+    let rec range start stop = if start < stop then prepend start
+    (range (start+1) stop) else [];;
+  #+end_src
+  ------
+  #+begin_example
+  val range : int -> int -> int list = <fun>
+  #+end_example
+  ------
+  #+begin_src ocaml
+    range 0 10;;
+  #+end_src
+  ------
+  #+begin_example
+  - : int list = [0; 1; 2; 3; 4; 5; 6; 7; 8; 9]
+  #+end_example
+* Currying
+  #+begin_src ocaml
+    let start = range 0;;
+  #+end_src
+  ------
+  #+begin_example
+  val start : int -> int list = <fun>
+  #+end_example
+  ------
+  #+begin_src ocaml
+    start 2;;
+  #+end_src
+  ------
+  #+begin_example
+  - : int list = [0; 1]
+  #+end_example
+  ------
+  #+begin_src ocaml
+    start 4;;
+  #+end_src
+  ------
+  #+begin_example
+  - : int list = [0; 1; 2; 3]
+  #+end_example
+  ------
+  #+begin_src ocaml
+    let rec range2 (start, stop) = if start < stop then prepend start
+    (range2 ((start + 1), stop)) else [];; 
+  #+end_src
+  ------
+  #+begin_example
+  val range2 : int * int -> int list = <fun>
+  #+end_example
+  ------
+  #+begin_src ocaml
+    range2 (0, 10);;
+  #+end_src
+  ------
+  #+begin_example
+  - : int list = [0; 1; 2; 3; 4; 5; 6; 7; 8; 9]
+  #+end_example
+* Who uses it
+** Jane Street
+   + proprietary trading firm
 
-** Variable declaration and type inference
-   #+begin_src ocaml
-   let x = 3;;
-   #+end_src
 
-   #+results:
-   : 3
+** F#
+   + a .NET implementation of ML using OCaml syntax
 
+
+** ...
+
+* Strengths
+** Type system
+** User-definable algebraic data types
+** Pattern matching
+** Automatic memory management
+** Type safety 
+** Speed
+   + only if it is imperative
+     if expr then value1 else value2;;
+** Concise
+* Weaknesses
+** Lack of industry support
+   + F# ??
+** Not many libraries
 ** 
