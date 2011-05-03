@@ -20,3 +20,10 @@ rule = "at", white space, "least"
      | "must", white space, "have",
      (number, "of", white space, "credits", white space, "at", number, white space, "level")|( 
 '''
+
+
+
+
+def parse(data):
+    return None
+

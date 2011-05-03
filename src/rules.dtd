@@ -1,0 +1,4 @@
+<!ELEMENT rules (degree)>
+<!ELEMENT degree (description?, rules)>
+<!ELEMENT rules (rule+)>
+<!ELEMENT rule (limit|atleast|required)>
