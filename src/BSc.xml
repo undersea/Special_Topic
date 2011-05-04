@@ -2,6 +2,7 @@
 <!DOCTYPE degree SYSTEM "rules.dtd">
 <degree>
   <name>BSc</name>
+  <points>360</points>
   <rules>
     <rule>
       <limit>
@@ -15,9 +16,15 @@
         <level>300</level>
       </atleast>
     </rule>
-    <!--<rule>
-      
-    </rule>-->
+    <rule>
+      <limit>
+        <points>105</points>
+        <notinschedule/>
+      </limit>
+    </rule>
+    <rule>
+      <required><or><code>119.155</code><code>119.177</code></or></required>
+    </rule>
   </rules>
   <schedule>
     <major>
@@ -258,6 +265,283 @@
           <code>171.384</code>
         </restriction>
       </paper>
+    </major>
+    <major>
+      <name>Computer Science</name>
+      <paper>
+        <code>159.101</code>
+        <name>Programming Fundamentals</name>
+        <points>15</points>
+      </paper>
+      <paper>
+        <code>159.102</code>
+        <name>Computer Science Fundamentals</name>
+        <points>15</points>
+        <prerequisite>
+          <code>159.101</code>
+        </prerequisite>
+      </paper>
+      <paper>
+        <code>159.201</code>
+        <name>Algorithms and Data Structures</name>
+        <points>15</points>
+        <prerequisite>
+          <code>159.101</code>
+          <code>159.102</code>
+        </prerequisite>
+        <restriction>
+          <code>159.211</code>
+        </restriction>
+      </paper>
+      <paper>
+        <code>159.202</code>
+        <name>Declarative Programming</name>
+        <points>15</points>
+        <prerequisite>
+          <code>159.101</code>
+          <code>159.102</code>
+        </prerequisite>
+        <restriction>
+          <code>159.211</code>
+        </restriction>
+      </paper>
+      <paper>
+        <code>159.233</code>
+        <name>Computer Architecture</name>
+        <points>15</points>
+        <prerequisite>
+          <code>159.101</code>
+          <code>159.102</code>
+        </prerequisite>
+        <restriction>
+          <code>159.253</code>
+        </restriction>
+      </paper>
+      <paper>
+        <code>159.234</code>
+        <name>Object-Oriented Programming</name>
+        <points>15</points>
+        <prerequisite>
+          <code>159.101</code>
+        </prerequisite>
+        <restriction>
+          <code>159.211</code>
+        </restriction>
+      </paper>
+      <paper>
+        <code>159.235</code>
+        <name>Graphical Programming</name>
+        <points>15</points>
+        <prerequisite>
+          <code>159.101</code>
+          <code>159.102</code>
+        </prerequisite>
+      </paper>
+      <paper>
+        <code>159.253</code>
+        <name>Computer Systems</name>
+        <points>15</points>
+        <prerequisite>
+          <code>159.101</code>
+          <code>159.102</code>
+        </prerequisite>
+        <restriction>
+          <code>159.233</code>
+        </restriction>
+      </paper>
+      <paper>
+        <code>159.254</code>
+        <name>Software Engineering A</name>
+        <points>15</points>
+        <prerequisite>
+          <code>159.1xx</code>
+        </prerequisite>
+        <restriction>
+          <code>158.225</code>
+        </restriction>
+      </paper>
+      <paper>
+        <code>158.359</code>
+        <name>Human-Computer Interaction</name>
+        <points>15</points>
+        <prerequisite>
+          <or>
+            <code>157.2xx</code>
+            <code>158.2xx</code>
+            <code>159.2xx</code>
+          </or>
+        </prerequisite>
+        <restriction>
+          <code>157.356</code>
+          <code>157.359</code>
+          <code>159.353</code>
+        </restriction>
+      </paper>
+      <paper>
+        <code>159.302</code>
+        <name>Artificial Intelligence</name>
+        <points>15</points>
+        <prerequisite>
+          <or>
+            <code>159.201</code>
+            <code>159.202</code>
+            <code>159.211</code>
+          </or>
+        </prerequisite>
+        <restriction>
+          <code>159.318</code>
+        </restriction>
+      </paper>
+      <paper>
+        <code>159.331</code>
+        <name>Algorithms and Languages</name>
+        <points>15</points>
+        <prerequisite>
+          <code>159.201</code>
+          <code>159.202</code>
+        </prerequisite>
+        <restriction>
+          <code>159.311</code>
+        </restriction>
+      </paper>
+      <paper>
+        <code>159.333</code>
+        <name>Project Implementation</name>
+        <points>15</points>
+        <!--P P PD-->
+      </paper>
+      <paper>
+        <code>159.334</code>
+        <name>Computer Networks</name>
+        <points>15</points>
+        <prerequisite>
+          <or>
+            <code>159.201</code>
+            <code>159.234</code>
+          </or>
+        </prerequisite>
+        <restriction>
+          <code>159.354</code>
+        </restriction>
+      </paper>
+      <paper>
+        <code>159.335</code>
+        <name>Concurrent Programming and Operating Systems</name>
+        <points>15</points>
+        <prerequisite>
+          <code>159.201</code>
+        </prerequisite>
+        <restriction>
+          <code>159.355</code>
+        </restriction>
+      </paper>
+      <paper>
+        <code>159.339</code>
+        <name>Internet Programming</name>
+        <points>15</points>
+        <prerequisite>
+          <or>
+            <code>159.201</code>
+            <code>159.234</code>
+          </or>
+        </prerequisite>
+        <restriction>
+          <code>159.359</code>
+        </restriction>
+      </paper>
+      <paper>
+        <code>159.351</code>
+        <name>Software Engineering B</name>
+        <points>15</points>
+        <prerequisite>
+          <code>159.201</code>
+          <code>159.254</code>
+        </prerequisite>
+      </paper>
+      <paper>
+        <code>159.354</code>
+        <name>Architecture and Networks</name>
+        <points>15</points>
+        <prerequisite>
+          <code>159.253</code>
+        </prerequisite>
+        <restriction>
+          <code>159.334</code>
+        </restriction>
+      </paper>
+      <paper>
+        <code>159.355</code>
+        <name>Concurrent Systems</name>
+        <points>15</points>
+        <prerequisite>
+          <or>
+            <code>159.201</code>
+            <code>159.211</code>
+          </or>
+        </prerequisite>
+        <restriction>
+          <code>159.335</code>
+        </restriction>
+      </paper>
+      <paper>
+        <code>159.356</code>
+        <name>Software Engineering C</name>
+        <points>15</points>
+        <prerequisite>
+          <code>159.351</code>
+        </prerequisite>
+      </paper>
+      <paper>
+        <code>159.357</code>
+        <name>Formal Methods</name>
+        <points>15</points>
+        <prerequisite>
+          <or>
+            <code>159.201</code>
+            <code>159.211</code>
+          </or>
+          <or>
+            <code>160.212</code>
+            <code>159.255</code>
+          </or>
+        </prerequisite>
+      </paper>
+      <paper>
+        <code>159.359</code>
+        <name>Web Technologies</name>
+        <points>15</points>
+        <prerequisite>
+          <or>
+            <code>159.201</code>
+            <code>159.211</code>
+          </or>
+        </prerequisite>
+        <restriction>
+          <code>157.263</code>
+          <code>157.332</code>
+          <code>157.361</code>
+          <code>157.367</code>
+          <code>159.339</code>
+        </restriction>
+      </paper>
+      <paper>
+        <code>161.326</code>
+        <name>Statistical Machine Learning</name>
+        <points>15</points>
+        <prerequisite>
+          <or>
+            <and>
+              <code>159.2xx</code>
+              <code>161.1xx</code>
+            </and>
+            <code>161.2xx</code>
+          </or>
+        </prerequisite>
+        <restriction>
+          <code>159.302</code>
+        </restriction>
+      </paper>
+      
     </major>
   </schedule>
 </degree>

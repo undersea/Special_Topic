@@ -1,20 +1,22 @@
-<!ELEMENT degree (name, description?, rules, schedule)>
+<!ELEMENT degree (name, points, description?, rules, schedule)>
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT description (#PCDATA)>
 <!ELEMENT rules (rule+)>
 <!ELEMENT rule (limit|atleast|required)>
-<!ELEMENT limit (notschedule?, points, level)>
-<!ELEMENT notschedule EMPTY>
+<!ELEMENT limit (points, (level|notinschedule))>
+<!ELEMENT notinschedule EMPTY>
+<!ELEMENT inschedule EMPTY>
 <!ELEMENT atleast (points, level)>
-<!ELEMENT required (code+)>
+<!ELEMENT required ((code|and|or|oneof|any|points)+)>
 <!ELEMENT points (#PCDATA)>
 <!ELEMENT level (#PCDATA)>
 <!ELEMENT paper (code, name, points, prerequisite?, corequisite?, restriction?)>
 <!ELEMENT code (#PCDATA)>
-<!ELEMENT prerequisite ((code|or|oneof|any|points)+,exception?)>
+<!ELEMENT prerequisite ((code|and|or|oneof|any|points)+,exception?)>
 <!ELEMENT restriction (code+)>
 <!ELEMENT corequisite ((code|or|oneof)+,exception?)>
-<!ELEMENT or ((code|any), (code|any)+)>
+<!ELEMENT and ((code|any|or), (code|any|or)+)>
+<!ELEMENT or ((code|any|and), (code|any|and)+)>
 <!ELEMENT oneof ((code|any), (code|any)+)>
 <!ELEMENT any (level+)>
 <!ELEMENT exception (#PCDATA)>
