@@ -3,10 +3,11 @@ from grammer import *
 from rules import *
 
 class TestGrammer(TestCase):
-    def testParse(self):
-        result = parse("")
+    def testParseString(self):
+        result = parse('BSc.xml')
 
-        self.assertTrue(isinstance(result, Rules))
+        self.assertTrue(isinstance(result, Degree))
+        
 
 
 if __name__ == "__main__":

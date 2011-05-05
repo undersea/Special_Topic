@@ -23,7 +23,18 @@
       </limit>
     </rule>
     <rule>
-      <required><or><code>119.155</code><code>119.177</code></or></required>
+      <required>
+        <or>
+          <code>119.155</code>
+          <code>119.177</code>
+        </or>
+      </required>
+    </rule>
+    <rule>
+      <required>
+        <inschedule/>
+        <or required="4"/>
+      </required>
     </rule>
   </rules>
   <schedule>
@@ -541,7 +552,26 @@
           <code>159.302</code>
         </restriction>
       </paper>
-      
+      <rules>
+        <rule>
+          <required>
+            <code>159.101</code>
+            <code>159.102</code>
+          </required>
+        </rule>
+        <rule>
+          <atleast>
+            <points>60</points>
+            <level>200</level>
+          </atleast>
+        </rule>
+        <rule>
+          <atleast>
+            <points>60</points>
+            <level>300</level>
+          </atleast>
+        </rule>
+      </rules>
     </major>
   </schedule>
 </degree>

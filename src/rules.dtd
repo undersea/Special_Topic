@@ -2,12 +2,12 @@
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT description (#PCDATA)>
 <!ELEMENT rules (rule+)>
-<!ELEMENT rule (limit|atleast|required)>
+<!ELEMENT rule (description?, (limit|atleast|required))>
 <!ELEMENT limit (points, (level|notinschedule))>
 <!ELEMENT notinschedule EMPTY>
 <!ELEMENT inschedule EMPTY>
 <!ELEMENT atleast (points, level)>
-<!ELEMENT required ((code|and|or|oneof|any|points)+)>
+<!ELEMENT required (inschedule?, (code|and|or|oneof|any|points)+)>
 <!ELEMENT points (#PCDATA)>
 <!ELEMENT level (#PCDATA)>
 <!ELEMENT paper (code, name, points, prerequisite?, corequisite?, restriction?)>
@@ -16,7 +16,10 @@
 <!ELEMENT restriction (code+)>
 <!ELEMENT corequisite ((code|or|oneof)+,exception?)>
 <!ELEMENT and ((code|any|or), (code|any|or)+)>
-<!ELEMENT or ((code|any|and), (code|any|and)+)>
+<!ELEMENT or (((code|any|and), (code|any|and)+)?)>
+<!ATTLIST or
+          required CDATA #IMPLIED
+          type CDATA #FIXED "subject">
 <!ELEMENT oneof ((code|any), (code|any)+)>
 <!ELEMENT any (level+)>
 <!ELEMENT exception (#PCDATA)>

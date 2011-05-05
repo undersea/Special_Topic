@@ -21,9 +21,47 @@ rule = "at", white space, "least"
      (number, "of", white space, "credits", white space, "at", number, white space, "level")|( 
 '''
 
+from xml.etree.ElementTree import ElementTree, fromstring
+from rules import Degree
+
+def parse(source):
+    rules = None
+    tree = None
+    try:
+        tree = ElementTree()
+        tree.parse(source)
+        rules = Degree()
+    except IOError, e:
+        try:
+            tree = fromstring(source)
+            rules = Degree()
+            
+        except Exception, er:
+            print e
+            print er
+            pass
+
+    rules.name = tree.find('/name').text
+    rules.points = int(tree.find('/points').text)
+    rules.rules = parserules(tree)
+    rules.schedule = parseschedule(tree)
+    
+    return rules
+
+def parserules(tree):
+    rules = list()
+    for rule in tree.findall('/rules/rule'):
+        pass
+
+    return rules
 
 
+def parseschedule(tree):
+    schedule = dict()
+    for schedule in tree.findall('/degree/schedule/major'):
+        pass
 
-def parse(data):
-    return None
+    return schedule
 
+if __name__ == "__main__":
+    print parse("BSc.xml").rules
