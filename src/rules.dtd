@@ -7,7 +7,7 @@
 <!ELEMENT notinschedule EMPTY>
 <!ELEMENT inschedule EMPTY>
 <!ELEMENT atleast (points, level)>
-<!ELEMENT required (inschedule?, (code|and|or|oneof|any|points)+)>
+<!ELEMENT required (((inschedule, (points|or))|(code|and|or|oneof|any)+))>
 <!ELEMENT points (#PCDATA)>
 <!ELEMENT level (#PCDATA)>
 <!ELEMENT paper (code, name, points, prerequisite?, corequisite?, restriction?)>

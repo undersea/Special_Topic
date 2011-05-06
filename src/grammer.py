@@ -1,28 +1,12 @@
 '''
-programme = "PROGRAMME", white space, identifier, white space,
-            "BEGIN", white space,
-            rules,
-            "END";
-identifier = alphabetic character , { alphabetic character | digit } ;
-paper = digit, digit, digit, {".", digit|alphabetic character, [digit|alphabetic character, digit|alphabetic character]};
-number = digit , { digit };
-string = \'"\', { all characters - \'"\' }, \'"\';
-alphabetic character = "A" | "B" | "C" | "D" | "E" | "F" | "G"
-                     | "H" | "I" | "J" | "K" | "L" | "M" | "N"
-                     | "O" | "P" | "Q" | "R" | "S" | "T" | "U"
-                     | "V" | "W" | "X" | "Y" | "Z" ;
-digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
-white space = ? white space characters ? ;
-all characters = ? all visible characters ? ;
-rules = rule, {rule}
-rule = "at", white space, "least"
-     | "no", white space, "more", white space, "than"
-     | "must", white space, "have",
-     (number, "of", white space, "credits", white space, "at", number, white space, "level")|( 
+
 '''
 
 from xml.etree.ElementTree import ElementTree, fromstring
-from rules import Degree
+from rules import Degree, LimitRule, AtLeastRule, RequiredRule
+
+class UnknownElementException(Exception):
+    pass
 
 def parse(source):
     rules = None
@@ -41,8 +25,8 @@ def parse(source):
             print er
             pass
 
-    rules.name = tree.find('/name').text
-    rules.points = int(tree.find('/points').text)
+    rules.name = tree.find('./name').text
+    rules.points = int(tree.find('./points').text)
     rules.rules = parserules(tree)
     rules.schedule = parseschedule(tree)
     
@@ -50,18 +34,136 @@ def parse(source):
 
 def parserules(tree):
     rules = list()
-    for rule in tree.findall('/rules/rule'):
-        pass
+    for rule in tree.findall('./rules/rule'):
+        limit = rule.find('./limit')
+        atleast = rule.find('./atleast')
+        required = rule.find('./required')
+        if limit != None:
+            rules.append(parselimit(limit))
+        elif atleast != None:
+            rules.append(parseatleast(atleast))
+        elif required != None:
+            rules.append(parserequired(required))
+        else:
+            raise UnknownElementException()
+        
+            
 
     return rules
 
 
+
+def parselimit(limit):
+    rule = LimitRule()
+    rule.points = int(limit.find('./points').text)
+    notinschedule = limit.find('./notinschedule')
+    if notinschedule != None:
+        rule.inschedule = False
+    else:
+        rule.level = int(limit.find('./level').text)
+    
+    return rule
+
+def parseatleast(atleast):
+    rule = AtLeastRule()
+    rule.points = int(atleast.find('./points').text)
+    rule.level = int(atleast.find('./level').text)
+    
+    return rule
+
+
+def parserequired(required):
+    rule = RequiredRule()
+
+    inschedule = required.find('./inschedule')
+    if inschedule != None:
+        rule.inschedule = True
+        points = required.find('./points')
+        if points != None:
+            rule.points = int(points.text)
+        else:
+            orcode = required.find('./or')
+            if orcode != None and 'required' in orcode.keys():
+                rule.papers.append(int(orcode.get('required')))
+                return rule
+                
+    
+    code = required.findall('./code')
+    if code != None:
+        tmp = list()
+        for x in code:
+            rule.papers.append(code.text)
+        
+    andpaper = required.findall('./and')
+    if andpaper != None:
+        tmp = list()
+
+    orpaper = required.findall('./or')
+    oneof = required.findall('./oneof')
+    anypaper = required.findall('./any')
+    
+    return rule
+
+
+
+
+def parseand(andpaper):
+    tmp = ['and']
+    
+    code = andpapers.findall('./code')
+    if code != None:
+        for x in code:
+            tmp.append(x.text)
+            
+    orpapers = andpapers.findall('./or')
+    if orpapers != None:
+        tmp.append(parseor(orpapers))
+        
+    anypapers = andpapers.findall('./any')
+    if anypapers != None:
+        tmp.append(parseany(anypapers))
+
+    return tuple(tmp)
+
+
+
+def parseor(orpapers):
+    tmp = ['or']
+
+    code = orpapers.findall('./code')
+    if code != None:
+        for x in code:
+            tmp.append(x.text)
+
+    andpapers = orpapers.findall('./and')
+    if andpapers != None:
+        parseand(andpapers)
+    
+    anypapers = orpapers.findall('./any')
+    if anypapers != None:
+        tmp.append(parseany(anypapers))
+
+    return tuple(tmp)
+
+def parseany(anypapers):
+    tmp = ['any']
+
+    code = anypapers.findall('./level')
+    if code != None:
+        for x in code:
+            tmp.append(x.text)
+
+    return tuple(tmp)
+
+
+
 def parseschedule(tree):
     schedule = dict()
-    for schedule in tree.findall('/degree/schedule/major'):
+    for schedule in tree.findall('./degree/schedule/major'):
         pass
 
     return schedule
 
 if __name__ == "__main__":
-    print parse("BSc.xml").rules
+    for rule in parse("BSc.xml").rules:
+        print rule

@@ -20,6 +20,7 @@ class Degree(object):
         return str(self.rules)
 
 
+
 class LimitRule(object):
     def __init__(self):
         self.points = None
@@ -29,22 +30,22 @@ class LimitRule(object):
     def __str__(self):
         out = "Limit of %d" % (self.points)
         
-        if not self.inschedule:
+        if not self.inschedule and self.inschedule == False:
             out = "%s not in the schedule" % (out)
-        else:
+        elif self.level != None:
             out = "%s at %d level" % (out, self.level)
 
         return out
 
 class AtLeastRule(LimitRule):
     def __str__(self):
-        return "At least %d at %d" % (self.points, self.level)
+        return "At least %d at %d level" % (self.points, self.level)
 
 
 class RequiredRule(object):
     def __init__(self):
         self.inschedule = False
-        self.papers = None
+        self.papers = list()
         self.points = None
         self.level = None
 
@@ -71,7 +72,7 @@ class RequiredRule(object):
         import copy
         out = "Required "
         if self.inschedule:
-            out = "%s %s from the degree schedule" % (out, self.papers[0])
+            out = "%s %s papers of different subjects from the degree schedule" % (out, self.papers[0])
         else:
             out = "%s %s" % (out, self.__papers(self.papers))
 
