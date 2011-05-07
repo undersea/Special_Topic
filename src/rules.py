@@ -14,7 +14,11 @@ class Degree(object):
 
     def delete(self, rule):
         del self.rules[self.rules.index(rule)]
-        
+
+
+    def check_programme(major, programme):
+        pass
+    
 
     def __str__(self):
         return str(self.rules)
@@ -28,7 +32,7 @@ class LimitRule(object):
         self.inschedule = None
 
     def __str__(self):
-        out = "Limit of %d" % (self.points)
+        out = "Limit of %d points" % (self.points)
         
         if not self.inschedule and self.inschedule == False:
             out = "%s not in the schedule" % (out)
@@ -39,7 +43,7 @@ class LimitRule(object):
 
 class AtLeastRule(LimitRule):
     def __str__(self):
-        return "At least %d at %d level" % (self.points, self.level)
+        return "At least %d points at %d level" % (self.points, self.level)
 
 
 class RequiredRule(object):
@@ -52,16 +56,27 @@ class RequiredRule(object):
 
     def __papers(self, papers):
         tmp = ""
+        
         for paper in papers:
-            if isinstance(paper, tuple):
-                tmp2 = list(paper)
+            if isinstance(paper, tuple) and len(paper) > 0:
+                tmp2 = list(list(paper).pop())
+                tmp2.reverse()
                 operator = tmp2.pop()
-                tmp = tmp2.pop()
-                for x in tmp2:
-                    if isinstance(x, tuple):
-                        tmp = "%s %s %s" % (tmp, operator, self.__papers([x]))
-                    else:
-                        tmp = "%s %s %s" % (tmp, operator, x)
+                tmp2.reverse()
+        
+                try:
+                    tmp = tmp2.pop()
+                except:
+                    continue
+                else:
+                    for x in tmp2:
+                        if isinstance(x, tuple) and len(x) > 0:
+                            tmp = "%s %s %s" % (tmp, operator, self.__papers([x]))
+                        elif len(x) > 0:
+                            if isinstance(operator, tuple):
+                                tmp = "%s %s" % (tmp, x)
+                            else:
+                                tmp = "%s %s %s" % (tmp, operator, x)
             else:
                 tmp = "%s %s" % (tmp, paper)
 
@@ -70,7 +85,7 @@ class RequiredRule(object):
 
     def __str__(self):
         import copy
-        out = "Required "
+        out = "Required"
         if self.inschedule:
             out = "%s %s papers of different subjects from the degree schedule" % (out, self.papers[0])
         else:

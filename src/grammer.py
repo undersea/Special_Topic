@@ -23,7 +23,7 @@ def parse(source):
         except Exception, er:
             print e
             print er
-            pass
+            return None
 
     rules.name = tree.find('./name').text
     rules.points = int(tree.find('./points').text)
@@ -92,14 +92,22 @@ def parserequired(required):
     if code != None:
         tmp = list()
         for x in code:
-            rule.papers.append(code.text)
+            rule.papers.append(x.text)
         
     andpaper = required.findall('./and')
     if andpaper != None:
-        tmp = list()
+        t = parseand(andpaper)
+        if len(t) > 0:
+            rule.papers.append(t)
 
     orpaper = required.findall('./or')
+    if orpaper != None:
+        t = parseor(orpaper)
+        if len(t) > 0:
+            rule.papers.append(t)
+        
     oneof = required.findall('./oneof')
+    
     anypaper = required.findall('./any')
     
     return rule
@@ -108,46 +116,65 @@ def parserequired(required):
 
 
 def parseand(andpaper):
-    tmp = ['and']
+    tmp = []
+    if isinstance(andpaper, list):
+        for x in andpaper:
+            tmp.append(parseand(x))
+            
+        return tuple(tmp)
+
+    tmp.append('and')
     
-    code = andpapers.findall('./code')
+    code = andpaper.findall('./code')
     if code != None:
         for x in code:
             tmp.append(x.text)
             
-    orpapers = andpapers.findall('./or')
+    orpapers = andpaper.findall('./or')
     if orpapers != None:
-        tmp.append(parseor(orpapers))
+        tmp.append(parseor(orpaper))
         
-    anypapers = andpapers.findall('./any')
+    anypapers = andpaper.findall('./any')
     if anypapers != None:
-        tmp.append(parseany(anypapers))
+        tmp.append(parseany(anypaper))
 
     return tuple(tmp)
 
 
 
 def parseor(orpapers):
-    tmp = ['or']
+    tmp = []
 
+    if isinstance(orpapers, list):
+        for x in orpapers:
+            tmp.append(parseor(x))
+        return tuple(tmp)
+
+    tmp.append("or")
     code = orpapers.findall('./code')
     if code != None:
         for x in code:
             tmp.append(x.text)
 
     andpapers = orpapers.findall('./and')
-    if andpapers != None:
+    if andpapers != None and len(andpapers) > 0:
         parseand(andpapers)
     
     anypapers = orpapers.findall('./any')
-    if anypapers != None:
+    if anypapers != None and len(anypapers) > 0:
         tmp.append(parseany(anypapers))
 
     return tuple(tmp)
 
 def parseany(anypapers):
-    tmp = ['any']
+    tmp = []
 
+    if isinstance(anypapers, list):
+        for x in anypapers:
+            tmp.append(parseany(x))
+        return tuple(tmp)
+
+    tmp.append('any')
     code = anypapers.findall('./level')
     if code != None:
         for x in code:
@@ -159,11 +186,40 @@ def parseany(anypapers):
 
 def parseschedule(tree):
     schedule = dict()
-    for schedule in tree.findall('./degree/schedule/major'):
-        pass
+    for major in tree.findall('./schedule/major'):
+        name = major.find('./name').text
+        papers = list()
+        for x in major.findall('./paper'):
+            papers.append(paper_code_name_points(x))
+
+        rules = parserules(major)
+
+        schedule[name] = (tuple(papers), rules)
 
     return schedule
 
+
+def paper_code_name_points(paper):
+    code = paper.find('./code').text
+    name = paper.find('./name').text
+    points = float(paper.find('./points').text)
+
+    return code, name, points
+
 if __name__ == "__main__":
-    for rule in parse("BSc.xml").rules:
+    degree = parse("BSc.xml")
+    print degree.name
+    print degree.points
+    for rule in degree.rules:
         print rule
+
+
+
+    for major in degree.schedule:
+        print
+        print major
+        for paper in degree.schedule[major][0]:
+            print paper
+        print major, "rules"
+        for rule in degree.schedule[major][1]:
+            print rule
