@@ -212,6 +212,8 @@ if __name__ == "__main__":
     print degree.points
     for rule in degree.rules:
         print rule
+        
+        print rule.check(['159.101'], degree.schedule)
 
 
 
@@ -223,3 +225,4 @@ if __name__ == "__main__":
         print major, "rules"
         for rule in degree.schedule[major][1]:
             print rule
+            
