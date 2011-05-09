@@ -149,21 +149,23 @@ class RequiredRule(Rule):
         for paper in papers:
             if isinstance(paper, tuple):
                 if paper[0] == 'and':
-                    paper.reverse()
-                    paper.pop()
-                    paper.reverse()
-                    results.append(self.__and(paper, programme))
+                    results.append(self.__and(paper[1:], programme))
                 elif paper[0] == 'any':
-                    paper.reverse()
-                    paper.pop()
-                    paper.reverse()
-                    result.append(self.__any(paper, programme))
+                    results.append(self.__any(paper[1:], programme))
+            else:
+                results.append(self.__code(paper, programme))
+
+        print results
+
+        return any(results)
+    
 
     def __and(self, papers, programme):
         pass
 
     def __code(self, code, programme):
-        return code in programme or len([x for x in programme if int(float(code.replace('x', ''))*10) == int(float(x)*10)]) > 0
+        
+        return code in programme or ('x' in code and len([x for x in programme if int(float(code.replace('x', ''))*10) == int(float(x)*10)]) > 0)
 
 
     def __oneof(self, papers, programme):
@@ -175,34 +177,32 @@ class RequiredRule(Rule):
 
     def __rules(self, papers, programme):
         results = list()
-        for paper in papers:
+        for paper in papers[0]:
             if isinstance(paper, tuple):
                 if paper[0] == 'and':
-                    paper.reverse()
-                    paper.pop()
-                    paper.reverse()
-                    results.append(self.__and(paper, programme))
+                    results.append(self.__and(paper[1:], programme))
                 elif paper[0] == 'any':
-                    paper.reverse()
-                    paper.pop()
-                    paper.reverse()
-                    result.append(self.__any(paper, programme))
+                    result.append(self.__any(paper[1:], programme))
                 elif paper[0] == 'oneof':
-                    paper.reverse()
-                    paper.pop()
-                    paper.reverse()
-                    results.append(self.__oneof(paper, programme))
-                    
+                    results.append(self.__oneof(paper[1:], programme))
+                elif paper[0] == 'or':
+                    results.append(self.__or(paper[1:], programme))
+                print paper
+            else:
+                print paper
+                result.append(self.__code(paper, programme))
+        print results, papers
         return all(results)
 
 
 
     def check(self, programme, schedule=None):
         result = False
-        if self.inschedule == None:
+        if self.inschedule == None or self.inschedule == False:
             # assume have a list of papers to do
             # figure out what these papers are
-            result = self.__rules(self.papers)
+            result = self.__rules(self.papers, programme)
             pass
 
-        raise NotImplementedError("Not Implemented check in Required rule")
+        return result
+        #raise NotImplementedError("Not Implemented check in Required rule")
