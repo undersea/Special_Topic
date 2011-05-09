@@ -1,10 +1,10 @@
 from unittest import TestCase, main
-from rules import Rules, BScRules
+from rules import Degree
 
 class TestRules(TestCase):
     def setUp(self):
         print "setUp"
-        self.rules = Rules()
+        self.rules = Degree()
         pass
 
     def tearDown(self):
@@ -28,10 +28,6 @@ class TestRules(TestCase):
         self.assertEqual(len(self.rules.rules), 0)
 
 
-class TestBScRules(TestCase):
-    def setUp(self):
-        print "setUp"
-        self.rules = BScRules()
 
 
 

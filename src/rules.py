@@ -147,5 +147,14 @@ class RequiredRule(Rule):
 
 
 
-    def check(self, programme, schedule=None):
+    def check(self, programme, schedule=None, op='and'):
+        for paper in papers:
+            #is operator followed by more operators and/or papers
+            if isinstance(paper, tuple) and len(paper) > 0:
+                tmp2 = list(list(paper).pop())
+                tmp2.reverse()
+                operator = tmp2.pop()
+                tmp2.reverse()
+                
+                
         raise NotImplementedError("Not Implemented check in Required rule")
