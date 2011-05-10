@@ -155,13 +155,23 @@ class RequiredRule(Rule):
             else:
                 results.append(self.__code(paper, programme))
 
-        print results
+        
 
         return any(results)
     
 
     def __and(self, papers, programme):
-        pass
+        results = list()
+        for paper in papers:
+            if isinstance(paper, tuple):
+                if paper[0] == 'or':
+                    results.append(self.__or(paper[1:], programme))
+                elif paper[0] == 'any':
+                    results.append(self.__any(paper[1:], programme))
+            else:
+                results.append(self.__code(paper, programme))
+
+        return all(results) and len(results) > 0
 
     def __code(self, code, programme):
         
@@ -169,30 +179,58 @@ class RequiredRule(Rule):
 
 
     def __oneof(self, papers, programme):
-        pass
-
-
-    def __any(self, papers, programme):
-        pass
-
-    def __rules(self, papers, programme):
         results = list()
-        for paper in papers[0]:
+        for paper in papers:
             if isinstance(paper, tuple):
-                if paper[0] == 'and':
-                    results.append(self.__and(paper[1:], programme))
-                elif paper[0] == 'any':
-                    result.append(self.__any(paper[1:], programme))
-                elif paper[0] == 'oneof':
-                    results.append(self.__oneof(paper[1:], programme))
-                elif paper[0] == 'or':
-                    results.append(self.__or(paper[1:], programme))
-                print paper
+                if paper[0] == 'any':
+                    results.append(self.__any(paper[1:], programme))
             else:
-                print paper
-                result.append(self.__code(paper, programme))
-        print results, papers
-        return all(results)
+                results.append(self.__code(paper, programme))
+
+        return any(results)
+
+
+    def __any(self, levels, programme):
+        results = list()
+        for level in levels:
+            results.append(int(level) in [int(float(x)*1000%1000) for x in programme])
+
+        return any(results)
+
+    def __rules(self, papers, programme, schedule=None):
+        results = list()
+        
+        if self.inschedule != None and self.inschedule == True:
+           if self.points != None:
+               pass
+           else:
+               if schedule != None and isinstance(schedule, dict):
+                    tmp = [x[0] for x in schedule.values()]
+                    tmp2 = list()
+                    for paper in tmp:
+                        tmp2.extend(paper)
+                    tmp2.sort()
+                    tmp3 = [int(float(x[0])) for x in tmp2]
+                    inschedule_papers = set([x for x in programme if int(float(x)) in tmp3])
+                    print papers[0]
+                    return len(inschedule_papers) >= int(papers[0])
+        else:
+            for paper in papers[0]:
+                if isinstance(paper, tuple):
+                    if paper[0] == 'and':
+                        results.append(self.__and(paper[1:], programme))
+                    elif paper[0] == 'any':
+                        result.append(self.__any(paper[1:], programme))
+                    elif paper[0] == 'oneof':
+                        results.append(self.__oneof(paper[1:], programme))
+                    elif paper[0] == 'or':
+                        results.append(self.__or(paper[1:], programme))
+                    print paper
+                else:
+                    print paper
+                    result.append(self.__code(paper, programme))
+        
+        return all(results) and len(results) > 0
 
 
 
@@ -203,6 +241,7 @@ class RequiredRule(Rule):
             # figure out what these papers are
             result = self.__rules(self.papers, programme)
             pass
-
+        elif self.inschedule != None or self.inschedule == True and schedule != None:
+            result = self.__rules(self.papers, programme, schedule)
         return result
         #raise NotImplementedError("Not Implemented check in Required rule")

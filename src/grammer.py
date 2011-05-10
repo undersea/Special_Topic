@@ -213,7 +213,7 @@ if __name__ == "__main__":
     for rule in degree.rules:
         print rule
         
-        print rule.check(['159.101', '119.177'], degree.schedule)
+        print rule.check(['159.101', '161.101','117.152', '119.258', '189.251', '119.177'], degree.schedule)
 
 
 
