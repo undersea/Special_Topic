@@ -212,7 +212,6 @@ class RequiredRule(Rule):
                     tmp2.sort()
                     tmp3 = [int(float(x[0])) for x in tmp2]
                     inschedule_papers = set([x for x in programme if int(float(x)) in tmp3])
-                    print papers[0]
                     return len(inschedule_papers) >= int(papers[0])
         else:
             for paper in papers[0]:
@@ -225,9 +224,8 @@ class RequiredRule(Rule):
                         results.append(self.__oneof(paper[1:], programme))
                     elif paper[0] == 'or':
                         results.append(self.__or(paper[1:], programme))
-                    print paper
+
                 else:
-                    print paper
                     result.append(self.__code(paper, programme))
         
         return all(results) and len(results) > 0
