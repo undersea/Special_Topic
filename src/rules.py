@@ -59,7 +59,7 @@ class LimitRule(Rule):
         
         if self.inschedule == None:
             #assuming all items are papers codes
-            tmp = [x for x in programme if int(float(x)*1000)%1000 == self.level]
+            tmp = [x for x in programme if int(float(x)*10)%10*100 == self.level]
             #assume all papers are single semester so worth 15 points
             return self.points >= (len(tmp) * 15)
         else:
@@ -85,7 +85,7 @@ class AtLeastRule(LimitRule):
     def check(self, programme, schedule=None):
         if self.inschedule == None:
             #assuming all items are papers codes
-            tmp = [x for x in programme if int(float(x)*1000)%1000 == self.level]
+            tmp = [x for x in programme if int(float(x)*10)%10*100 == self.level]
             #assume all papers are single semester so worth 15 points
             return self.points <= (len(tmp) * 15)
         else:
