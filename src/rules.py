@@ -250,7 +250,7 @@ class RequiredRule(Rule):
                     else:
                         
                         results.append(self.__code(paper, programme))
->>>>>>> 807ff90e02f911587614d9ea958a04cbebe07d92
+
         
         return all(results) and len(results) > 0
 
