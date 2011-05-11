@@ -34,16 +34,28 @@ def parse(source):
 
 def parserules(tree):
     rules = list()
+    inschedule = False
+    if not isinstance(tree, ElementTree) and tree.tag == 'major':
+        print 'major'
+        inschedule = True
     for rule in tree.findall('./rules/rule'):
         limit = rule.find('./limit')
         atleast = rule.find('./atleast')
         required = rule.find('./required')
         if limit != None:
-            rules.append(parselimit(limit))
+            rule = parselimit(limit)
+            if inschedule:
+                rule.inschedule = True
+            rules.append(rule)
         elif atleast != None:
-            rules.append(parseatleast(atleast))
+            rule = parseatleast(atleast)
+            if inschedule:
+                rule.inschedule = True
+            rules.append(rule)
         elif required != None:
-            rules.append(parserequired(required))
+            rule = parserequired(required)
+            
+            rules.append(rule)
         else:
             raise UnknownElementException()
         
@@ -193,6 +205,7 @@ def parseschedule(tree):
             papers.append(paper_code_name_points(x))
 
         rules = parserules(major)
+        
 
         schedule[name] = (tuple(papers), rules)
 
@@ -226,3 +239,4 @@ if __name__ == "__main__":
         for rule in degree.schedule[major][1]:
             print rule
             
+            print rule.check(['159.101', '159.102', '161.101','117.152', '119.258', '189.251', '119.177', '159.201', '159.202', '159.233', '159.253'], degree.schedule[major][0])

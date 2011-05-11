@@ -90,12 +90,29 @@ class AtLeastRule(LimitRule):
             return self.points <= (len(tmp) * 15)
         else:
             if self.inschedule == True and schedule != None:
-                tmp = [x for x in programme if int(float(x)*1000)%1000 == self.level]
+                tmp = [x for x in programme if int(float(x)*10)%10*100 == self.level]
+
                 if isinstance(schedule, list):
                     tmp2 = [x for x in schedule if x in tmp]
                     return self.points <= (len(tmp2) * 15)
+                elif isinstance(schedule, dict):
+                    papers = list()
+                    for x in schedule.values():
+                        papers.extend(x[0])
+                    papers.sort()
+                    papers = [x[0] for x in papers]
+
+                elif isinstance(schedule, tuple):
+                    papers = list()
+                    papers = [x[0] for x in schedule]
+                    tmp2 = [x for x in papers if x in tmp]
+
+                    return self.points <= (len(tmp2) * 15)
+                    
                 else:
                     raise NotImplementedError("Not done schedule that is a dict yet")
+
+
 
 class RequiredRule(Rule):
     def __init__(self):
@@ -212,23 +229,27 @@ class RequiredRule(Rule):
                     tmp2.sort()
                     tmp3 = [int(float(x[0])) for x in tmp2]
                     inschedule_papers = set([x for x in programme if int(float(x)) in tmp3])
-                    print papers[0]
+
                     return len(inschedule_papers) >= int(papers[0])
         else:
-            for paper in papers[0]:
-                if isinstance(paper, tuple):
-                    if paper[0] == 'and':
-                        results.append(self.__and(paper[1:], programme))
-                    elif paper[0] == 'any':
-                        result.append(self.__any(paper[1:], programme))
-                    elif paper[0] == 'oneof':
-                        results.append(self.__oneof(paper[1:], programme))
-                    elif paper[0] == 'or':
-                        results.append(self.__or(paper[1:], programme))
-                    print paper
-                else:
-                    print paper
-                    result.append(self.__code(paper, programme))
+            if isinstance(papers, list):
+                for paper in papers:
+                    results.append(self.__code(paper, programme))
+            else:
+                for paper in papers[0]:
+                    if isinstance(paper, tuple):
+                        if paper[0] == 'and':
+                            results.append(self.__and(paper[1:], programme))
+                        elif paper[0] == 'any':
+                            results.append(self.__any(paper[1:], programme))
+                        elif paper[0] == 'oneof':
+                            results.append(self.__oneof(paper[1:], programme))
+                        elif paper[0] == 'or':
+                            results.append(self.__or(paper[1:], programme))
+                        
+                    else:
+                        
+                        results.append(self.__code(paper, programme))
         
         return all(results) and len(results) > 0
 
@@ -241,7 +262,7 @@ class RequiredRule(Rule):
             # figure out what these papers are
             result = self.__rules(self.papers, programme)
             pass
-        elif self.inschedule != None or self.inschedule == True and schedule != None:
+        elif self.inschedule != None and self.inschedule == True and schedule != None:
             result = self.__rules(self.papers, programme, schedule)
         return result
         #raise NotImplementedError("Not Implemented check in Required rule")
