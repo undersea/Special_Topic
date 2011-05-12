@@ -36,7 +36,6 @@ def parserules(tree):
     rules = list()
     inschedule = False
     if not isinstance(tree, ElementTree) and tree.tag == 'major':
-        print 'major'
         inschedule = True
     for rule in tree.findall('./rules/rule'):
         limit = rule.find('./limit')
