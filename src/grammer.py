@@ -222,20 +222,6 @@ if __name__ == "__main__":
     degree = parse("BSc.xml")
     print degree.name
     print degree.points
-    for rule in degree.rules:
-        print rule
-        
-        print rule.check(['159.101', '161.101','117.152', '119.258', '189.251', '119.177'], degree.schedule)
+    result = degree.check_programme('Computer Science', ['159.101', '159.102', '161.101','117.152', '119.258', '189.251', '119.177', '159.201', '159.202', '159.233', '159.253'])
+    print 'passed rules =', result
 
-
-
-    for major in degree.schedule:
-        print
-        print major
-        for paper in degree.schedule[major][0]:
-            print paper
-        print major, "rules"
-        for rule in degree.schedule[major][1]:
-            print rule
-            
-            print rule.check(['159.101', '159.102', '161.101','117.152', '119.258', '189.251', '119.177', '159.201', '159.202', '159.233', '159.253'], degree.schedule[major][0])

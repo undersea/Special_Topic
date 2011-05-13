@@ -552,6 +552,7 @@
           <code>159.302</code>
         </restriction>
       </paper>
+
       <rules>
         <rule>
           <required>
@@ -572,6 +573,7 @@
           </atleast>
         </rule>
       </rules>
+
     </major>
   </schedule>
 </degree>

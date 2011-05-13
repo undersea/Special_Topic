@@ -1,5 +1,6 @@
 #Rules definition for degrees and majors
 
+from options import check, set_inschedule
 
 class Degree(object):
     def __init__(self):
@@ -17,9 +18,23 @@ class Degree(object):
         del self.rules[self.rules.index(rule)]
 
 
-    def check_programme(major, programme):
-        pass
-    
+    def check_programme(self, major, programme):
+        results = list()
+        print self.name, 'rules'
+        for rule in self.rules:
+            print rule
+            result = rule.check(programme, self.schedule)
+            print result
+            results.append(result)
+
+        print major, 'rules'
+        for rule in self.schedule[major][1]:
+            print rule
+            result = rule.check(programme, self.schedule[major][0])
+            print result
+            results.append(result)
+            
+        return all(results) and len(result) > 0
 
     def __str__(self):
         return str(self.rules)
@@ -76,6 +91,10 @@ class LimitRule(Rule):
                     return self.points >= (len(not_inschedule_papers) * 15)
                 else:
                     raise NotImplementedError("Not done schedule that is a list yet")
+
+
+
+
 
 class AtLeastRule(LimitRule):
     def __str__(self):
@@ -161,99 +180,6 @@ class RequiredRule(Rule):
 
         return out
                     
-    def __or(self, papers, programme):
-        results = list()
-        for paper in papers:
-            if isinstance(paper, tuple):
-                if paper[0] == 'and':
-                    results.append(self.__and(paper[1:], programme))
-                elif paper[0] == 'any':
-                    results.append(self.__any(paper[1:], programme))
-            else:
-                results.append(self.__code(paper, programme))
-
-        
-
-        return any(results)
-    
-
-    def __and(self, papers, programme):
-        results = list()
-        for paper in papers:
-            if isinstance(paper, tuple):
-                if paper[0] == 'or':
-                    results.append(self.__or(paper[1:], programme))
-                elif paper[0] == 'any':
-                    results.append(self.__any(paper[1:], programme))
-            else:
-                results.append(self.__code(paper, programme))
-
-        return all(results) and len(results) > 0
-
-    def __code(self, code, programme):
-        
-        return code in programme or ('x' in code and len([x for x in programme if int(float(code.replace('x', ''))*10) == int(float(x)*10)]) > 0)
-
-
-    def __oneof(self, papers, programme):
-        results = list()
-        for paper in papers:
-            if isinstance(paper, tuple):
-                if paper[0] == 'any':
-                    results.append(self.__any(paper[1:], programme))
-            else:
-                results.append(self.__code(paper, programme))
-
-        return any(results)
-
-
-    def __any(self, levels, programme):
-        results = list()
-        for level in levels:
-            results.append(int(level) in [int(float(x)*1000%1000) for x in programme])
-
-        return any(results)
-
-    def __rules(self, papers, programme, schedule=None):
-        results = list()
-        
-        if self.inschedule != None and self.inschedule == True:
-           if self.points != None:
-               pass
-           else:
-               if schedule != None and isinstance(schedule, dict):
-                    tmp = [x[0] for x in schedule.values()]
-                    tmp2 = list()
-                    for paper in tmp:
-                        tmp2.extend(paper)
-                    tmp2.sort()
-                    tmp3 = [int(float(x[0])) for x in tmp2]
-                    inschedule_papers = set([x for x in programme if int(float(x)) in tmp3])
-
-                    return len(inschedule_papers) >= int(papers[0])
-        else:
-            if isinstance(papers, list):
-                for paper in papers:
-                    results.append(self.__code(paper, programme))
-            else:
-                for paper in papers[0]:
-                    if isinstance(paper, tuple):
-                        if paper[0] == 'and':
-                            results.append(self.__and(paper[1:], programme))
-                        elif paper[0] == 'any':
-                            results.append(self.__any(paper[1:], programme))
-                        elif paper[0] == 'oneof':
-                            results.append(self.__oneof(paper[1:], programme))
-                        elif paper[0] == 'or':
-                            results.append(self.__or(paper[1:], programme))
-                        
-                    else:
-                        
-                        results.append(self.__code(paper, programme))
-
-        
-        return all(results) and len(results) > 0
-
 
 
     def check(self, programme, schedule=None):
@@ -261,9 +187,11 @@ class RequiredRule(Rule):
         if self.inschedule == None or self.inschedule == False:
             # assume have a list of papers to do
             # figure out what these papers are
-            result = self.__rules(self.papers, programme)
+            result = check(self.papers, programme)
             pass
         elif self.inschedule != None and self.inschedule == True and schedule != None:
-            result = self.__rules(self.papers, programme, schedule)
+            set_inschedule(True)
+            result = check(self.papers, programme, schedule)
+            set_inschedule(None)
         return result
         #raise NotImplementedError("Not Implemented check in Required rule")
