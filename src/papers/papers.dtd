@@ -1,0 +1,20 @@
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT points (#PCDATA)>
+<!ELEMENT level (#PCDATA)>
+<!ELEMENT paper (name, points, prerequisite?, corequisite?,
+          restriction?)>
+<!ATTLIST paper code 
+<!ELEMENT code (#PCDATA)>
+<!ELEMENT prerequisite ((code|and|or|oneof|any|points)+,exception?)>
+<!ELEMENT restriction (code+)>
+<!ELEMENT corequisite ((code|or|oneof)+,exception?)>
+<!ELEMENT and ((code|any|or), (code|any|or)+)>
+<!ELEMENT or (((code|any|and), (code|any|and)+)?)>
+<!ATTLIST or
+          required CDATA #IMPLIED
+          type CDATA #FIXED "subject">
+<!ELEMENT oneof ((code|any), (code|any)+)>
+<!ELEMENT any (level+)>
+<!ELEMENT exception (#PCDATA)>
+<!ELEMENT papers (paper+)>
