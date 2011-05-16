@@ -1,0 +1,216 @@
+<papers>
+  <paper code="p117.152">
+    <name>Animals and Agriculture</name>
+    <points>15</points>
+  </paper>
+  <paper code="p189.151">
+    <name>Soil Properties and Processes</name>
+    <points>15</points>
+    <restriction>
+      <code>189.142</code>
+    </restriction>
+  </paper>
+  <paper code="p194.101">
+    <name>Essentials of Mammalian Biology</name>
+    <points>15</points>
+  </paper>
+  <paper code="p283.101">
+    <name>Plants in Agriculture</name>
+    <points>15</points>
+    <restriction>
+      <code>171.102</code>
+    </restriction>
+  </paper>
+  <paper code="p117.254">
+        <name>Principles of Animal Science and Production</name>
+        <points>15</points>
+        <prerequisite>
+          <or>
+            <code>194.101</code>
+            <code>199.101</code>
+            <code>117.152</code>
+          </or>
+        </prerequisite>
+      </paper>
+      <paper code="p119.258">
+        <name>Agricultural Systems</name>
+        <points>15</points>
+        <prerequisite>
+          <or>
+            <code>117.152</code>
+            <code>145.121</code>
+          </or>
+          <exception>nil for Grad DipRural Studies</exception>
+        </prerequisite>
+      </paper>
+      <paper code="p189.251">
+        <name>Soil Fertility and Fertilisers</name>
+        <points>15</points>
+        <prerequisite>
+          <code>189.151</code>
+        </prerequisite>
+      </paper>
+      <paper code="p189.252">
+        <name>Land, Soil and Water</name>
+        <points>15</points>
+        <prerequisite>
+          <or>
+            <code>189.151</code>
+            <code>189.141</code>
+            <code>233.101</code>
+          </or>
+        </prerequisite>
+      </paper>
+      <paper code="p283.201">
+        <name>Pasture and Crop Agronomy</name>
+        <points>15</points>
+        <prerequisite>
+          <or>
+            <code>171.102</code>
+            <code>120.101</code>
+          </or>
+        </prerequisite>
+        <restriction>
+          <code>171.202</code>
+        </restriction>
+      </paper>
+      <paper code="p117.342">
+        <name>Animal Nutrition</name>
+        <points>5</points>
+        <prerequisite>
+          <code>117.254</code>
+        </prerequisite>
+      </paper>
+      <paper code="p117.344">
+        <name>Animal Growth and Meat Production</name>
+        <points>15</points>
+        <prerequisite>
+          <code>117.254</code>
+        </prerequisite>
+      </paper>
+      <paper code="p117.345">
+        <name>Genetics for Livestock Improvement</name>
+        <points>15</points>
+        <prerequisite>
+          <or>
+            <code>117.254</code>
+            <code>203.202</code>
+          </or>
+        </prerequisite>
+      </paper>
+      <paper code="p117.347">
+        <name>Reproductive and Lactational Physiology</name>
+        <points>15</points>
+        <prerequisite>
+          <code>117.254</code>
+        </prerequisite>
+      </paper>
+      <paper code="p117.348">
+        <name>Animal Metabolism</name>
+        <points>15</points>
+        <prerequisite>
+          <code>122.102</code>
+          <code>194.241</code>
+          <or>
+            <code>122.233</code>
+            <code>151.232</code>
+            <code>194.242</code>
+          </or>
+        </prerequisite>
+        <restriction>
+          <code>194.346</code>
+        </restriction>
+        <!--(2001-2005)-->
+      </paper>
+      <paper code="p117.371">
+        <name>Animal Production</name>
+        <points>15</points>
+        <prerequisite>
+          <code>117.254</code>
+        </prerequisite>
+      </paper>
+      <paper code="p117.381">
+        <name>Solving Problems in Animal Production</name>
+        <points>15</points>
+        <prerequisite>
+          <code>117.254</code>
+        </prerequisite>
+      </paper>
+      <paper code="p119.373">
+        <name>Integrative Studies</name>
+        <points>15</points>
+        <prerequisite>
+          <points>240</points>
+        </prerequisite>
+      </paper>
+      <paper code="p189.362">
+        <name>Soil Fertility and the Environment</name>
+        <points>15</points>
+        <prerequisite>
+          <or>
+            <code>189.251</code>
+            <code>189.252</code>
+          </or>
+        </prerequisite>
+      </paper>
+      <paper code="p189.363">
+        <name>Soil Resources and Sustainable Land Use</name>
+        <points>15</points>
+        <prerequisite>
+          <or>
+            <code>189.251</code>
+            <code>189.252</code>
+            <code>233.210</code>
+            <code>233.310</code>
+          </or>
+        </prerequisite>
+      </paper>
+      <paper code="p283.301">
+        <name>Pasture Production and Practice</name>
+        <points>15</points>
+        <prerequisite>
+          <code>171.202</code>
+        </prerequisite>
+      </paper>
+      <paper code="p283.305">
+        <name>Seed and Crop Science</name>
+        <points>15</points>
+        <prerequisite>
+          <or>
+            <code>171.202</code>
+            <code>120.101</code>
+            <code>171.102</code>
+          </or>
+          <any>
+            <level>200</level>
+          </any>
+        </prerequisite>
+      </paper>
+      <paper code="p283.311">
+        <name>Controlling Weeds</name>
+        <points>15</points>
+        <prerequisite>
+          <or>
+            <code>120.101</code>
+            <code>171.102</code>
+          </or>
+          <any>
+            <level>200</level>
+          </any>
+        </prerequisite>
+      </paper>
+      <paper code="p285.301">
+        <name>Controlling Plant Pests and Diseases</name>
+        <points>15</points>
+        <prerequisite>
+          <or>
+            <code>171.284</code>
+            <code>171.202</code>
+          </or>
+        </prerequisite>
+        <restriction>
+          <code>171.384</code>
+        </restriction>
+      </paper>
+
+</papers>

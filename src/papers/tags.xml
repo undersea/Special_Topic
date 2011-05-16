@@ -1,8 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE tags SYSTEM "tags.dtd">
+
 <tags>
-  <tag name="ai">
-    <description>Artificial Intelligence papers</description>
-    <code>161.326</code>
+
+  <tag name="compsci">
+    <description>Computer Science Schedule</description>
+    <code>159.101</code><code>159.102</code><code>159.201</code><code>159.202</code><code>159.233</code><code>159.234</code><code>159.235</code><code>159.253</code><code>159.254</code><code>158.359</code><code>159.302</code><code>159.331</code><code>159.333</code><code>159.334</code><code>159.335</code><code>159.339</code><code>159.351</code><code>159.354</code><code>159.355</code><code>159.356</code><code>159.357</code><code>159.359</code><code>161.326</code>
   </tag>
+  <tag name="agrisci">
+    <description>agrisci</description>
+    <code>117.152</code><code>189.151</code><code>194.101</code><code>283.101</code><code>117.254</code><code>119.258</code><code>189.251</code><code>189.252</code><code>283.201</code><code>117.342</code><code>117.344</code><code>117.345</code><code>117.347</code><code>117.348</code><code>117.371</code><code>117.381</code><code>119.373</code><code>189.362</code><code>189.363</code><code>283.301</code><code>283.305</code><code>283.311</code><code>285.301</code>
+  </tag>
+
 </tags>
