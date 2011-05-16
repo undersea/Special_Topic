@@ -1,4 +1,5 @@
 
+#for applying rules to degree schedules
 inschedule = None
 points = None
 
