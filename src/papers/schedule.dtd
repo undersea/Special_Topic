@@ -1,0 +1,5 @@
+<!ELEMENT tags (tag+)>
+<!ELEMENT tag (description, code+)>
+<!ATTLIST tag name ID #REQUIRED>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT code (#PCDATA)>
