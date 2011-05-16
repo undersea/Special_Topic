@@ -1,6 +1,6 @@
 #Rules definition for degrees and majors
 
-from options import check, set_inschedule
+from operators import check, set_inschedule
 
 class Degree(object):
     def __init__(self):
