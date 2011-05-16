@@ -20,5 +20,8 @@ if __name__ == '__main__' and len(sys.argv) > 1:
             print 'change %s to %s' % (ocode, ncode)
 
     with open(sys.argv[1], 'w') as out:
-        out.write(etree.tostring(root))
+        if Xpath:
+            out.write(etree.tostring(root, encoding='utf-8', xml_declaration=True, pretty_print=True, doctype='<!DOCTYPE tags SYSTEM "tags.dtd">'))
+        else:
+            out.write(etree.tostring(root))
         

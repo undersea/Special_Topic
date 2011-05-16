@@ -45,5 +45,8 @@ if __name__ == '__main__' and len(sys.argv) > 3:
         to_tag.append(etree.XML('<code>%s</code>\n' % (code)))
         
     with open(sys.argv[2], 'w') as out:
-        out.write(etree.tostring(to_root))
+        if Xpath:
+            out.write(etree.tostring(to_root, encoding='utf-8', xml_declaration=True, pretty_print=True, doctype='<!DOCTYPE tags SYSTEM "tags.dtd">'))
+        else:
+            out.write(etree.tostring(to_root))
         print 'done'
