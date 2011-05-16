@@ -18,9 +18,14 @@ print root.tag
 for paper in root.findall('./paper'):
     code = paper.find('./code')
     if code != None:
-        paper.set('code', code.text)
+        paper.set('code', 'p%s' % (code.text))
         paper.remove(code)
         print 'Fixed', code.text
+    else:
+        tmp = paper.get('code')
+        if not tmp.startswith('p'):
+            paper.set('code', 'p%s' % (tmp))
+            print 'fixed %s to %s' % (tmp, paper.get('code'))
 
 if len(sys.argv) == 2:
         with open(sys.argv[1], 'w') as out:
