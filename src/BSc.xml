@@ -40,11 +40,11 @@
   <schedule>
     <major>
       <name>Agricultural Science</name>
-      
+      <tag name="agrisci"/>
     </major>
     <major>
       <name>Computer Science</name>
-      
+      <tag name="compsci"/>
 
       <rules>
         <rule>
