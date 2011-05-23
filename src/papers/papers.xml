@@ -2,31 +2,31 @@
 <!DOCTYPE papers SYSTEM "papers.dtd">
 <papers>
   <paper code="p117.152">
-    <name>Animals and Agriculture</name>
+    <code>117.152</code><name>Animals and Agriculture</name>
     <points>15</points>
-  </paper>
+  <campus/><semester/></paper>
   <paper code="p189.151">
-    <name>Soil Properties and Processes</name>
+    <code>189.151</code><name>Soil Properties and Processes</name>
     <points>15</points>
-    <restriction>
+    <campus/><semester/><restriction>
       <code>189.142</code>
     </restriction>
   </paper>
   <paper code="p194.101">
-    <name>Essentials of Mammalian Biology</name>
+    <code>194.101</code><name>Essentials of Mammalian Biology</name>
     <points>15</points>
-  </paper>
+  <campus/><semester/></paper>
   <paper code="p283.101">
-    <name>Plants in Agriculture</name>
+    <code>283.101</code><name>Plants in Agriculture</name>
     <points>15</points>
-    <restriction>
+    <campus/><semester/><restriction>
       <code>171.102</code>
     </restriction>
   </paper>
   <paper code="p117.254">
-        <name>Principles of Animal Science and Production</name>
+        <code>117.254</code><name>Principles of Animal Science and Production</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <or>
             <code>194.101</code>
             <code>199.101</code>
@@ -35,9 +35,9 @@
         </prerequisite>
       </paper>
       <paper code="p119.258">
-        <name>Agricultural Systems</name>
+        <code>119.258</code><name>Agricultural Systems</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <or>
             <code>117.152</code>
             <code>145.121</code>
@@ -46,16 +46,16 @@
         </prerequisite>
       </paper>
       <paper code="p189.251">
-        <name>Soil Fertility and Fertilisers</name>
+        <code>189.251</code><name>Soil Fertility and Fertilisers</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>189.151</code>
         </prerequisite>
       </paper>
       <paper code="p189.252">
-        <name>Land, Soil and Water</name>
+        <code>189.252</code><name>Land, Soil and Water</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <or>
             <code>189.151</code>
             <code>189.141</code>
@@ -64,9 +64,9 @@
         </prerequisite>
       </paper>
       <paper code="p283.201">
-        <name>Pasture and Crop Agronomy</name>
+        <code>283.201</code><name>Pasture and Crop Agronomy</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <or>
             <code>171.102</code>
             <code>120.101</code>
@@ -77,23 +77,23 @@
         </restriction>
       </paper>
       <paper code="p117.342">
-        <name>Animal Nutrition</name>
+        <code>117.342</code><name>Animal Nutrition</name>
         <points>5</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>117.254</code>
         </prerequisite>
       </paper>
       <paper code="p117.344">
-        <name>Animal Growth and Meat Production</name>
+        <code>117.344</code><name>Animal Growth and Meat Production</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>117.254</code>
         </prerequisite>
       </paper>
       <paper code="p117.345">
-        <name>Genetics for Livestock Improvement</name>
+        <code>117.345</code><name>Genetics for Livestock Improvement</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <or>
             <code>117.254</code>
             <code>203.202</code>
@@ -101,16 +101,16 @@
         </prerequisite>
       </paper>
       <paper code="p117.347">
-        <name>Reproductive and Lactational Physiology</name>
+        <code>117.347</code><name>Reproductive and Lactational Physiology</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>117.254</code>
         </prerequisite>
       </paper>
       <paper code="p117.348">
-        <name>Animal Metabolism</name>
+        <code>117.348</code><name>Animal Metabolism</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>122.102</code>
           <code>194.241</code>
           <or>
@@ -125,30 +125,30 @@
         <!--(2001-2005)-->
       </paper>
       <paper code="p117.371">
-        <name>Animal Production</name>
+        <code>117.371</code><name>Animal Production</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>117.254</code>
         </prerequisite>
       </paper>
       <paper code="p117.381">
-        <name>Solving Problems in Animal Production</name>
+        <code>117.381</code><name>Solving Problems in Animal Production</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>117.254</code>
         </prerequisite>
       </paper>
       <paper code="p119.373">
-        <name>Integrative Studies</name>
+        <code>119.373</code><name>Integrative Studies</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <points>240</points>
         </prerequisite>
       </paper>
       <paper code="p189.362">
-        <name>Soil Fertility and the Environment</name>
+        <code>189.362</code><name>Soil Fertility and the Environment</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <or>
             <code>189.251</code>
             <code>189.252</code>
@@ -156,9 +156,9 @@
         </prerequisite>
       </paper>
       <paper code="p189.363">
-        <name>Soil Resources and Sustainable Land Use</name>
+        <code>189.363</code><name>Soil Resources and Sustainable Land Use</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <or>
             <code>189.251</code>
             <code>189.252</code>
@@ -168,16 +168,16 @@
         </prerequisite>
       </paper>
       <paper code="p283.301">
-        <name>Pasture Production and Practice</name>
+        <code>283.301</code><name>Pasture Production and Practice</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>171.202</code>
         </prerequisite>
       </paper>
       <paper code="p283.305">
-        <name>Seed and Crop Science</name>
+        <code>283.305</code><name>Seed and Crop Science</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <or>
             <code>171.202</code>
             <code>120.101</code>
@@ -189,9 +189,9 @@
         </prerequisite>
       </paper>
       <paper code="p283.311">
-        <name>Controlling Weeds</name>
+        <code>283.311</code><name>Controlling Weeds</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <or>
             <code>120.101</code>
             <code>171.102</code>
@@ -202,9 +202,9 @@
         </prerequisite>
       </paper>
       <paper code="p285.301">
-        <name>Controlling Plant Pests and Diseases</name>
+        <code>285.301</code><name>Controlling Plant Pests and Diseases</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <or>
             <code>171.284</code>
             <code>171.202</code>
@@ -215,20 +215,20 @@
         </restriction>
       </paper>
       <paper code="p159.101">
-        <name>Programming Fundamentals</name>
+        <code>159.101</code><name>Programming Fundamentals</name>
         <points>15</points>
-      </paper>
+      <campus/><semester/></paper>
       <paper code="p159.102">
-        <name>Computer Science Fundamentals</name>
+        <code>159.102</code><name>Computer Science Fundamentals</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>159.101</code>
         </prerequisite>
       </paper>
       <paper code="p159.201">
-        <name>Algorithms and Data Structures</name>
+        <code>159.201</code><name>Algorithms and Data Structures</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>159.101</code>
           <code>159.102</code>
         </prerequisite>
@@ -237,9 +237,9 @@
         </restriction>
       </paper>
       <paper code="p159.202">
-        <name>Declarative Programming</name>
+        <code>159.202</code><name>Declarative Programming</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>159.101</code>
           <code>159.102</code>
         </prerequisite>
@@ -248,9 +248,9 @@
         </restriction>
       </paper>
       <paper code="p159.233">
-        <name>Computer Architecture</name>
+        <code>159.233</code><name>Computer Architecture</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>159.101</code>
           <code>159.102</code>
         </prerequisite>
@@ -259,9 +259,9 @@
         </restriction>
       </paper>
       <paper code="p159.234">
-        <name>Object-Oriented Programming</name>
+        <code>159.234</code><name>Object-Oriented Programming</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>159.101</code>
         </prerequisite>
         <restriction>
@@ -269,17 +269,17 @@
         </restriction>
       </paper>
       <paper code="p159.235">
-        <name>Graphical Programming</name>
+        <code>159.235</code><name>Graphical Programming</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>159.101</code>
           <code>159.102</code>
         </prerequisite>
       </paper>
       <paper code="p159.253">
-        <name>Computer Systems</name>
+        <code>159.253</code><name>Computer Systems</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>159.101</code>
           <code>159.102</code>
         </prerequisite>
@@ -288,9 +288,9 @@
         </restriction>
       </paper>
       <paper code="p159.254">
-        <name>Software Engineering A</name>
+        <code>159.254</code><name>Software Engineering A</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>159.1xx</code>
         </prerequisite>
         <restriction>
@@ -298,9 +298,9 @@
         </restriction>
       </paper>
       <paper code="p158.359">
-        <name>Human-Computer Interaction</name>
+        <code>158.359</code><name>Human-Computer Interaction</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <or>
             <code>157.2xx</code>
             <code>158.2xx</code>
@@ -314,9 +314,9 @@
         </restriction>
       </paper>
       <paper code="p159.302">
-        <name>Artificial Intelligence</name>
+        <code>159.302</code><name>Artificial Intelligence</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <or>
             <code>159.201</code>
             <code>159.202</code>
@@ -328,9 +328,9 @@
         </restriction>
       </paper>
       <paper code="p159.331">
-        <name>Algorithms and Languages</name>
+        <code>159.331</code><name>Algorithms and Languages</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>159.201</code>
           <code>159.202</code>
         </prerequisite>
@@ -339,14 +339,14 @@
         </restriction>
       </paper>
       <paper code="p159.333">
-        <name>Project Implementation</name>
+        <code>159.333</code><name>Project Implementation</name>
         <points>15</points>
-        <!--P P PD-->
+        <campus/><semester/><!--P P PD-->
       </paper>
       <paper code="p159.334">
-        <name>Computer Networks</name>
+        <code>159.334</code><name>Computer Networks</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <or>
             <code>159.201</code>
             <code>159.234</code>
@@ -357,9 +357,9 @@
         </restriction>
       </paper>
       <paper code="p159.335">
-        <name>Concurrent Programming and Operating Systems</name>
+        <code>159.335</code><name>Concurrent Programming and Operating Systems</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>159.201</code>
         </prerequisite>
         <restriction>
@@ -367,9 +367,9 @@
         </restriction>
       </paper>
       <paper code="p159.339">
-        <name>Internet Programming</name>
+        <code>159.339</code><name>Internet Programming</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <or>
             <code>159.201</code>
             <code>159.234</code>
@@ -380,17 +380,17 @@
         </restriction>
       </paper>
       <paper code="p159.351">
-        <name>Software Engineering B</name>
+        <code>159.351</code><name>Software Engineering B</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>159.201</code>
           <code>159.254</code>
         </prerequisite>
       </paper>
       <paper code="p159.354">
-        <name>Architecture and Networks</name>
+        <code>159.354</code><name>Architecture and Networks</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>159.253</code>
         </prerequisite>
         <restriction>
@@ -398,9 +398,9 @@
         </restriction>
       </paper>
       <paper code="p159.355">
-        <name>Concurrent Systems</name>
+        <code>159.355</code><name>Concurrent Systems</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <or>
             <code>159.201</code>
             <code>159.211</code>
@@ -411,16 +411,16 @@
         </restriction>
       </paper>
       <paper code="p159.356">
-        <name>Software Engineering C</name>
+        <code>159.356</code><name>Software Engineering C</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <code>159.351</code>
         </prerequisite>
       </paper>
       <paper code="p159.357">
-        <name>Formal Methods</name>
+        <code>159.357</code><name>Formal Methods</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <or>
             <code>159.201</code>
             <code>159.211</code>
@@ -432,9 +432,9 @@
         </prerequisite>
       </paper>
       <paper code="p159.359">
-        <name>Web Technologies</name>
+        <code>159.359</code><name>Web Technologies</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <or>
             <code>159.201</code>
             <code>159.211</code>
@@ -449,9 +449,9 @@
         </restriction>
       </paper>
       <paper code="p161.326">
-        <name>Statistical Machine Learning</name>
+        <code>161.326</code><name>Statistical Machine Learning</name>
         <points>15</points>
-        <prerequisite>
+        <campus/><semester/><prerequisite>
           <or>
             <and>
               <code>159.2xx</code>
