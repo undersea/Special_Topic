@@ -1,12 +1,30 @@
-'''
-
-'''
-
 from xml.etree.ElementTree import ElementTree, fromstring
 from rules import Degree, LimitRule, AtLeastRule, RequiredRule
 
 class UnknownElementException(Exception):
     pass
+
+
+tagsdict = dict()
+
+def parse_tags(source):
+    global tagsdict
+    tagstree = None
+    try:
+        tagstree = ElementTree()
+        tagstree.parse(source)
+    except IOError, e:
+        try:
+            tagstree = fromstring(source)
+        except Exception, er:
+            print e
+            print er
+            return
+    for tag in tagstree.findall('./tag'):
+        description = tag.find('./description').text
+        papers = [paper.text for paper in tag.findall('./code')]
+        tagsdict[tag.attrib['name']] = (description, papers)
+
 
 def parse(source):
     rules = None
@@ -199,16 +217,18 @@ def parseschedule(tree):
     schedule = dict()
     for major in tree.findall('./schedule/major'):
         name = major.find('./name').text
-        papers = list()
-        for x in major.findall('./paper'):
-            papers.append(paper_code_name_points(x))
 
+        tagname = major.find('./tag').attrib['name']
+        papers = tagsdict[tagname][1]        
         rules = parserules(major)
         
 
         schedule[name] = (tuple(papers), rules)
 
     return schedule
+
+
+
 
 
 def paper_code_name_points(paper):
@@ -218,7 +238,14 @@ def paper_code_name_points(paper):
 
     return code, name, points
 
+
+
+
+
+
 if __name__ == "__main__":
+    parse_tags('papers/tags.xml')
+    print tagsdict['compsci']
     degree = parse("BSc.xml")
     print degree.name
     print degree.points

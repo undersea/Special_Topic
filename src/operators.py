@@ -63,11 +63,14 @@ def check(papers, programme, schedule=None):
         else:
             if schedule != None and isinstance(schedule, dict):
                 tmp = [x[0] for x in schedule.values()]
+
                 tmp2 = list()
                 for paper in tmp:
                     tmp2.extend(paper)
                 tmp2.sort()
-                tmp3 = [int(float(x[0])) for x in tmp2]
+
+                tmp3 = [int(float(x)) for x in tmp2]
+
                 inschedule_papers = set([x for x in programme if int(float(x)) in tmp3])
 
                 return len(inschedule_papers) >= int(papers[0])

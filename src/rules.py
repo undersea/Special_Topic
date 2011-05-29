@@ -111,20 +111,15 @@ class AtLeastRule(LimitRule):
             if self.inschedule == True and schedule != None:
                 tmp = [x for x in programme if int(float(x)*10)%10*100 == self.level]
 
-                if isinstance(schedule, list):
+                if isinstance(schedule, list) or isinstance(schedule, tuple):
                     tmp2 = [x for x in schedule if x in tmp]
                     return self.points <= (len(tmp2) * 15)
                 elif isinstance(schedule, dict):
                     papers = list()
                     for x in schedule.values():
-                        papers.extend(x[0])
+                        papers.extend(x)
                     papers.sort()
-                    papers = [x[0] for x in papers]
-
-                elif isinstance(schedule, tuple):
-                    papers = list()
-                    papers = [x[0] for x in schedule]
-                    tmp2 = [x for x in papers if x in tmp]
+                    papers = [x for x in papers]
 
                     return self.points <= (len(tmp2) * 15)
                     
