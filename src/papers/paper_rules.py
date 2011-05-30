@@ -8,7 +8,7 @@ import grammer as gr
 
 
 class PrerequisiteRule(Rule):
-    pass
+    def __init__(self, 
 
 
 class CorequisiteRule(PrerequisiteRule):
