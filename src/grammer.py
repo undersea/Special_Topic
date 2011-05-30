@@ -235,12 +235,32 @@ def paper_code_name_points(paper):
     code = paper.find('./code').text
     name = paper.find('./name').text
     points = float(paper.find('./points').text)
+    campus = 'PN'
+    semester = 1
+    
 
-    return code, name, points
+    return code, name, points, campus, semester
 
 
+def parse_papers(source):
+    tagstree = None
+    paperdict = dict()
+    try:
+        tagstree = ElementTree()
+        tagstree.parse(source)
+    except IOError, e:
+        try:
+            tagstree = fromstring(source)
+        except Exception, er:
+            print e
+            print er
+            return None
 
+    for paper in tagstree.findall('./paper'):
+        tmp = paper_code_name_points(paper)
+        paperdict[tmp[0]] = tmp
 
+    return paperdict
 
 
 if __name__ == "__main__":
@@ -252,3 +272,5 @@ if __name__ == "__main__":
     result = degree.check_programme('Computer Science', ['159.101', '159.102', '161.101','117.152', '119.258', '189.251', '119.177', '159.201', '159.202', '159.233', '159.253'])
     print 'passed rules =', result
 
+
+    print parse_papers('papers/papers.xml')
