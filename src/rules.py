@@ -42,12 +42,14 @@ class Degree(object):
 
 class Rule(object):
     def __init__(self):
-        self.t = None
+        pass
+
     
     def check(self, programme, schedule=None):
         raise NotImplementedError("Rule.check has not been implemented")
     
-
+    def __str__(self):
+        return "Rules Object"
 
 
 
