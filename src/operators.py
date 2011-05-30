@@ -2,6 +2,13 @@
 #for applying rules to degree schedules
 inschedule = None
 points = None
+missing = list()
+
+
+def reset_missing():
+    global missing
+    missing = list()
+    
 
 def orcheck(papers, programme):
     results = list()
@@ -33,7 +40,11 @@ def andcheck(papers, programme):
     return all(results) and len(results) > 0
 
 def code(code, programme):
-    return code in programme or ('x' in code and len([x for x in programme if int(float(code.replace('x', ''))*10) == int(float(x)*10)]) > 0)
+    ret = code in programme or ('x' in code and len([x for x in programme if int(float(code.replace('x', ''))*10) == int(float(x)*10)]) > 0)
+    if not ret:
+        missing.append(code)
+
+    return ret
 
 
 def oneof(papers, programme):
