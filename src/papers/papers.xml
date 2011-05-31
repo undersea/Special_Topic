@@ -8,7 +8,9 @@
   <paper code="p189.151">
     <code>189.151</code><name>Soil Properties and Processes</name>
     <points>15</points>
-    <campus/><semester/><restriction>
+    <campus/>
+    <semester/>
+    <restriction>
       <code>189.142</code>
     </restriction>
   </paper>
