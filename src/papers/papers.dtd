@@ -2,7 +2,7 @@
 <!ELEMENT description (#PCDATA)>
 <!ELEMENT points (#PCDATA)>
 <!ELEMENT level (#PCDATA)>
-<!ELEMENT paper (code, name, points, campus, semester, prerequisite?,
+<!ELEMENT paper (code, name, points, campus, semester, description?, prerequisite?,
           corequisite?, restriction?)>
 <!ATTLIST paper code ID #REQUIRED>
 <!ELEMENT code (#PCDATA)>

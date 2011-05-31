@@ -1,9 +1,9 @@
 import operators as op
-from rules import *
+import rules
 import grammer as gr
 
 
-class PrerequisiteRule(RequiredRule):
+class PrerequisiteRule(rules.RequiredRule):
     def __init__(self, paper):
         super(PrerequisiteRule, self).__init__()
         self.paper = paper
@@ -13,11 +13,15 @@ class PrerequisiteRule(RequiredRule):
 
 
 class CorequisiteRule(PrerequisiteRule):
-    pass
+    def __init__(self, paper):
+        super(CorequisiteRule, self).__init__()
+        self.paper = paper
 
 
-class RestrictedRule(Rule):
-    pass
+class RestrictedRule(rules.Rule):
+    def __init__(self, paper):
+        super(RestrictedRule, self).__init__()
+        self.paper = paper
 
 if __name__ == '__main__':
     rule = PrerequisiteRule('117.254')

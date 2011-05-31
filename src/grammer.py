@@ -1,5 +1,7 @@
 from xml.etree.ElementTree import ElementTree, fromstring
 from rules import Degree, LimitRule, AtLeastRule, RequiredRule
+import paper_rules as pr
+from paper_grammer import parseretrictions, parsecorequisites, parseprerequisites
 
 class UnknownElementException(Exception):
     pass
@@ -237,9 +239,13 @@ def paper_code_name_points(paper):
     points = float(paper.find('./points').text)
     campus = 'PN'
     semester = 1
+    prerequisites = parseprerequisites(code, paper.find('./prerequisite'))
+    corequisites = parsecorequisites(code, paper.find('./corequisite'))
+    restriction = parsecorequisites(code, paper.find('./restriction'))
+    
     
 
-    return code, name, points, campus, semester
+    return code, name, points, campus, semester, prerequisites, corequisites, restriction
 
 
 def parse_papers(source):
