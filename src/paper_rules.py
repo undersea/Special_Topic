@@ -14,8 +14,8 @@ class PrerequisiteRule(rules.RequiredRule):
 
 class CorequisiteRule(PrerequisiteRule):
     def __init__(self, paper):
-        super(CorequisiteRule, self).__init__()
-        self.paper = paper
+        super(CorequisiteRule, self).__init__(paper)
+        
 
 
 class RestrictedRule(rules.Rule):

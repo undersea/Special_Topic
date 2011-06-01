@@ -86,10 +86,10 @@ def check(papers, programme, schedule=None):
 
                 return len(inschedule_papers) >= int(papers[0])
     else:
-        if isinstance(papers, list) and not isinstance(papers[0], tuple):
+        if isinstance(papers, list) and len(papers) > 0 and not isinstance(papers[0], tuple):
             for paper in papers:
                 results.append(code(paper, programme))
-        else:
+        elif len(papers) > 0:
             for paper in papers[0]:
                 if isinstance(paper, tuple):
                     if paper[0] == 'and':

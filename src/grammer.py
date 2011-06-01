@@ -1,7 +1,7 @@
 from xml.etree.ElementTree import ElementTree, fromstring
 from rules import Degree, LimitRule, AtLeastRule, RequiredRule
-import paper_rules as pr
-from paper_grammer import parseretrictions, parsecorequisites, parseprerequisites
+from paper_rules import *
+#from paper_grammer import parseretrictions, parsecorequisites, parseprerequisites
 
 class UnknownElementException(Exception):
     pass
@@ -163,11 +163,11 @@ def parseand(andpaper):
             
     orpapers = andpaper.findall('./or')
     if orpapers != None:
-        tmp.append(parseor(orpaper))
+        tmp.append(parseor(orpapers))
         
     anypapers = andpaper.findall('./any')
     if anypapers != None:
-        tmp.append(parseany(anypaper))
+        tmp.append(parseany(anypapers))
 
     return tuple(tmp)
 
@@ -239,9 +239,9 @@ def paper_code_name_points(paper):
     points = float(paper.find('./points').text)
     campus = 'PN'
     semester = 1
-    prerequisites = parseprerequisites(code, paper.find('./prerequisite'))
-    corequisites = parsecorequisites(code, paper.find('./corequisite'))
-    restriction = parsecorequisites(code, paper.find('./restriction'))
+    prerequisites = paper.find('./prerequisite') and parseprerequisites(code, paper.find('./prerequisite'))
+    corequisites = paper.find('./corequisite') and parsecorequisites(code, paper.find('./corequisite'))
+    restriction = paper.find('./restriction') and parsecorequisites(code, paper.find('./restriction'))
     
     
 
@@ -269,14 +269,85 @@ def parse_papers(source):
     return paperdict
 
 
+
+def parseprerequisites(id, required):
+    rule = PrerequisiteRule(id)
+    code = required.findall('./code')
+    if code != None:
+        tmp = list()
+        for x in code:
+            rule.papers.append(x.text)
+        
+    andpaper = required.findall('./and')
+    if andpaper != None:
+        t = parseand(andpaper)
+        if len(t) > 0:
+            rule.papers.append(t)
+
+    orpaper = required.findall('./or')
+    if orpaper != None:
+        t = parseor(orpaper)
+        if len(t) > 0:
+            rule.papers.append(t)
+        
+    oneof = required.findall('./oneof')
+    
+    anypaper = required.findall('./any')
+    
+    return rule
+
+
+
+def parsecorequisites(id, required):
+    rule = CorequisiteRule(id)
+    code = required.findall('./code')
+    if code != None:
+        tmp = list()
+        for x in code:
+            rule.papers.append(x.text)
+        
+    andpaper = required.findall('./and')
+    if andpaper != None:
+        t = parseand(andpaper)
+        if len(t) > 0:
+            rule.papers.append(t)
+
+    orpaper = required.findall('./or')
+    if orpaper != None:
+        t = parseor(orpaper)
+        if len(t) > 0:
+            rule.papers.append(t)
+        
+    oneof = required.findall('./oneof')
+    
+    anypaper = required.findall('./any')
+    
+    return rule
+
+
+def parseretrictions(id, required):
+    rule = RestrictedRule(id)
+    code = required.findall('./code')
+    if code != None:
+        tmp = list()
+        for x in code:
+            rule.papers.append(x.text)
+        
+    return rule
+
+
 if __name__ == "__main__":
     parse_tags('papers/tags.xml')
     print tagsdict['compsci']
     degree = parse("BSc.xml")
     print degree.name
     print degree.points
-    result = degree.check_programme('Computer Science', ['159.101', '159.102', '161.101','117.152', '119.258', '189.251', '119.177', '159.201', '159.202', '159.233', '159.253'])
+    programme = ['159.101', '159.102', '161.101','117.152', '119.258', '189.251', '119.177', '159.201', '159.202', '159.233', '159.253']
+    result = degree.check_programme('Computer Science', programme)
     print 'passed rules =', result
 
-
-    print parse_papers('papers/papers.xml')
+    papers = parse_papers('papers/papers.xml')
+    for paper in papers:
+        print paper, papers[paper][5] == None or papers[paper][5].check(programme[2:])
+        
+    print papers['159.333']
