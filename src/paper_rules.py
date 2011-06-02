@@ -22,6 +22,7 @@ class RestrictedRule(rules.Rule):
     def __init__(self, paper):
         super(RestrictedRule, self).__init__()
         self.paper = paper
+        self.papers = list()
 
 if __name__ == '__main__':
     rule = PrerequisiteRule('117.254')

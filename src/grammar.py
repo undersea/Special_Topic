@@ -231,21 +231,25 @@ def parseschedule(tree):
 
 
 
+def get_paper_offerings(paper):
+    return [(offering.find('./mode').text,
+             offering.find('./campus').text,offering.find('./semester').text) for offering in paper.findall('./offering')]
+
 
 
 def paper_code_name_points(paper):
     code = paper.find('./code').text
     name = paper.find('./name').text
     points = float(paper.find('./points').text)
-    campus = 'PN'
-    semester = 1
+    offerings = get_paper_offerings(paper)
+    
     prerequisites = paper.find('./prerequisite') and parseprerequisites(code, paper.find('./prerequisite'))
     corequisites = paper.find('./corequisite') and parsecorequisites(code, paper.find('./corequisite'))
-    restriction = paper.find('./restriction') and parsecorequisites(code, paper.find('./restriction'))
+    restriction = paper.find('./restriction') and parseretrictions(code, paper.find('./restriction'))
     
     
 
-    return code, name, points, campus, semester, prerequisites, corequisites, restriction
+    return code, name, points, offerings, prerequisites, corequisites, restriction
 
 
 def parse_papers(source):
@@ -342,12 +346,17 @@ if __name__ == "__main__":
     degree = parse("BSc.xml")
     print degree.name
     print degree.points
-    programme = ['159.101', '159.102', '161.101','117.152', '119.258', '189.251', '119.177', '159.201', '159.202', '159.233', '159.253']
+    programme = ['117.152', '119.258', '189.251', '119.177', '159.201', '159.202', '159.233', '159.253']
     result = degree.check_programme('Computer Science', programme)
     print 'passed rules =', result
 
     papers = parse_papers('papers/papers.xml')
     for paper in papers:
-        print paper, papers[paper][5] == None or papers[paper][5].check(programme[2:])
-        
-    print papers['159.333']
+        print paper, papers[paper][5] == None or papers[paper][4].check(programme[2:])
+
+    print
+    #print papers['161.326']
+    print papers['161.326'][4].papers#.check(['161.201', '159.201'])
+    #print papers['161.326'][5]
+    #print papers['161.326'][6]
+    
