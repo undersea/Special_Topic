@@ -1,4 +1,4 @@
-from xml.etree.ElementTree import ElementTree, fromstring
+from xml.etree.ElementTree import ElementTree, fromstring, tostring
 from rules import Degree, LimitRule, AtLeastRule, RequiredRule
 from paper_rules import *
 #from paper_grammer import parseretrictions, parsecorequisites, parseprerequisites
@@ -25,7 +25,7 @@ def parse_tags(source):
     for tag in tagstree.findall('./tag'):
         description = tag.find('./description').text
         papers = [paper.text for paper in tag.findall('./code')]
-        tagsdict[tag.attrib['name']] = (description, papers)
+        tagsdict[tag.get('name')] = (description, papers, tag.get('type'))
 
 
 def parse(source):
@@ -155,19 +155,20 @@ def parseand(andpaper):
         return tuple(tmp)
 
     tmp.append('and')
-    
-    code = andpaper.findall('./code')
-    if code != None:
-        for x in code:
-            tmp.append(x.text)
             
     orpapers = andpaper.findall('./or')
-    if orpapers != None:
+    if orpapers != None and len(orpapers) > 0:
         tmp.append(parseor(orpapers))
         
     anypapers = andpaper.findall('./any')
-    if anypapers != None:
+    if anypapers != None and len(anypapers) > 0:
         tmp.append(parseany(anypapers))
+
+    code = andpaper.findall('./code')
+    if code != None and len(code) > 0:
+        for x in code:
+            print 'and code', x.text
+            tmp.append(x.text)
 
     return tuple(tmp)
 
@@ -182,18 +183,21 @@ def parseor(orpapers):
         return tuple(tmp)
 
     tmp.append("or")
-    code = orpapers.findall('./code')
-    if code != None:
-        for x in code:
-            tmp.append(x.text)
+    
 
     andpapers = orpapers.findall('./and')
+    
     if andpapers != None and len(andpapers) > 0:
-        parseand(andpapers)
+        tmp.append(parseand(andpapers))
     
     anypapers = orpapers.findall('./any')
     if anypapers != None and len(anypapers) > 0:
         tmp.append(parseany(anypapers))
+
+    code = orpapers.findall('./code')
+    if code != None and len(code) > 0:
+        for x in code:
+            tmp.append(x.text)
 
     return tuple(tmp)
 
@@ -243,9 +247,9 @@ def paper_code_name_points(paper):
     points = float(paper.find('./points').text)
     offerings = get_paper_offerings(paper)
     
-    prerequisites = paper.find('./prerequisite') and parseprerequisites(code, paper.find('./prerequisite'))
-    corequisites = paper.find('./corequisite') and parsecorequisites(code, paper.find('./corequisite'))
-    restriction = paper.find('./restriction') and parseretrictions(code, paper.find('./restriction'))
+    prerequisites = (paper.find('./prerequisite') is not None or None) and parseprerequisites(code, paper.find('./prerequisite'))
+    corequisites = (paper.find('./corequisite') is not None or None) and parsecorequisites(code, paper.find('./corequisite'))
+    restriction = (paper.find('./restriction') is not None or None) and parseretrictions(code, paper.find('./restriction'))
     
     
 
@@ -267,6 +271,7 @@ def parse_papers(source):
             return None
 
     for paper in tagstree.findall('./paper'):
+        pass
         tmp = paper_code_name_points(paper)
         paperdict[tmp[0]] = tmp
 
@@ -277,19 +282,19 @@ def parse_papers(source):
 def parseprerequisites(id, required):
     rule = PrerequisiteRule(id)
     code = required.findall('./code')
-    if code != None:
+    if code is not None:
         tmp = list()
         for x in code:
             rule.papers.append(x.text)
         
     andpaper = required.findall('./and')
-    if andpaper != None:
+    if andpaper is not None:
         t = parseand(andpaper)
         if len(t) > 0:
             rule.papers.append(t)
 
     orpaper = required.findall('./or')
-    if orpaper != None:
+    if orpaper is not None:
         t = parseor(orpaper)
         if len(t) > 0:
             rule.papers.append(t)
@@ -340,23 +345,28 @@ def parseretrictions(id, required):
     return rule
 
 
-if __name__ == "__main__":
+import sys
+if __name__ == "__main__" and len(sys.argv) > 0:
     parse_tags('papers/tags.xml')
-    print tagsdict['compsci']
+    print tagsdict['programming']
     degree = parse("BSc.xml")
     print degree.name
     print degree.points
-    programme = ['117.152', '119.258', '189.251', '119.177', '159.201', '159.202', '159.233', '159.253']
+    programme = ['159.101', '159.102', '161.101', '117.152', '119.258', '189.251', '119.177', '159.201', '159.202', '159.233', '159.253']
     result = degree.check_programme('Computer Science', programme)
     print 'passed rules =', result
 
     papers = parse_papers('papers/papers.xml')
-    for paper in papers:
-        print paper, papers[paper][5] == None or papers[paper][4].check(programme[2:])
+    print programme
+    keys = papers.keys()
+    keys.sort()
+    for paper in keys:
+        print paper, papers[paper][4] and papers[paper][4].papers, papers[paper][4] == None or papers[paper][4].check(programme[2:])
 
     print
     #print papers['161.326']
-    print papers['161.326'][4].papers#.check(['161.201', '159.201'])
+    print papers['161.326'][4].papers
+    print papers['161.326'][4].check(['160.101', '159.201', '161.201'])
     #print papers['161.326'][5]
     #print papers['161.326'][6]
     

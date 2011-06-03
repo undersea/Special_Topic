@@ -13,11 +13,18 @@ def reset_missing():
 def orcheck(papers, programme):
     results = list()
     for paper in papers:
+        tmp2 = paper
         if isinstance(paper, tuple):
-            if paper[0] == 'and':
-                results.append(andcheck(paper[1:], programme))
-            elif paper[0] == 'any':
-                results.append(anycheck(paper[1:], programme))
+            if isinstance(paper[0], tuple):
+                tmp = paper[0][0]
+                tmp2 = paper[0]
+            else:
+                tmp = paper[0]
+                tmp2 = paper
+            if tmp == 'and':
+                results.append(andcheck(tmp2[1:], programme))
+            elif tmp == 'any':
+                results.append(anycheck(tmp2[1:], programme))
         else:
             results.append(code(paper, programme))
 
@@ -92,6 +99,7 @@ def check(papers, programme, schedule=None):
         elif len(papers) > 0:
             for paper in papers[0]:
                 if isinstance(paper, tuple):
+            
                     if paper[0] == 'and':
                         results.append(andcheck(paper[1:], programme))
                     elif paper[0] == 'any':
@@ -99,6 +107,7 @@ def check(papers, programme, schedule=None):
                     elif paper[0] == 'oneof':
                         results.append(oneof(paper[1:], programme))
                     elif paper[0] == 'or':
+            
                         results.append(orcheck(paper[1:], programme))
 
                 else:
@@ -112,3 +121,7 @@ def check(papers, programme, schedule=None):
 def set_inschedule(status):
     global inschedule
     inschedule = status
+
+
+if __name__ == '__main__':
+    print check(['123.456'], ['123.234'], schedule=None)

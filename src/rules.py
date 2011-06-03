@@ -20,18 +20,13 @@ class Degree(object):
 
     def check_programme(self, major, programme):
         results = list()
-        print self.name, 'rules'
+        
         for rule in self.rules:
-            print rule
             result = rule.check(programme, self.schedule)
-            print result
             results.append(result)
 
-        print major, 'rules'
         for rule in self.schedule[major][1]:
-            print rule
             result = rule.check(programme, self.schedule[major][0])
-            print result
             results.append(result)
             
         return all(results) and len(result) > 0

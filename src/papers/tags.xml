@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE tags SYSTEM "tags.dtd">
 <tags>
+  <tag name="programming" type="template">
+    <description>Papers to take if wanting to become a programmer</description>
+    <code>159.101</code>
+    <code>159.102</code>
+    <code>159.201</code>
+    <code>159.202</code>
+    <code>159.254</code>
+    <code>159.356</code>
+  </tag>
   <tag name="compsci">
     <description>Computer Science Schedule</description>
     <code>159.101</code>
