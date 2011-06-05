@@ -167,7 +167,7 @@ def parseand(andpaper):
     code = andpaper.findall('./code')
     if code != None and len(code) > 0:
         for x in code:
-            print 'and code', x.text
+            
             tmp.append(x.text)
 
     return tuple(tmp)
@@ -253,7 +253,7 @@ def paper_code_name_points(paper):
     
     
 
-    return code, name, points, offerings, prerequisites, corequisites, restriction
+    return dict([('code', code), ('name', name), ('points', points), ('offerings', offerings), ('prerequisites', prerequisites), ('corequisites', corequisites), ('restrictions', restriction)])
 
 
 def parse_papers(source):
@@ -273,7 +273,7 @@ def parse_papers(source):
     for paper in tagstree.findall('./paper'):
         pass
         tmp = paper_code_name_points(paper)
-        paperdict[tmp[0]] = tmp
+        paperdict[tmp['code']] = tmp
 
     return paperdict
 
@@ -361,12 +361,12 @@ if __name__ == "__main__" and len(sys.argv) > 0:
     keys = papers.keys()
     keys.sort()
     for paper in keys:
-        print paper, papers[paper][4] and papers[paper][4].papers, papers[paper][4] == None or papers[paper][4].check(programme[2:])
+        print paper, papers[paper]['prerequisites'] and papers[paper]['prerequisites'].papers, papers[paper]['prerequisites'] == None or papers[paper]['prerequisites'].check(programme[2:])
 
     print
     #print papers['161.326']
-    print papers['161.326'][4].papers
-    print papers['161.326'][4].check(['160.101', '159.201', '161.201'])
+    print papers['161.326']['prerequisites'].papers
+    print papers['161.326']['prerequisites'].check(['160.101', '159.201', '161.201'])
     #print papers['161.326'][5]
     #print papers['161.326'][6]
     
