@@ -49,7 +49,9 @@ def andcheck(papers, programme):
 def code(code, programme):
     ret = code in programme or ('x' in code and len([x for x in programme if int(float(code.replace('x', ''))*10) == int(float(x)*10)]) > 0)
     if not ret:
-        missing.append(code)
+        missing.append((code, False))
+    else:
+        missing.append((code, True))
 
     return ret
 
