@@ -7,7 +7,7 @@ missing = list()
 
 def reset_missing():
     global missing
-    missing = list()
+    del missing[:]
     
 
 def orcheck(papers, programme):

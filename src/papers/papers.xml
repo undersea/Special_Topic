@@ -1,5 +1,31 @@
 <!DOCTYPE papers SYSTEM "papers.dtd">
 <papers>
+  <paper code="p119.177">
+    <code>119.177</code>
+    <name>Written Communication for Information Sciences</name>
+    <points>15</points>
+    <offering>
+      <mode>Internal</mode>
+      <campus>PNTH</campus>
+      <semester>Two</semester>
+    </offering>
+    
+  </paper>
+  <paper code="p119.155">
+    <code>119.155</code>
+    <name>Communication in the Sciences</name>
+    <points>15</points>
+    <offering>
+      <mode>Internal</mode>
+      <campus>PNTH</campus>
+      <semester>One</semester>
+    </offering>
+    <offering>
+      <mode>Internal</mode>
+      <campus>PNTH</campus>
+      <semester>Two</semester>
+    </offering>
+  </paper>
   <paper code="p117.152">
     <code>117.152</code><name>Animals and Agriculture</name>
     <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>

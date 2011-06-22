@@ -16,6 +16,7 @@
             <property name="model">planstore</property>
             <property name="vadjustment">adjustment1</property>
             <property name="search_column">0</property>
+            <property name="enable_grid_lines">both</property>
             <child>
               <object class="GtkTreeViewColumn" id="year_column_1">
                 <property name="title">Year 1</property>
@@ -131,6 +132,56 @@
                 <property name="position">1</property>
               </packing>
             </child>
+            <child>
+              <object class="GtkHBox" id="hbox1">
+                <property name="visible">True</property>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <object class="GtkHButtonBox" id="hbuttonbox1">
+                    <property name="visible">True</property>
+                    <property name="layout_style">center</property>
+                    <child>
+                      <object class="GtkButton" id="cancel_button">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="related_action">cancel_action</property>
+                        <property name="use_action_appearance">True</property>
+                        <property name="use_stock">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="apply_button">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="related_action">apply_action</property>
+                        <property name="use_action_appearance">True</property>
+                        <property name="use_stock">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">2</property>
+              </packing>
+            </child>
           </object>
           <packing>
             <property name="resize">True</property>
@@ -223,5 +274,21 @@
     <property name="step_increment">1</property>
     <property name="page_increment">10</property>
     <property name="page_size">10</property>
+  </object>
+  <object class="GtkAction" id="apply_action">
+    <property name="label">Apply</property>
+    <property name="tooltip">Apply proposed changes to main programme</property>
+    <property name="stock_id">gtk-apply</property>
+    <property name="hide_if_empty">False</property>
+    <property name="always_show_image">True</property>
+    <signal name="activate" handler="apply_action_activate_cb"/>
+  </object>
+  <object class="GtkAction" id="cancel_action">
+    <property name="label">Cancel</property>
+    <property name="tooltip">Cancel any proposed updates to programme</property>
+    <property name="stock_id">gtk-cancel</property>
+    <property name="hide_if_empty">False</property>
+    <property name="always_show_image">True</property>
+    <signal name="activate" handler="cancel_action_activate_cb"/>
   </object>
 </interface>
