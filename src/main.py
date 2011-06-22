@@ -52,67 +52,67 @@ def apply_action_activate_cb(action, *args):
     levels.append([y for y in programme if int(float(y) * 1000 % 1000) / 100 == 2])
     levels.append([z for z in programme if int(float(z) * 1000 % 1000) / 100 == 3])
              
-    print 'levels', [a for a in levels[0]
-                     if PAPERS.has_key(a) and
-                     'one' in [str(x[2].lower()) for x in PAPERS['159.101']['offerings']
-                               if x[1] != None and x[1].lower() == 'pnth']]
     
     #separate then into semesters
-    appended = list()
     semesters = [[],[],[]]
     semesters[0].append([a for a in levels[0]
                          if PAPERS.has_key(a) and
                          'one' in [str(x[2].lower()) for x in PAPERS[a]['offerings']
                                    if str(x[1]).lower() == 'pnth']
                          ])
-    appended.extend(semesters[0][0])
+
     semesters[0].append([b for b in levels[0]
                          if PAPERS.has_key(b) and
                          'two' in [str(x[2].lower()) for x in PAPERS[b]['offerings']
-                                   if str(x[1]).lower() == 'pnth'] and b not in appended
+                                   if str(x[1]).lower() == 'pnth']
                          ])
-    appended.extend(semesters[0][1])
+
     semesters[1].append([c for c in levels[1]
                          if PAPERS.has_key(c) and
                          'one' in [str(x[2].lower()) for x in PAPERS[c]['offerings']
-                                   if str(x[1]).lower() == 'pnth'] and c not in appended
+                                   if str(x[1]).lower() == 'pnth']
                          ])
-    appended.extend(semesters[1][0])
+
     semesters[1].append([d for d in levels[1]
                          if PAPERS.has_key(d) and
                          'two' in [str(x[2].lower()) for x in PAPERS[d]['offerings']
-                                   if str(x[1]).lower() == 'pnth'] and d not in appended
+                                   if str(x[1]).lower() == 'pnth']
                          ])
-    appended.extend(semesters[1][1])
+
     semesters[2].append([e for e in levels[2]
                          if PAPERS.has_key(e) and
                          'one' in [str(x[2].lower()) for x in PAPERS[e]['offerings']
-                                   if str(x[1]).lower() == 'pnth'] and e not in appended
+                                   if str(x[1]).lower() == 'pnth']
                          ])
-    appended.extend(semesters[2][0])
+
     semesters[2].append([f for f in levels[2]
                          if PAPERS.has_key(f) and
                          'two' in [str(x[2].lower()) for x in PAPERS[f]['offerings']
-                                   if str(x[1]).lower() == 'pnth'] and f not in appended
+                                   if str(x[1]).lower() == 'pnth']
                          ])
 
 
     print 'semesters', semesters
 
+    #clear the planner table of its current contents
     for row in range(len(planstore)):
         for column in range(len(planstore[row])):
             planstore[row][column] = None
         
-            
-
+    #do a count and make sure there is enough slots avalable
+    #@TODO
+    
+    #repopulate the planner table
     appended = list()
     for year in range(len(semesters)):
         for semester in range(len(semesters[year])):
-            for slot in range(len(semesters[year][semester])):
-                if semesters[year][semester][slot] not in appended:
-                    planstore[(4 * semester) + slot][year] = semesters[year][semester][slot]
-                    appended.append(semesters[year][semester][slot])
-            
+            slot = 0
+            for paper in semesters[year][semester]:
+                if paper not in appended:
+                    planstore[(4 * semester) + slot][year] = paper
+                    appended.append(paper)
+                    slot += 1
+            #we need to check for missing papers and add them to the next year planner list
     
 def check_programme(modal):
     programme = []
@@ -147,6 +147,9 @@ def check_programme(modal):
 
 def on_rule_selected(tree):#, str_path, new_iter, *data):
     global reportstore
+    for column in report_tree.get_columns():
+        report_tree.remove_column(column)
+    report_tree.set_model(None)
     store, store_iter = tree.get_selection().get_selected()
     store_path = store.get_path(store_iter)
     #print 'rule_selected', store, store_iter, store_path[0]#, str_path, new_iter, data
@@ -182,8 +185,7 @@ def on_rule_selected(tree):#, str_path, new_iter, *data):
     tmp = [True] + [convert(x) for x in tmp.split(',')]
     reportstore.append(tmp)
     
-    for column in report_tree.get_columns():
-        report_tree.remove_column(column)
+
     report_tree.set_model(reportstore)
     
     for x in range((len(tmp)-1)/2):
