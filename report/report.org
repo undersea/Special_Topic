@@ -22,16 +22,41 @@
 ** List sorting, creation, and filtering
 
 ** Basic logic decisions (Not quiet AI, but getting there)
+   Based upon rules defined in the degree object, the program is  able
+   to determine if they have fulfilled the degree requirements or not
+   and to display what rules they have to pass to do this.  Most of
+   the degree rules cover a choice of to many papers to easily display
+   them in the GUI, but it can display a string representation of what
+   the rule is.  Also if the rule involves papers which they have no
+   choice, and their is no options, these papers can be automatically
+   added.
 
+   The GUI displays a grid of slots to be filled with paper numbers.
+   They are shown in three columns of eight slots, with a total of 24 slots to
+   be filled.  Each column represents a year, and the first four slots
+   of that column representing the first semester, the last four
+   representing the second.  Using information derived from the paper
+   database, the program can determine which semester the paper can be
+   slotted into.  It also can determine which year it can belong to by
+   parsing the paper number and using the third from last digit to
+   determine the year.
+** User decision making required
+   The system cannot decide for the student what paper they are going
+   to choose, if they have a choice.  The only option is to ask them
+   to decide.
 * Technology used
 ** Python
 ** Gtk
 *** TreeView
 ** Glade interface designer
 * Problems
-
+** Glade interface designer
+*** Doesn't allow you to dynamically create models
+    This has to be done at the code level.  It would have been nice if
+    this could be done through the designer, with the results
+    immediately viewable.
 * Future work
-
+** Constraints satisfaction implementation?
 ** AI path finding techniques
 
 ** Redesign of UI
@@ -40,6 +65,8 @@
 
 ** Create a template system
 
-** 
+** Implement dependency checking in a tag to allow it to specify a paper via a rule
 
+** Improve the rules parsing code
+** Make the program determine where to fit all the papers from a level of say one hundred level where the number of these papers is more than eight, placing them in the appropriate places in the following years.
 * Conclusion
