@@ -22,6 +22,16 @@
     <property name="hide_if_empty">False</property>
     <signal name="activate" handler="cancel_action_activate_cb" swapped="no"/>
   </object>
+  <object class="GtkListStore" id="liststore1">
+    <columns>
+      <!-- column-name year1_but -->
+      <column type="GtkButtonsType"/>
+      <!-- column-name year2_but -->
+      <column type="GtkButtonsType"/>
+      <!-- column-name year3_but -->
+      <column type="GtkButtonsType"/>
+    </columns>
+  </object>
   <object class="GtkListStore" id="paperstore">
     <columns>
       <!-- column-name paper -->
@@ -108,69 +118,112 @@
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <child>
-          <object class="GtkTreeView" id="programtree">
+          <object class="GtkVBox" id="vbox2">
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="model">planstore</property>
-            <property name="vadjustment">adjustment1</property>
-            <property name="search_column">0</property>
-            <property name="enable_grid_lines">both</property>
+            <property name="can_focus">False</property>
             <child>
-              <object class="GtkTreeViewColumn" id="year_column_1">
-                <property name="title">Year 1</property>
-                <property name="expand">True</property>
-                <property name="clickable">True</property>
+              <object class="GtkTreeView" id="programtree">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="model">planstore</property>
+                <property name="vadjustment">adjustment1</property>
+                <property name="search_column">0</property>
+                <property name="level_indentation">4</property>
+                <property name="enable_grid_lines">both</property>
                 <child>
-                  <object class="GtkCellRendererCombo" id="year_cellcombo_1">
-                    <property name="editable">True</property>
-                    <property name="has_entry">False</property>
-                    <property name="model">paperstore</property>
-                    <property name="text_column">0</property>
-                    <signal name="changed" handler="on_year_cellcombo_1_changed" swapped="no"/>
+                  <object class="GtkTreeViewColumn" id="year_column_1">
+                    <property name="title">Year 1</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <child>
+                      <object class="GtkCellRendererCombo" id="year_cellcombo_1">
+                        <property name="editable">True</property>
+                        <property name="has_entry">False</property>
+                        <property name="model">paperstore</property>
+                        <property name="text_column">0</property>
+                        <signal name="changed" handler="on_year_cellcombo_1_changed" swapped="no"/>
+                      </object>
+                      <attributes>
+                        <attribute name="text">0</attribute>
+                      </attributes>
+                    </child>
                   </object>
-                  <attributes>
-                    <attribute name="text">0</attribute>
-                  </attributes>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="year_column_2">
+                    <property name="title">Year 2</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <child>
+                      <object class="GtkCellRendererCombo" id="year_cellcombo_2">
+                        <property name="editable">True</property>
+                        <property name="has_entry">False</property>
+                        <property name="model">paperstore</property>
+                        <property name="text_column">0</property>
+                        <signal name="changed" handler="on_year_cellcombo_2_changed" swapped="no"/>
+                      </object>
+                      <attributes>
+                        <attribute name="text">1</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="year_column_3">
+                    <property name="title">Year 3</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <child>
+                      <object class="GtkCellRendererCombo" id="year_cellcombo_3">
+                        <property name="editable">True</property>
+                        <property name="has_entry">False</property>
+                        <property name="model">paperstore</property>
+                        <property name="text_column">0</property>
+                        <signal name="changed" handler="on_year_cellcombo_3_changed" swapped="no"/>
+                      </object>
+                      <attributes>
+                        <attribute name="text">2</attribute>
+                      </attributes>
+                    </child>
+                  </object>
                 </child>
               </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
             </child>
             <child>
-              <object class="GtkTreeViewColumn" id="year_column_2">
-                <property name="title">Year 2</property>
-                <property name="expand">True</property>
-                <property name="clickable">True</property>
+              <object class="GtkTreeView" id="treeview1">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="model">liststore1</property>
+                <property name="headers_visible">False</property>
                 <child>
-                  <object class="GtkCellRendererCombo" id="year_cellcombo_2">
-                    <property name="editable">True</property>
-                    <property name="has_entry">False</property>
-                    <property name="model">paperstore</property>
-                    <property name="text_column">0</property>
-                    <signal name="changed" handler="on_year_cellcombo_2_changed" swapped="no"/>
+                  <object class="GtkTreeViewColumn" id="treeviewcolumn2">
+                    <property name="title" translatable="yes">column</property>
                   </object>
-                  <attributes>
-                    <attribute name="text">1</attribute>
-                  </attributes>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="treeviewcolumn3">
+                    <property name="title" translatable="yes">column</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="treeviewcolumn4">
+                    <property name="title" translatable="yes">column</property>
+                  </object>
                 </child>
               </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
             </child>
             <child>
-              <object class="GtkTreeViewColumn" id="year_column_3">
-                <property name="title">Year 3</property>
-                <property name="expand">True</property>
-                <property name="clickable">True</property>
-                <child>
-                  <object class="GtkCellRendererCombo" id="year_cellcombo_3">
-                    <property name="editable">True</property>
-                    <property name="has_entry">False</property>
-                    <property name="model">paperstore</property>
-                    <property name="text_column">0</property>
-                    <signal name="changed" handler="on_year_cellcombo_3_changed" swapped="no"/>
-                  </object>
-                  <attributes>
-                    <attribute name="text">2</attribute>
-                  </attributes>
-                </child>
-              </object>
+              <placeholder/>
             </child>
           </object>
           <packing>
