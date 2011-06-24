@@ -1,78 +1,229 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk+" version="2.16"/>
+  <requires lib="gtk+" version="2.24"/>
   <!-- interface-naming-policy project-wide -->
+  <object class="GtkAdjustment" id="adjustment1">
+    <property name="upper">100</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+    <property name="page_size">10</property>
+  </object>
+  <object class="GtkAction" id="apply_action">
+    <property name="label">Sort and apply</property>
+    <property name="tooltip">Apply proposed changes to main programme</property>
+    <property name="stock_id">gtk-apply</property>
+    <property name="hide_if_empty">False</property>
+    <signal name="activate" handler="apply_action_activate_cb" swapped="no"/>
+  </object>
+  <object class="GtkAction" id="cancel_action">
+    <property name="label">Cancel</property>
+    <property name="tooltip">Cancel any proposed updates to programme</property>
+    <property name="stock_id">gtk-media-rewind</property>
+    <property name="hide_if_empty">False</property>
+    <signal name="activate" handler="cancel_action_activate_cb" swapped="no"/>
+  </object>
+  <object class="GtkListStore" id="liststore1">
+    <columns>
+      <!-- column-name year1_but -->
+      <column type="GtkButtonsType"/>
+      <!-- column-name year2_but -->
+      <column type="GtkButtonsType"/>
+      <!-- column-name year3_but -->
+      <column type="GtkButtonsType"/>
+    </columns>
+  </object>
+  <object class="GtkListStore" id="paperstore">
+    <columns>
+      <!-- column-name paper -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkListStore" id="planstore">
+    <columns>
+      <!-- column-name year1 -->
+      <column type="gchararray"/>
+      <!-- column-name year2 -->
+      <column type="gchararray"/>
+      <!-- column-name year3 -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes"></col>
+        <col id="1" translatable="yes"></col>
+        <col id="2" translatable="yes"></col>
+      </row>
+      <row>
+        <col id="0" translatable="yes"></col>
+        <col id="1" translatable="yes"></col>
+        <col id="2" translatable="yes"></col>
+      </row>
+      <row>
+        <col id="0" translatable="yes"></col>
+        <col id="1" translatable="yes"></col>
+        <col id="2" translatable="yes"></col>
+      </row>
+      <row>
+        <col id="0" translatable="yes"></col>
+        <col id="1" translatable="yes"></col>
+        <col id="2" translatable="yes"></col>
+      </row>
+      <row>
+        <col id="0" translatable="yes"></col>
+        <col id="1" translatable="yes"></col>
+        <col id="2" translatable="yes"></col>
+      </row>
+      <row>
+        <col id="0" translatable="yes"></col>
+        <col id="1" translatable="yes"></col>
+        <col id="2" translatable="yes"></col>
+      </row>
+      <row>
+        <col id="0" translatable="yes"></col>
+        <col id="1" translatable="yes"></col>
+        <col id="2" translatable="yes"></col>
+      </row>
+      <row>
+        <col id="0" translatable="yes"></col>
+        <col id="1" translatable="yes"></col>
+        <col id="2" translatable="yes"></col>
+      </row>
+    </data>
+    <signal name="row-changed" handler="on_planstore_row_changed" swapped="no"/>
+  </object>
+  <object class="GtkListStore" id="reportstore">
+    <columns>
+      <!-- column-name paper -->
+      <column type="gchararray"/>
+      <!-- column-name taken -->
+      <column type="gboolean"/>
+    </columns>
+  </object>
+  <object class="GtkListStore" id="rulestore">
+    <columns>
+      <!-- column-name rule -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Rules put here</col>
+      </row>
+    </data>
+  </object>
   <object class="GtkWindow" id="window1">
-    <signal name="delete_event" handler="gtk_main_quit"/>
+    <property name="can_focus">False</property>
+    <signal name="delete-event" handler="gtk_main_quit" swapped="no"/>
     <child>
       <object class="GtkVPaned" id="vpaned1">
         <property name="visible">True</property>
         <property name="can_focus">True</property>
-        <property name="orientation">vertical</property>
         <child>
-          <object class="GtkTreeView" id="programtree">
+          <object class="GtkVBox" id="vbox2">
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="model">planstore</property>
-            <property name="vadjustment">adjustment1</property>
-            <property name="search_column">0</property>
-            <property name="enable_grid_lines">both</property>
+            <property name="can_focus">False</property>
             <child>
-              <object class="GtkTreeViewColumn" id="year_column_1">
-                <property name="title">Year 1</property>
-                <property name="expand">True</property>
-                <property name="clickable">True</property>
+              <object class="GtkTreeView" id="programtree">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="model">planstore</property>
+                <property name="vadjustment">adjustment1</property>
+                <property name="search_column">0</property>
+                <property name="level_indentation">4</property>
+                <property name="enable_grid_lines">both</property>
                 <child>
-                  <object class="GtkCellRendererCombo" id="year_cellcombo_1">
-                    <property name="editable">True</property>
-                    <property name="has_entry">False</property>
-                    <property name="model">paperstore</property>
-                    <property name="text_column">0</property>
-                    <signal name="changed" handler="on_year_cellcombo_1_changed"/>
+                  <object class="GtkTreeViewColumn" id="year_column_1">
+                    <property name="title">Year 1</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <child>
+                      <object class="GtkCellRendererCombo" id="year_cellcombo_1">
+                        <property name="editable">True</property>
+                        <property name="has_entry">False</property>
+                        <property name="model">paperstore</property>
+                        <property name="text_column">0</property>
+                        <signal name="changed" handler="on_year_cellcombo_1_changed" swapped="no"/>
+                      </object>
+                      <attributes>
+                        <attribute name="text">0</attribute>
+                      </attributes>
+                    </child>
                   </object>
-                  <attributes>
-                    <attribute name="text">0</attribute>
-                  </attributes>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="year_column_2">
+                    <property name="title">Year 2</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <child>
+                      <object class="GtkCellRendererCombo" id="year_cellcombo_2">
+                        <property name="editable">True</property>
+                        <property name="has_entry">False</property>
+                        <property name="model">paperstore</property>
+                        <property name="text_column">0</property>
+                        <signal name="changed" handler="on_year_cellcombo_2_changed" swapped="no"/>
+                      </object>
+                      <attributes>
+                        <attribute name="text">1</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="year_column_3">
+                    <property name="title">Year 3</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <child>
+                      <object class="GtkCellRendererCombo" id="year_cellcombo_3">
+                        <property name="editable">True</property>
+                        <property name="has_entry">False</property>
+                        <property name="model">paperstore</property>
+                        <property name="text_column">0</property>
+                        <signal name="changed" handler="on_year_cellcombo_3_changed" swapped="no"/>
+                      </object>
+                      <attributes>
+                        <attribute name="text">2</attribute>
+                      </attributes>
+                    </child>
+                  </object>
                 </child>
               </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
             </child>
             <child>
-              <object class="GtkTreeViewColumn" id="year_column_2">
-                <property name="title">Year 2</property>
-                <property name="expand">True</property>
-                <property name="clickable">True</property>
+              <object class="GtkTreeView" id="treeview1">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="model">liststore1</property>
+                <property name="headers_visible">False</property>
                 <child>
-                  <object class="GtkCellRendererCombo" id="year_cellcombo_2">
-                    <property name="editable">True</property>
-                    <property name="has_entry">False</property>
-                    <property name="model">paperstore</property>
-                    <property name="text_column">0</property>
-                    <signal name="changed" handler="on_year_cellcombo_2_changed"/>
+                  <object class="GtkTreeViewColumn" id="treeviewcolumn2">
+                    <property name="title" translatable="yes">column</property>
                   </object>
-                  <attributes>
-                    <attribute name="text">1</attribute>
-                  </attributes>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="treeviewcolumn3">
+                    <property name="title" translatable="yes">column</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="treeviewcolumn4">
+                    <property name="title" translatable="yes">column</property>
+                  </object>
                 </child>
               </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
             </child>
             <child>
-              <object class="GtkTreeViewColumn" id="year_column_3">
-                <property name="title">Year 3</property>
-                <property name="expand">True</property>
-                <property name="clickable">True</property>
-                <child>
-                  <object class="GtkCellRendererCombo" id="year_cellcombo_3">
-                    <property name="editable">True</property>
-                    <property name="has_entry">False</property>
-                    <property name="model">paperstore</property>
-                    <property name="text_column">0</property>
-                    <signal name="changed" handler="on_year_cellcombo_3_changed"/>
-                  </object>
-                  <attributes>
-                    <attribute name="text">2</attribute>
-                  </attributes>
-                </child>
-              </object>
+              <placeholder/>
             </child>
           </object>
           <packing>
@@ -83,10 +234,11 @@
         <child>
           <object class="GtkVBox" id="vbox1">
             <property name="visible">True</property>
-            <property name="orientation">vertical</property>
+            <property name="can_focus">False</property>
             <child>
               <object class="GtkViewport" id="viewport1">
                 <property name="visible">True</property>
+                <property name="can_focus">False</property>
                 <property name="resize_mode">queue</property>
                 <child>
                   <object class="GtkTreeView" id="rules_tree">
@@ -95,7 +247,7 @@
                     <property name="model">rulestore</property>
                     <property name="headers_clickable">False</property>
                     <property name="search_column">0</property>
-                    <signal name="cursor_changed" handler="on_rule_selected"/>
+                    <signal name="cursor-changed" handler="on_rule_selected" swapped="no"/>
                     <child>
                       <object class="GtkTreeViewColumn" id="rule_column">
                         <property name="title">Rule</property>
@@ -111,6 +263,8 @@
                 </child>
               </object>
               <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
                 <property name="position">0</property>
               </packing>
             </child>
@@ -129,18 +283,22 @@
                 </child>
               </object>
               <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
                 <property name="position">1</property>
               </packing>
             </child>
             <child>
               <object class="GtkHBox" id="hbox1">
                 <property name="visible">True</property>
+                <property name="can_focus">False</property>
                 <child>
                   <placeholder/>
                 </child>
                 <child>
                   <object class="GtkHButtonBox" id="hbuttonbox1">
                     <property name="visible">True</property>
+                    <property name="can_focus">False</property>
                     <property name="layout_style">center</property>
                     <child>
                       <object class="GtkButton" id="cancel_button">
@@ -148,7 +306,6 @@
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="related_action">cancel_action</property>
-                        <property name="use_action_appearance">True</property>
                         <property name="use_stock">True</property>
                       </object>
                       <packing>
@@ -163,7 +320,6 @@
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="related_action">apply_action</property>
-                        <property name="use_action_appearance">True</property>
                         <property name="use_stock">True</property>
                       </object>
                       <packing>
@@ -174,11 +330,15 @@
                     </child>
                   </object>
                   <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
                     <property name="position">1</property>
                   </packing>
                 </child>
               </object>
               <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
                 <property name="position">2</property>
               </packing>
             </child>
@@ -190,105 +350,5 @@
         </child>
       </object>
     </child>
-  </object>
-  <object class="GtkListStore" id="planstore">
-    <columns>
-      <!-- column-name year1 -->
-      <column type="gchararray"/>
-      <!-- column-name year2 -->
-      <column type="gchararray"/>
-      <!-- column-name year3 -->
-      <column type="gchararray"/>
-    </columns>
-    <data>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-      </row>
-      <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
-      </row>
-    </data>
-    <signal name="row_changed" handler="on_planstore_row_changed"/>
-  </object>
-  <object class="GtkListStore" id="paperstore">
-    <columns>
-      <!-- column-name paper -->
-      <column type="gchararray"/>
-    </columns>
-  </object>
-  <object class="GtkListStore" id="rulestore">
-    <columns>
-      <!-- column-name rule -->
-      <column type="gchararray"/>
-    </columns>
-    <data>
-      <row>
-        <col id="0" translatable="yes">Rules put here</col>
-      </row>
-    </data>
-  </object>
-  <object class="GtkListStore" id="reportstore">
-    <columns>
-      <!-- column-name paper -->
-      <column type="gchararray"/>
-      <!-- column-name taken -->
-      <column type="gboolean"/>
-    </columns>
-  </object>
-  <object class="GtkAdjustment" id="adjustment1">
-    <property name="upper">100</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">10</property>
-    <property name="page_size">10</property>
-  </object>
-  <object class="GtkAction" id="apply_action">
-    <property name="label">Apply</property>
-    <property name="tooltip">Apply proposed changes to main programme</property>
-    <property name="stock_id">gtk-apply</property>
-    <property name="hide_if_empty">False</property>
-    <property name="always_show_image">True</property>
-    <signal name="activate" handler="apply_action_activate_cb"/>
-  </object>
-  <object class="GtkAction" id="cancel_action">
-    <property name="label">Cancel</property>
-    <property name="tooltip">Cancel any proposed updates to programme</property>
-    <property name="stock_id">gtk-cancel</property>
-    <property name="hide_if_empty">False</property>
-    <property name="always_show_image">True</property>
-    <signal name="activate" handler="cancel_action_activate_cb"/>
   </object>
 </interface>

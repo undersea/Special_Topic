@@ -20,7 +20,8 @@
 * How does it work
 
 ** List sorting, creation, and filtering
-
+   #+ATTR_LATEX: width=\textwidth
+   [[./DegreePlanner.png]]
 ** Basic logic decisions (Not quiet AI, but getting there)
    Based upon rules defined in the degree object, the program is  able
    to determine if they have fulfilled the degree requirements or not
