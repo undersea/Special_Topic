@@ -68,5 +68,21 @@
 ** Implement dependency checking in a tag to allow it to specify a paper via a rule
 
 ** Improve the rules parsing code
-** Make the program determine where to fit all the papers from a level of say one hundred level where the number of these papers is more than eight, placing them in the appropriate places in the following years.
+** Make the program determine where to fit all the papers
+   Determine where papers fit from a level of say one hundred level
+   where the number of these papers is more than eight, placing them
+   in the appropriate places in the following years.  currently it
+   only puts papers of one hundred level in year one column, papers of
+   two hundred level in year two column, and papers of three hundred
+   level in year three column.  This works if the one, two and three
+   hundred level papers are only eight each.  If anyone of the levels
+   of papers counts go above eight, one of these papers will be
+   dropped.  This could be done by changing the criteria of what goes
+   into two hundred and three hundred level columns.  If there are
+   overflows in either one hundred or two hundred, slot the overflows
+   into the next level.  The problem of determining which ones to put
+   in the next level, has to be determined by what semesters the
+   papers are offered in and if they can be slotted into that
+   semester, given that papers could be offered in both semesters, or
+   be double semester papers.
 * Conclusion
