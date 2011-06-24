@@ -40,14 +40,15 @@ def apply_action_activate_cb(action, *args):
 
     #get current programme
     programme = []
-    [programme.extend([y for y in x if y is not None]) for x in planstore]
+    [programme.extend([y for y in x if y is not None and len(y) > 0]) for x in planstore]
     #remove unwanted papers
-    programme = [x for x in programme if x not in remove_papers]
+    programme = [x for x in programme if x not in remove_papers and x != '']
     #add new papers
     programme.extend(add_papers)
 
     #sort by level into 3 separate lists (only supports up to 300 level)
     levels = []
+    print programme
     levels.append([x for x in programme if int(float(x) * 1000 % 1000) / 100 == 1])
     levels.append([y for y in programme if int(float(y) * 1000 % 1000) / 100 == 2])
     levels.append([z for z in programme if int(float(z) * 1000 % 1000) / 100 == 3])
@@ -228,8 +229,7 @@ def on_paper_missing_toggled(cell, new_path, column, model):
             add_papers.remove(paper)
     model.set_value(new_iter, int(column), not cell.get_active())
 
-    print 'add', add_papers
-    print 'remove', remove_papers
+    apply_action_activate_cb(None)
     
 
 def on_planstore_row_changed(model, str_path, new_iter):

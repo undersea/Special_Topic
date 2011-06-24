@@ -12,6 +12,7 @@ def reset_missing():
 
 def orcheck(papers, programme):
     results = list()
+    
     for paper in papers:
         tmp2 = paper
         if isinstance(paper, tuple):
@@ -25,6 +26,7 @@ def orcheck(papers, programme):
                 results.append(andcheck(tmp2[1:], programme))
             elif tmp == 'any':
                 results.append(anycheck(tmp2[1:], programme))
+    
         else:
             results.append(code(paper, programme))
 
@@ -91,7 +93,7 @@ def check(papers, programme, schedule=None):
 
                 tmp3 = [int(float(x)) for x in tmp2]
 
-                inschedule_papers = set([x for x in programme if int(float(x)) in tmp3])
+                inschedule_papers = set([int(float(x)) for x in programme if x != '' and int(float(x)) in tmp3])
 
                 return len(inschedule_papers) >= int(papers[0])
     else:
