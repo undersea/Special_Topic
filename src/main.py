@@ -26,7 +26,7 @@ missing = []
 add_papers = []
 remove_papers = []
 
-
+@debug([add_papers, remove_papers])
 def cancel_action_activate_cb(action, *args):
     """
     Simply remove any proposed changes to the programme of study
@@ -35,6 +35,7 @@ def cancel_action_activate_cb(action, *args):
     del add_papers[:], remove_papers[:]
 
 
+@debug([planstore, ])
 def apply_action_activate_cb(action, *args):
     print 'apply'
 
@@ -114,7 +115,8 @@ def apply_action_activate_cb(action, *args):
                     appended.append(paper)
                     slot += 1
             #we need to check for missing papers and add them to the next year planner list
-    
+
+@debug([missing,rulestore])
 def check_programme(modal):
     programme = []
     [programme.extend([y for y in x if y is not None]) for x in modal]
@@ -145,7 +147,7 @@ def check_programme(modal):
         it = rulestore.append((missed[0],))
     
 
-
+@debug([reportstore, ])
 def on_rule_selected(tree):#, str_path, new_iter, *data):
     global reportstore
     for column in report_tree.get_columns():
@@ -207,6 +209,7 @@ def on_rule_selected(tree):#, str_path, new_iter, *data):
         report_tree.append_column(bool_column)
 
 
+@debug([planstore, add_papers, remove_papers])
 def on_paper_missing_toggled(cell, new_path, column, model):
     if __debug == True:
         pdb.set_trace()
@@ -216,8 +219,6 @@ def on_paper_missing_toggled(cell, new_path, column, model):
     paper = model.get_value(new_iter, int(column)-1)
     enrolled = model.get_value(new_iter, int(column))
     if not enrolled:
-        print 'paper not in programme', (paper not in programme)
-        print programme
         if paper not in programme:
             add_papers.append(paper)
         if paper in remove_papers:
@@ -232,11 +233,13 @@ def on_paper_missing_toggled(cell, new_path, column, model):
     apply_action_activate_cb(None)
     
 
+
 def on_planstore_row_changed(model, str_path, new_iter):
     #print model, type(str_path), str_path, new_iter
     check_programme(model)
 
 
+@debug([planstore])
 def on_year_cellcombo_1_changed(combo, str_path, new_iter, *data):
     print 'path', str_path
     it = planstore.get_iter(str_path)
@@ -245,6 +248,7 @@ def on_year_cellcombo_1_changed(combo, str_path, new_iter, *data):
     planstore.set_value(it, 0, tmp)
 
 
+@debug([planstore])
 def on_year_cellcombo_2_changed(combo, str_path, new_iter, *data):
     print 'path', str_path
     it = planstore.get_iter(str_path)
@@ -253,6 +257,7 @@ def on_year_cellcombo_2_changed(combo, str_path, new_iter, *data):
 
 
 
+@debug([planstore])
 def on_year_cellcombo_3_changed(combo, str_path, new_iter, *data):
     it = planstore.get_iter(str_path)
     tmp = paperstore.get_value(new_iter, 0)
@@ -260,6 +265,7 @@ def on_year_cellcombo_3_changed(combo, str_path, new_iter, *data):
 
 
 
+@debug([planstore])
 def fillinplan():
     
     programme = tuple([])
