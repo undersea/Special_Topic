@@ -37,14 +37,78 @@ def add_paper(widget, row, column, *data):
     model = column.get_tree_view().get_model()
     new_iter = model.get_iter_from_string(str(row))
     print 'value:', model.get_value(new_iter, 0)
-    add_papers.append(model.get_value(new_iter, 0))
-    apply_action.activate()
-    fillinplan()
+    try:
+        float(model.get_value(new_iter, 0))
+    except:
+        pass
+    else:
+        add_papers.append(model.get_value(new_iter, 0))
+        apply_action.activate()
+        fillinplan()
 
 
 def display_info(widget, row, column, *data):
     print widget, row, column, data
+
+
     pass
+
+
+def on_plancell_edit_1(renderer, npath, new_text, *data):
+    print data, npath
+    niter = planstore.get_iter_from_string(npath)
+    try:
+        paper = PAPERS[new_text]
+        
+        if len([x for x in paper['offerings']
+                if str(x[1].lower()) == 'pnth']) > 0 or len(new_text) == 0:
+            planstore.set_value(niter, 0, new_text)
+        else:
+            print new_text, 'Does not contain a palmerston north offering'
+    except:
+        if len(new_text) == 0:
+            planstore.set_value(niter, 2, new_text)
+        else:
+            print new_text, 'is not a valid paper'
+    pass
+
+
+def on_plancell_edit_2(renderer, npath, new_text, *data):
+    print data, npath
+    niter = planstore.get_iter_from_string(npath)
+    try:
+        paper = PAPERS[new_text]
+        
+        if len([x for x in paper['offerings']
+                if str(x[1].lower()) == 'pnth']) > 0  or len(new_text) == 0:
+            planstore.set_value(niter, 1, new_text)
+        else:
+            print new_text, 'Does not contain a palmerston north offering'
+    except:
+        if len(new_text) == 0:
+            planstore.set_value(niter, 2, new_text)
+        else:
+            print new_text, 'is not a valid paper'
+    pass
+
+
+def on_plancell_edit_3(renderer, npath, new_text, *data):
+    print data, npath
+    niter = planstore.get_iter_from_string(npath)
+    try:
+        paper = PAPERS[new_text]
+        
+        if len([x for x in paper['offerings']
+                if str(x[1].lower()) == 'pnth']) > 0:
+            planstore.set_value(niter, 2, new_text)
+        else:
+            print new_text, 'Does not contain a palmerston north offering'
+    except:
+        if len(new_text) == 0:
+            planstore.set_value(niter, 2, new_text)
+        else:
+            print new_text, 'is not a valid paper'
+
 
 
 if __name__ == '__main__':
@@ -246,13 +310,17 @@ def check_programme(modal):
                 missing.append((str(x), major, copy.deepcopy(operators.missing), result,))
             operators.reset_missing()
     for code in programme:
-        rule = PAPERS[code]['prerequisites']
-        if rule != None:
-            result = rule.check(programme)
-            if not result:
-                missing.append((str(rule), code, copy.deepcopy(operators.missing), result,))
+        try:
+            rule = PAPERS[code]['prerequisites']
+        except:
+            pass
+        else:
+            if rule != None:
+                result = rule.check(programme)
+                if not result:
+                    missing.append((str(rule), code, copy.deepcopy(operators.missing), result,))
                         
-            operators.reset_missing()
+                operators.reset_missing()
     max_columns = 1
     rulestore.clear()
     for missed in missing:
@@ -269,7 +337,7 @@ def on_rule_selected(tree):#, str_path, new_iter, *data):
     report_tree.set_model(None)
     store, store_iter = tree.get_selection().get_selected()
     store_path = store.get_path(store_iter)
-    #print 'rule_selected', store, store_iter, store_path[0]#, str_path, new_iter, data
+
     data = missing[store_path[0]]
     if len(data[2]) == 0:
         print 'returning as length of missing papers is', len(data[2])
@@ -310,13 +378,15 @@ def on_rule_selected(tree):#, str_path, new_iter, *data):
         str_render = gtk.CellRendererText()
         str_column = gtk.TreeViewColumn("Paper", str_render, text=range(len(tmp))[1::2][x])
         report_tree.append_column(str_column)
-        bool_render = gtk.CellRendererToggle()
-        #bool_render.set_radio(False)
-        
-        bool_render.connect('toggled', on_paper_missing_toggled, range(len(tmp))[2::2][x], reportstore)
         bool_column = gtk.TreeViewColumn("Enrol?")
-        bool_column.pack_start(bool_render)
-        bool_column.add_attribute(bool_render, 'active', int(range(len(tmp))[2::2][x]))
+
+        if 'x' not in tmp[range(len(tmp))[1::2][x]]:
+            bool_render = gtk.CellRendererToggle()
+            #bool_render.set_radio(False)
+        
+            bool_render.connect('toggled', on_paper_missing_toggled, range(len(tmp))[2::2][x], reportstore)
+            bool_column.pack_start(bool_render)
+            bool_column.add_attribute(bool_render, 'active', int(range(len(tmp))[2::2][x]))
         
             
         #bool_column.set_clickable(True)
@@ -467,7 +537,7 @@ def fillinplan():
     
 
 if __name__ == "__main__":
-    sigs = builder.connect_signals({'gtk_main_quit': gtk.main_quit, 'on_year_cellcombo_3_changed': on_year_cellcombo_3_changed, 'on_year_cellcombo_2_changed':on_year_cellcombo_2_changed, 'on_year_cellcombo_1_changed': on_year_cellcombo_1_changed, 'on_planstore_row_changed': on_planstore_row_changed, 'on_rule_selected': on_rule_selected, 'cancel_action_activate_cb': cancel_action_activate_cb, 'apply_action_activate_cb': apply_action_activate_cb, 'on_possible_activated': widgets.on_possible_activated })
+    sigs = builder.connect_signals({'gtk_main_quit': gtk.main_quit, 'on_year_cellcombo_3_changed': on_year_cellcombo_3_changed, 'on_year_cellcombo_2_changed':on_year_cellcombo_2_changed, 'on_year_cellcombo_1_changed': on_year_cellcombo_1_changed, 'on_planstore_row_changed': on_planstore_row_changed, 'on_rule_selected': on_rule_selected, 'cancel_action_activate_cb': cancel_action_activate_cb, 'apply_action_activate_cb': apply_action_activate_cb, 'on_possible_activated': widgets.on_possible_activated, 'on_plancell_edit_1': on_plancell_edit_1, 'on_plancell_edit_2': on_plancell_edit_2, 'on_plancell_edit_3': on_plancell_edit_3 })
 
     fillinplan()
     

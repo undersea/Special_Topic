@@ -365,7 +365,8 @@
         </restriction>
       </paper>
       <paper code="p159.333">
-        <code>159.333</code><name>Project Implementation</name>
+        <code>159.333</code>
+        <name>Project Implementation</name>
         <points>15</points><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
         <!--P P PD-->
       </paper>
@@ -493,7 +494,7 @@
       </paper>
       <paper code="p122.102">
         <code>122.102</code> 	
-        <name>ochemistry of Cells</name>
+        <name>Biochemistry of Cells</name>
         <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
  	<prerequisite>
           <code>123.101</code>

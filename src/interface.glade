@@ -125,8 +125,22 @@
     <data>
       <row>
         <col id="0" translatable="yes">Rules put here</col>
-        <col id="1" translatable="yes"/>
-        <col id="2" translatable="yes"/>
+        <col id="1" translatable="yes"></col>
+        <col id="2" translatable="yes"></col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkListStore" id="degree_choice_store">
+    <columns>
+      <!-- column-name degree -->
+      <column type="gchararray"/>
+      <!-- column-name major -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">BSc</col>
+        <col id="1" translatable="yes">Computer Science</col>
       </row>
     </data>
   </object>
@@ -154,17 +168,16 @@
                     <property name="search_column">0</property>
                     <property name="level_indentation">4</property>
                     <property name="enable_grid_lines">both</property>
+                    <signal name="cursor_changed" handler="on_plan_cursor_changed"/>
                     <child>
                       <object class="GtkTreeViewColumn" id="year_column_1">
                         <property name="title">Year 1</property>
                         <property name="expand">True</property>
                         <property name="clickable">True</property>
                         <child>
-                          <object class="GtkCellRendererCombo" id="year_cellcombo_1">
+                          <object class="GtkCellRendererText" id="year_cellcombo_1">
                             <property name="editable">True</property>
-                            <property name="has_entry">False</property>
-                            <property name="text_column">0</property>
-                            <signal name="changed" handler="on_year_cellcombo_1_changed"/>
+                            <signal name="edited" handler="on_plancell_edit_1" object="int(0)"/>
                           </object>
                           <attributes>
                             <attribute name="text">0</attribute>
@@ -178,11 +191,9 @@
                         <property name="expand">True</property>
                         <property name="clickable">True</property>
                         <child>
-                          <object class="GtkCellRendererCombo" id="year_cellcombo_2">
+                          <object class="GtkCellRendererText" id="year_cellcombo_2">
                             <property name="editable">True</property>
-                            <property name="has_entry">False</property>
-                            <property name="text_column">0</property>
-                            <signal name="changed" handler="on_year_cellcombo_2_changed"/>
+                            <signal name="edited" handler="on_plancell_edit_2" object="1"/>
                           </object>
                           <attributes>
                             <attribute name="text">1</attribute>
@@ -196,11 +207,9 @@
                         <property name="expand">True</property>
                         <property name="clickable">True</property>
                         <child>
-                          <object class="GtkCellRendererCombo" id="year_cellcombo_3">
+                          <object class="GtkCellRendererText" id="year_cellcombo_3">
                             <property name="editable">True</property>
-                            <property name="has_entry">False</property>
-                            <property name="text_column">0</property>
-                            <signal name="changed" handler="on_year_cellcombo_3_changed"/>
+                            <signal name="edited" handler="on_plancell_edit_3" object="2"/>
                           </object>
                           <attributes>
                             <attribute name="text">2</attribute>
@@ -325,6 +334,63 @@
                   <object class="GtkHBox" id="hbox1">
                     <property name="visible">True</property>
                     <child>
+                      <object class="GtkLabel" id="label1">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Degree</property>
+                      </object>
+                      <packing>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBox" id="combobox1">
+                        <property name="visible">True</property>
+                        <property name="model">degree_choice_store</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="cellrenderertext8"/>
+                          <attributes>
+                            <attribute name="text">0</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="label2">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Major</property>
+                      </object>
+                      <packing>
+                        <property name="position">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBox" id="combobox2">
+                        <property name="visible">True</property>
+                        <property name="model">degree_choice_store</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="cellrenderertext7"/>
+                          <attributes>
+                            <attribute name="text">1</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="position">3</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <placeholder/>
+                    </child>
+                    <child>
+                      <placeholder/>
+                    </child>
+                    <child>
+                      <placeholder/>
+                    </child>
+                    <child>
                       <placeholder/>
                     </child>
                     <child>
@@ -361,7 +427,7 @@
                         </child>
                       </object>
                       <packing>
-                        <property name="position">1</property>
+                        <property name="position">8</property>
                       </packing>
                     </child>
                   </object>
