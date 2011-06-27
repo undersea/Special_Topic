@@ -28,11 +28,11 @@
   </paper>
   <paper code="p117.152">
     <code>117.152</code><name>Animals and Agriculture</name>
-    <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+    <points>15</points><offering><mode>Distance</mode><campus/><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
   </paper>
   <paper code="p189.151">
     <code>189.151</code><name>Soil Properties and Processes</name>
-    <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+    <points>15</points><offering><mode>Distance</mode><campus/><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
     <restriction>
       <code>189.142</code>
     </restriction>
@@ -43,14 +43,14 @@
   </paper>
   <paper code="p283.101">
     <code>283.101</code><name>Plants in Agriculture</name>
-    <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Distance</mode><campus></campus><semester>Summer School</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+    <points>15</points><offering><mode>Distance</mode><campus/><semester>Double</semester></offering><offering><mode>Distance</mode><campus/><semester>Summer School</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
     <restriction>
       <code>171.102</code>
     </restriction>
   </paper>
   <paper code="p117.254">
         <code>117.254</code><name>Principles of Animal Science and Production</name>
-        <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+        <points>15</points><offering><mode>Distance</mode><campus/><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
         <prerequisite>
           <or>
             <code>194.101</code>
@@ -61,7 +61,7 @@
       </paper>
       <paper code="p119.258">
         <code>119.258</code><name>Agricultural Systems</name>
-        <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+        <points>15</points><offering><mode>Distance</mode><campus/><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
         <prerequisite>
           <or>
             <code>117.152</code>
@@ -72,7 +72,7 @@
       </paper>
       <paper code="p189.251">
         <code>189.251</code><name>Soil Fertility and Fertilisers</name>
-        <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+        <points>15</points><offering><mode>Distance</mode><campus/><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
         <prerequisite>
           <code>189.151</code>
         </prerequisite>
@@ -90,7 +90,7 @@
       </paper>
       <paper code="p283.201">
         <code>283.201</code><name>Pasture and Crop Agronomy</name>
-        <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+        <points>15</points><offering><mode>Distance</mode><campus/><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
         <prerequisite>
           <or>
             <code>171.102</code>
@@ -110,14 +110,14 @@
       </paper>
       <paper code="p117.344">
         <code>117.344</code><name>Animal Growth and Meat Production</name>
-        <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+        <points>15</points><offering><mode>Distance</mode><campus/><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
         <prerequisite>
           <code>117.254</code>
         </prerequisite>
       </paper>
       <paper code="p117.345">
         <code>117.345</code><name>Genetics for Livestock Improvement</name>
-        <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+        <points>15</points><offering><mode>Distance</mode><campus/><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
         <prerequisite>
           <or>
             <code>117.254</code>
@@ -194,7 +194,7 @@
       </paper>
       <paper code="p283.301">
         <code>283.301</code><name>Pasture Production and Practice</name>
-        <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Double</semester></offering>
+        <points>15</points><offering><mode>Distance</mode><campus/><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Double</semester></offering>
         <prerequisite>
           <code>171.202</code>
         </prerequisite>
@@ -215,7 +215,7 @@
       </paper>
       <paper code="p283.311">
         <code>283.311</code><name>Controlling Weeds</name>
-        <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Distance</mode><campus></campus><semester>Summer School</semester></offering><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+        <points>15</points><offering><mode>Distance</mode><campus/><semester>Double</semester></offering><offering><mode>Distance</mode><campus/><semester>Summer School</semester></offering><offering><mode>Distance</mode><campus/><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
         <prerequisite>
           <or>
             <code>120.101</code>
@@ -228,7 +228,7 @@
       </paper>
       <paper code="p285.301">
         <code>285.301</code><name>Controlling Plant Pests and Diseases</name>
-        <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+        <points>15</points><offering><mode>Distance</mode><campus/><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
         <prerequisite>
           <or>
             <code>171.284</code>
@@ -241,18 +241,30 @@
       </paper>
       <paper code="p159.101">
         <code>159.101</code><name>Programming Fundamentals</name>
-        <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+        <points>15</points>
+        <offering>
+          <mode>Distance</mode><campus/><semester>One</semester>
+        </offering>
+        <offering>
+          <mode>Internal</mode><campus>PNTH</campus><semester>One</semester>
+        </offering>
+        <offering>
+          <mode>Internal</mode><campus>AUCK</campus><semester>Two</semester>
+        </offering>
+          <offering>
+          <mode>Internal</mode><campus>AUCK</campus><semester>One</semester>
+        </offering>
       </paper>
       <paper code="p159.102">
         <code>159.102</code><name>Computer Science Fundamentals</name>
-        <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+        <points>15</points><offering><mode>Distance</mode><campus/><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
         <prerequisite>
           <code>159.101</code>
         </prerequisite>
       </paper>
       <paper code="p159.201">
         <code>159.201</code><name>Algorithms and Data Structures</name>
-        <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+        <points>15</points><offering><mode>Distance</mode><campus/><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
         <prerequisite>
           <code>159.101</code>
           <code>159.102</code>
@@ -263,7 +275,7 @@
       </paper>
       <paper code="p159.202">
         <code>159.202</code><name>Declarative Programming</name>
-        <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+        <points>15</points><offering><mode>Distance</mode><campus/><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
         <prerequisite>
           <code>159.101</code>
           <code>159.102</code>
@@ -274,7 +286,7 @@
       </paper>
       <paper code="p159.233">
         <code>159.233</code><name>Computer Architecture</name>
-        <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+        <points>15</points><offering><mode>Distance</mode><campus/><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
         <prerequisite>
           <code>159.101</code>
           <code>159.102</code>
@@ -301,17 +313,6 @@
           <code>159.102</code>
         </prerequisite>
       </paper>
-      <paper code="p159.253">
-        <code>159.253</code><name>Computer Systems</name>
-        <points>15</points>
-        <prerequisite>
-          <code>159.101</code>
-          <code>159.102</code>
-        </prerequisite>
-        <restriction>
-          <code>159.233</code>
-        </restriction>
-      </paper>
       <paper code="p159.254">
         <code>159.254</code><name>Software Engineering A</name>
         <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
@@ -324,7 +325,7 @@
       </paper>
       <paper code="p158.359">
         <code>158.359</code><name>Human-Computer Interaction</name>
-        <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+        <points>15</points><offering><mode>Distance</mode><campus/><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
         <prerequisite>
           <or>
             <code>157.2xx</code>
@@ -406,21 +407,11 @@
       </paper>
       <paper code="p159.351">
         <code>159.351</code><name>Software Engineering B</name>
-        <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+        <points>15</points><offering><mode>Distance</mode><campus/><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
         <prerequisite>
           <code>159.201</code>
           <code>159.254</code>
         </prerequisite>
-      </paper>
-      <paper code="p159.354">
-        <code>159.354</code><name>Architecture and Networks</name>
-        <points>15</points>
-        <prerequisite>
-          <code>159.253</code>
-        </prerequisite>
-        <restriction>
-          <code>159.334</code>
-        </restriction>
       </paper>
       <paper code="p159.355">
         <code>159.355</code><name>Concurrent Systems</name>
@@ -443,8 +434,19 @@
         </prerequisite>
       </paper>
       <paper code="p159.357">
-        <code>159.357</code><name>Formal Methods</name>
-        <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+        <code>159.357</code>
+        <name>Formal Methods</name>
+        <points>15</points>
+        <offering>
+          <mode>Distance</mode>
+          <campus/>
+          <semester>Two</semester>
+        </offering>
+        <offering>
+          <mode>Internal</mode>
+          <campus>PNTH</campus>
+          <semester>Two</semester>
+        </offering>
         <prerequisite>
           <or>
             <code>159.201</code>
@@ -475,7 +477,7 @@
       </paper>
       <paper code="p161.326">
         <code>161.326</code><name>Statistical Machine Learning</name>
-        <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+        <points>15</points><offering><mode>Distance</mode><campus/><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
         <prerequisite>
           <or>
             <and>
@@ -489,5 +491,1800 @@
           <code>159.302</code>
         </restriction>
       </paper>
-      
+      <paper code="p122.102">
+        <code>122.102</code> 	
+        <name>ochemistry of Cells</name>
+        <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+ 	<prerequisite>
+          <code>123.101</code>
+          <code>162.101</code>
+        </prerequisite>
+      </paper>
+      <paper code="p123.101">
+        <code>123.101</code>
+        <name>Chemistry and Living Systems</name>
+        <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Summer School</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+      </paper>
+      <paper code="p162.103">
+        <code>162.103</code>
+        <name>Introductory Biology</name>
+        <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Summer School</semester></offering>
+        <restriction>
+          <code>162.101</code>
+        </restriction>
+      </paper>
+      <paper code="p162.101">
+        <code>162.101</code>
+        <name>Biology of Cells</name>
+        <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+      </paper>
+      <paper code="p117.255">
+        <code>117.255</code>
+        <name>Animal Health, Behaviour and Welfare</name>
+        <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+        <prerequisite>
+          <or>
+            <code>194.101</code>
+            <code>199.101</code>
+            <code>119.154</code>
+          </or>
+        </prerequisite>
+        <restriction>
+          <code>195.251</code>
+        </restriction>
+      </paper>
+      <paper code="p122.233">
+        <code>122.233</code>
+        <name>Metabolic Biochemistry</name>
+        <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+        <prerequisite>
+          <code>122.102</code>
+        </prerequisite>
+      </paper>
+        <paper code="p194.241">
+          <code>194.241</code>
+          <name>Physiological Control Systems</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>194.101</code>
+          </prerequisite>
+        </paper>
+        <paper code="p117.361">
+          <code>117.361</code>
+          <name>Companion Animal Science</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>117.254</code>
+          </prerequisite>
+        </paper>
+        <paper code="p123.103">
+          <code>123.103</code>
+          <name>Introductory Chemistry</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Summer School</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          
+        </paper>
+        <paper code="p122.231">
+          <code>122.231</code>
+          <name>Genes and Gene Expression</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>162.101</code>
+          </prerequisite>
+        </paper>
+        <paper code="p122.232">
+          <code>122.232</code>
+          <name>Protein Biochemistry</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>122.102</code>
+          </prerequisite>
+          <!--R 122.342-->
+        </paper>
+        <paper code="p123.202">
+          <code>123.202</code>
+          <name>Organic and Biological Chemistry</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>123.101</code>
+          </prerequisite>
+        </paper>
+        <paper code="p123.204">
+          <code>123.204</code>
+          <name>Chemical and Biochemical Analysis</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <or>
+              <code>123.101</code>
+              <code>123.102</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p162.211">
+          <code>162.211</code>
+          <name>Biology and Genetics of Microorganisms</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>162.101</code>
+          </prerequisite>
+          <!--R 162.213-->
+        </paper>
+        <paper code="p122.322">
+          <code>122.322</code>
+          <name>Protein Structure and Function</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>122.232</code>
+          </prerequisite>
+          <!--R 122.342-->
+        </paper>
+        <paper code="p122.327">
+          <code>122.327</code>
+          <name>Cellular and Molecular Biochemistry</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>122.232</code>
+            <code>122.233</code>
+          </prerequisite>
+        </paper>
+        <paper code="p122.328">
+          <code>122.328</code>
+          <name>Genome Analysis</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>203.300</code>
+          </prerequisite>
+        </paper>
+        <paper code="p122.382">
+          <code>122.382</code>
+          <name>Clinical Biochemistry</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>122.233</code>
+          </prerequisite>
+          <!--R 122.381-->
+        </paper>
+        <paper code="p123.312">
+          <code>123.312</code>
+          <name>Advanced Organic Chemistry</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>123.202</code>
+            <code>123.204</code>
+          </prerequisite>
+        </paper>
+        <paper code="p123.326">
+          <code>123.326</code>
+          <name>Advanced Chemical Biology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>123.202</code>
+          </prerequisite>
+        </paper>
+        <paper code="p194.346">
+          <code>194.346</code>
+          <name>Control of Metabolism</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>194.242</code>
+            <code>122.233</code>
+          </prerequisite>
+        </paper>
+        <paper code="p203.300">
+          <code>203.300</code>
+          <name>DNA Technology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>122.231</code>
+          </prerequisite>
+        </paper>
+        <paper code="p203.303">
+          <code>203.303</code>
+          <name>Gene Regulation</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>203.300</code>
+          </prerequisite>
+        </paper>
+        <paper code="p203.307">
+          <code>203.307</code>
+          <name>Advanced Cell Biology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>162.101</code>
+            <code>122.231</code>
+            <code>122.232</code>
+            <code>122.233</code>
+          </prerequisite>
+        </paper>
+        <paper code="p247.300">
+          <code>247.300</code>
+          <name>Research in Biosciences</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Summer School</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Summer School</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <!--P P PD-->
+        </paper>
+        <paper code="p214.101">
+          <code>214.101</code>
+          <name>Human Bioscience: Normal Body Function</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Summer School</semester></offering><offering><mode>Internal</mode><campus>WLGN</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>194.101</code>
+            <code>194.241</code>
+            <code>194.242</code>
+          </prerequisite>
+        </paper>
+        <paper code="p214.201">
+          <code>214.201</code>
+          <name>Human Bioscience: Impaired Body Function</name>
+          <points>15</points><offering><mode>Block</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Distance</mode><campus></campus><semester>Summer School</semester></offering><offering><mode>Internal</mode><campus>WLGN</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>214.101</code>
+            <code>214.102</code>
+          </prerequisite>
+        </paper>
+        <paper code="p214.202">
+          <code>214.202</code>
+          <name>Pharmacology</name>
+          <points>15</points><offering><mode>Block</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Distance</mode><campus></campus><semester>Summer School</semester></offering><offering><mode>Internal</mode><campus>WLGN</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>214.101</code>
+            <code>214.102</code>
+          </prerequisite>
+        </paper>
+        <paper code="p203.341">
+          <code>203.341</code>
+          <name>Genetics and Evolution</name>
+          <points>15</points><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>122.231</code>
+          </prerequisite>
+          <!--R 122.326-->
+        </paper>
+        <paper code="p203.342">
+          <code>203.342</code>
+          <name>Molecular and Cellular Biology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>122.231</code>
+          </prerequisite>
+        </paper>
+        <paper code="p123.102">
+          <code>123.102</code>
+          <name>Chemistry and the Material World</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          
+        </paper>
+        <paper code="p162.212">
+          <code>162.212</code>
+          <name>The Microbial World</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>162.101</code>
+            <oneof>
+              <code>162.211</code>
+              <code>162.213</code>
+              <code>196.213</code>
+            </oneof>
+          </prerequisite>
+        </paper>
+        <paper code="p280.211">
+          <code>280.211</code>
+          <name>Process Technology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>122.102</code>
+            <code>123.101</code>
+          </prerequisite>
+          <!--R 142.211, 142.310, 280.310-->
+        </paper>
+        <paper code="p120.304">
+          <code>120.304</code>
+          <name>Plant Biotechnology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>120.101</code>
+            <code>122.231</code>
+          </prerequisite>
+          <!--R 120.216-->
+        </paper>
+        <paper code="p162.303">
+          <code>162.303</code>
+ 	<name>Immunology</name>
+ 	<points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+        <prerequisite>
+          <and>
+            <code>162.101</code>
+            <any>
+              <level>200</level>
+            </any>
+          </and>
+        </prerequisite>
+        <!--R 162.389-->
+      </paper>
+      <paper code="p162.307">
+        <code>162.307</code>
+ 	<name>Microbial Biotechnology</name>
+        <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+        <prerequisite>
+          <code>162.211</code>
+          <code>162.212</code>
+          <code>122.102</code>
+        </prerequisite>
+      </paper>
+      <paper code="p162.312">
+        <code>162.312</code>
+        <name>Molecular Microbiology</name>
+        <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+        <prerequisite>
+          <code>162.211</code>
+          <code>203.300</code>
+        </prerequisite>
+      </paper>
+      <paper code="p123.201">
+          <code>123.201</code>
+          <name>Chemical Energetics</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>123.102</code>
+          </prerequisite>
+        </paper>
+        <paper code="p123.203">
+          <code>123.203</code>
+          <name>Inorganic Chemistry and Modelling</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>123.102</code>
+          </prerequisite>
+        </paper>
+        <paper code="p123.311">
+          <code>123.311</code>
+          <name>Advanced Physical and Analytical Chemistry</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>123.201</code>
+            <code>123.204</code>
+          </prerequisite>
+        </paper>
+        <paper code="p123.313">
+          <code>123.313</code>
+          <name>Advanced Inorganic Chemistry</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>123.203</code>
+            <code>123.204</code>
+          </prerequisite>
+        </paper>
+        <paper code="p123.325">
+          <code>123.325</code>
+          <name>Advanced Materials and Nanoscience</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>123.201</code>
+          </prerequisite>
+          <!--R 142.431, 142.412, 280.412, 236.301-->
+        </paper>
+        <paper code="p121.103">
+          <code>121.103</code>
+          <name>New Zealand Environments</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          
+        </paper>
+        <paper code="p145.121">
+          <code>145.121</code>
+          <name>Introduction to Physical Geography</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          
+        </paper>
+        <paper code="p233.101">
+          <code>233.101</code>
+          <name>Introductory Earth Science</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          
+        </paper>
+        <paper code="p233.202">
+          <code>233.202</code>
+          <name>Earth Science Field Work I</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Summer School</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Summer School</semester></offering>
+          <prerequisite>
+            <or>
+              <code>233.101</code>
+              <code>145.121</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p233.205">
+          <code>233.205</code>
+          <name>Volcanology and Mineralogy</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>233.101</code>
+          </prerequisite>
+          <!--R 233.305-->
+        </paper>
+        <paper code="p233.250">
+          <code>233.250</code>
+          <name>Understanding New Zealand Geology</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>233.101</code>
+          </prerequisite>
+          <!--R 233.200, 233.207-->
+        </paper>
+        <paper code="p233.251">
+          <code>233.251</code>
+          <name>GIS and Remote Sensing</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <or>
+              <code>233.101</code>
+            <code>189.151</code>
+            <code>145.121</code>
+            <code>158.100</code>
+            </or>
+          </prerequisite>
+          <!--R 233.201, 233.204-->
+        </paper>
+        <paper code="p233.301">
+          <code>233.301</code>
+          <name>Advanced Remote Sensing</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <or>
+              <code>233.201</code>
+              <code>233.204</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p233.302">
+          <code>233.302</code>
+          <name>Earth Science Field Work III</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Summer School</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Summer School</semester></offering>
+          <prerequisite>
+            <code>233.202</code>
+          </prerequisite>
+        </paper>
+        <paper code="p233.310">
+          <code>233.310</code>
+          <name>Pedology and Quaternary Geology</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <or>
+              <code>233.200</code>
+              <code>189.252</code>
+            </or>
+          </prerequisite>
+          <!--R 233.210-->
+        </paper>
+        <paper code="p233.350">
+          <code>233.350</code>
+          <name>How the Earth Works</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <or>
+              <code>233.250</code>
+              <code>233.200</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p120.101">
+          <code>120.101</code>
+          <name>Biology of Plants</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          
+        </paper>
+        <paper code="p199.101">
+          <code>199.101</code>
+          <name>Biology of Animals</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          
+        </paper>
+        <paper code="p120.218">
+          <code>120.218</code>
+          <name>The Flora of New Zealand</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>120.101</code>
+          </prerequisite>
+        </paper>
+        <paper code="p188.263">
+          <code>188.263</code>
+          <name>Environmental Science I</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>121.103</code>
+          </prerequisite>
+        </paper>
+        <paper code="p196.205">
+          <code>196.205</code>
+          <name>Ecology and Conservation</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <or>
+              <code>199.101</code>
+              <code>120.101</code>
+              <code>121.103</code>
+              <code>161.1xx</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p196.207">
+          <code>196.207</code>
+          <name>Biological Evolution</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>162.101</code>
+          </prerequisite>
+        </paper>
+        <paper code="p196.213">
+          <code>196.213</code>
+          <name>Microbial Ecology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>162.101</code>
+          </prerequisite>
+          <!--R 162.213-->
+        </paper>
+        <paper code="p199.206">
+          <code>199.206</code>
+          <name>The Fauna of New Zealand</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>199.101</code>
+          </prerequisite>
+        </paper>
+        <paper code="p196.313">
+          <code>196.313</code>
+          <name>Limnology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <!--P two 199.2xx/196.2xx papers-->
+        </paper>
+        <paper code="p196.315">
+          <code>196.315</code>
+          <name>Applied Ecology and Resource Management</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>196.205</code>
+          </prerequisite>
+        </paper>
+        <paper code="p196.316">
+          <code>196.316</code>
+          <name>New Zealand Plant Ecology</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>120.218</code>
+            <code>196.205</code>
+          </prerequisite>
+        </paper>
+        <paper code="p196.317">
+          <code>196.317</code>
+          <name>Community and Ecosystem Ecology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <!--P two 199.2xx/196.2xx papers-->
+        </paper>
+        <paper code="p196.318">
+          <code>196.318</code>
+          <name>Molecular Ecology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>162.101</code>
+            <code>122.231</code>
+            <oneof>
+              <code>120.2xx</code>
+              <code>196.2xx</code>
+              <code>199.2xx</code>
+            </oneof>
+          </prerequisite>
+        </paper>
+        <paper code="p196.321">
+          <code>196.321</code>
+          <name>Vegetation Studies in New Zealand</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Summer School</semester></offering>
+          <prerequisite>
+            <code>120.218</code>
+            <code>196.205</code>
+          </prerequisite>
+        </paper>
+        <paper code="p196.325">
+          <code>196.325</code>
+          <name>Marine Biology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <!--P 199.101; any 200-level biol.sci. paper-->
+        </paper>
+        <paper code="p120.303">
+          <code>120.303</code>
+          <name>Plant Biodiversity</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>120.218</code>
+          </prerequisite>
+        </paper>
+        <paper code="p188.363">
+          <code>188.363</code>
+          <name>Environmental Science II</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>188.263</code>
+            <!--and either (a) practical work related to land use systems, or (b) -->
+            <oneof>
+              <code>111.251</code>
+              <code>119.258</code>
+              <code>119.259</code>
+              <code>171.202</code>
+              <code>196.205</code>
+            </oneof>
+          </prerequisite>
+        </paper>
+        <paper code="p199.310">
+          <code>199.310</code>
+          <name>Entomology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <!--P two 199.2xx/196.2xx papers-->
+        </paper>
+        <paper code="p199.312">
+          <code>199.312</code>
+          <name>Behavioural Ecology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <!--P two 199.2xx/196.2xx papers-->
+        </paper>
+        <paper code="p199.317">
+          <code>199.317</code>
+          <name>Animal Biodiversity</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>196.207</code>
+          </prerequisite>
+        </paper>
+        <paper code="p283.322">
+          <code>283.322</code>
+          <name>Landscape Revegetation</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering>
+          <prerequisite>
+            <any>
+              <level>200</level>
+            </any>
+          </prerequisite>
+        </paper>
+        <paper code="p161.130">
+          <code>161.130</code>
+          <name>Introductory Biostatistics</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <!--Note 1, R 161.100, 161.110, 161.120, 195.101-->
+        </paper>
+        <paper code="p121.211">
+          <code>121.211</code>
+          <name>New Zealand Environmental Issues</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <or>
+              <code>121.103</code>
+              <code>145.111</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p121.212">
+          <code>121.212</code>
+          <name>Environmental Science Field Work I</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Double</semester></offering>
+          <prerequisite>
+            <code>121.103</code>
+          </prerequisite>
+          <!--C 121.211-->
+        </paper>
+        <paper code="p121.311">
+          <code>121.311</code>
+          <name>Global Environmental Issues</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>121.103</code>
+          </prerequisite>
+        </paper>
+        <paper code="p121.312">
+          <code>121.312</code>
+          <name>Environmental Science Field Work II</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Double</semester></offering>
+          <prerequisite>
+            <code>121.103</code>
+          </prerequisite>
+          <!--C 121.311-->
+        </paper>
+        <paper code="p214.170">
+          <code>214.170</code>
+          <name>Structural Kinesiology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>WLGN</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          
+        </paper>
+        <paper code="p151.232">
+          <code>151.232</code>
+          <name>Nutrition and Metabolism</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>123.101</code>
+            <code>122.102</code>
+          </prerequisite>
+        </paper>
+        <paper code="p194.242">
+          <code>194.242</code>
+          <name>Physiology of Mammalian Organ Systems</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>194.101</code>
+          </prerequisite>
+        </paper>
+        <paper code="p234.201">
+          <code>234.201</code>
+          <name>Sport Biomechanics I</name>
+          <points>15</points><offering><mode>Internal</mode><campus>WLGN</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>214.170</code>
+          </prerequisite>
+        </paper>
+        <paper code="p214.270">
+          <code>214.270</code>
+          <name>Applied Sport Science</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>162.101</code>
+            <code>194.101</code>
+            <code>214.171</code>
+          </prerequisite>
+          <!--R 194.244, 234.202-->
+        </paper>
+        <paper code="p234.203">
+          <code>234.203</code>
+          <name>Exercise Physiology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>194.101</code>
+          </prerequisite>
+        </paper>
+        <paper code="p128.300">
+          <code>128.300</code>
+          <name>Ergonomics/Human Factors: Work, Performance, Health and Design</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering>
+          <prerequisite>
+            <any>
+              <level>200</level>
+            </any>
+          </prerequisite>
+        </paper>
+        <paper code="p151.332">
+          <code>151.332</code>
+          <name>Nutrition for Sport and Performance</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>151.232</code>
+          </prerequisite>
+        </paper>
+        <paper code="p194.350">
+          <code>194.350</code>
+          <name>Human Lifecycle Physiology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>194.241</code>
+            <code>194.242</code>
+          </prerequisite>
+        </paper>
+        <paper code="p234.301">
+          <code>234.301</code>
+          <name>Sport Biomechanics II</name>
+          <points>15</points><offering><mode>Internal</mode><campus>WLGN</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>234.201</code>
+          </prerequisite>
+          <!--R 194.351-->
+        </paper>
+        <paper code="p234.302">
+          <code>234.302</code>
+          <name>Investigating Sports Performance</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <oneof>
+              <code>234.301</code>
+              <code>234.303</code>
+              <code>234.304</code>
+              <code>151.332</code>
+            </oneof>
+          </prerequisite>
+          <!--R 194.352-->
+        </paper>
+        <paper code="p234.303">
+          <code>234.303</code>
+          <name>Exercise Physiology II</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>234.203</code>
+          </prerequisite>
+        </paper>
+        <paper code="p234.304">
+          <code>234.304</code>
+          <name>Applied Human Physiology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <!--two of -->
+            <or>
+              <and>
+                <code>194.241</code>
+                <code>194.242</code>
+              </and>
+              <and>
+                <code>194.241</code>
+                <code>234.203</code>
+              </and>
+              <and>
+                <code>194.242</code>
+                <code>234.203</code>
+              </and>
+            </or>
+          </prerequisite>
+          <!--R 194.347-->
+        </paper>
+        <paper code="p203.202">
+          <code>203.202</code>
+          <name>Genetic Analysis</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>162.101</code>
+          </prerequisite>
+        </paper>
+        <paper code="p203.203">
+          <code>203.203</code>
+          <name>Human Genetics</name>
+          <points>15</points><offering><mode>Block</mode><campus>AUCK</campus><semester>One</semester></offering><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>162.101</code>
+          </prerequisite>
+        </paper>
+        <paper code="p203.305">
+          <code>203.305</code>
+          <name>Advanced Practical Genetics</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>203.202</code>
+            <code>203.300</code>
+          </prerequisite>
+        </paper>
+        <paper code="p120.302">
+          <code>120.302</code>
+          <name>Plant Development</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>120.101</code>
+          </prerequisite>
+        </paper>
+        <paper code="p145.111">
+          <code>145.111</code>
+          <name>Society, Environment and Place</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          
+        </paper>
+        <paper code="p145.201">
+          <code>145.201</code>
+          <name>Geographical Research Techniques</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <!--P any 100-level BA or BSc paper-->
+        </paper>
+        <paper code="p145.213">
+          <code>145.213</code>
+          <name>Resource Conservation and Sustainability</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering>
+          <!--P any 100-level BA or BSc paper, R 145.313-->
+        </paper>
+        <paper code="p145.214">
+          <code>145.214</code>
+          <name>Social Change and Environment</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <!--P any 100-level BA or BSc paper-->
+        </paper>
+        <paper code="p145.216">
+          <code>145.216</code>
+          <name>Urban Environments</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <!--P any 100-level BA or BSc paper-->
+        </paper>
+        <paper code="p145.218">
+          <code>145.218</code>
+          <name>Development and Inequality</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering>
+          <!--P any 100-level BA or BSc paper-->
+        </paper>
+        <paper code="p145.222">
+          <code>145.222</code>
+          <name>Rivers and Slopes</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>145.121</code>
+          </prerequisite>
+        </paper>
+        <paper code="p145.223">
+          <code>145.223</code>
+          <name>Climate Change and Natural Hazards</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <!--P any 100-level BA or BSc paper, R 145.325-->
+        </paper>
+        <paper code="p145.224">
+          <code>145.224</code>
+          <name>Biogeography</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering>
+          <!--P any 100-level BA or BSc paper R 145.324-->
+        </paper>
+        <paper code="p145.225">
+          <code>145.225</code>
+          <name>Glaciers and Glaciation</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>145.121</code>
+          </prerequisite>
+        </paper>
+        <paper code="p145.301">
+          <code>145.301</code>
+          <name>Research Practice in Human Geography</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <!--P any 200-level BA or BSc paper-->
+        </paper>
+        <paper code="p145.303">
+          <code>145.303</code>
+          <name>Field Work: Alpine Physical Geography</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Summer School</semester></offering>
+          <prerequisite>
+            <or>
+              <code>145.221</code>
+              <code>145.222</code>
+              <!--(or equivalent)-->
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p145.304">
+          <code>145.304</code>
+          <name>Applied Field Geomorphology</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering>
+          <prerequisite>
+            <or>
+              <code>145.222</code>
+              <code>145.223</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p145.311">
+          <code>145.311</code>
+          <name>Geographies of Globalisation</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <!--P any 200-level BA or BSc paper-->
+        </paper>
+        <paper code="p145.318">
+          <code>145.318</code>
+          <name>Geopolitics</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <!--P any 200-level BA or BSc paper-->
+        </paper>
+        <paper code="p145.320">
+          <code>145.320</code>
+          <name>Quaternary Biogeography and Environmental Change</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <or>
+              <code>145.223</code>
+              <code>145.224</code>
+            </or>
+          </prerequisite>
+          <!--R 145.302-->
+        </paper>
+        <paper code="p145.327">
+          <code>145.327</code>
+          <name>River Dynamics</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>145.222</code>
+          </prerequisite>
+        </paper>
+        <paper code="p214.131">
+          <code>214.131</code>
+          <name>Introduction to Food and Nutrition</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          
+        </paper>
+        <paper code="p151.231">
+          <code>151.231</code>
+          <name>Food Chemistry for Nutrition</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>123.101</code>
+          </prerequisite>
+        </paper>
+        <paper code="p202.251">
+          <code>202.251</code>
+          <name>Principles of Epidemiology in Human Populations</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <!--P any 100-level paper from the BMLSc or BSc Schedule-->
+        </paper>
+        <paper code="p151.331">
+          <code>151.331</code>
+          <name>Maternal and Child Nutrition</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>151.232</code>
+          </prerequisite>
+        </paper>
+        <paper code="p151.333">
+          <code>151.333</code>
+          <name>Adult Nutrition and Positive Ageing</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>151.232</code>
+          </prerequisite>
+        </paper>
+        <paper code="p151.334">
+          <code>151.334</code>
+          <name>Nutritional Science and Eating Behaviour</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>151.232</code>
+          </prerequisite>
+        </paper>
+        <paper code="p160.101">
+          <code>160.101</code>
+          <name>Calculus I</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <or>
+              <code>160.103</code>
+              <code>160.131 </code>
+            <!--or appropriate school background-->
+            </or>
+          </prerequisite>
+            <!--R 160.161-->
+        </paper>
+        <paper code="p160.102">
+          <code>160.102</code>
+          <name>Linear Mathematics</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          
+        </paper>
+        <paper code="p160.103">
+          <code>160.103</code>
+          <name>Methods of Mathematics</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Summer School</semester></offering><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <!--R 160.131-->
+        </paper>
+        <paper code="p160.131">
+          <code>160.131</code>
+          <name>Mathematics for Business I</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <!--R 160.103, 160.231-->
+        </paper>
+        <paper code="p160.203">
+          <code>160.203</code>
+          <name>Calculus II</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <or>
+              <code>160.101</code>
+              <code>160.161</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p160.204">
+          <code>160.204</code>
+          <name>Differential Equations I</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>160.101</code>
+            <code>160.161</code>
+          </prerequisite>
+        </paper>
+        <paper code="p160.211">
+          <code>160.211</code>
+          <name>Applied Linear Algebra</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>160.102</code>
+          </prerequisite>
+        </paper>
+        <paper code="p160.212">
+          <code>160.212</code>
+          <name>Discrete Mathematics</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <or>
+              <code>160.101</code>
+              <code>160.102</code>
+              <code>157.111</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p161.200">
+          <code>161.200</code>
+          <name>Statistical Models</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>160.101</code>
+            <or>
+              <code>115.101</code>
+              <code>161.1xx</code>
+            </or> 
+          </prerequisite>
+          <!--R 161.231-->
+        </paper>
+        <paper code="p160.301">
+          <code>160.301</code>
+          <name>Analysis</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>160.203</code>
+          </prerequisite>
+        </paper>
+        <paper code="p160.302">
+          <code>160.302</code>
+          <name>Algebra</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>160.102</code>
+            <code>160.212</code>
+          </prerequisite>
+        </paper>
+        <paper code="p160.314">
+          <code>160.314</code>
+          <name>Combinatorics</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>160.212</code>
+          </prerequisite>
+        </paper>
+        <paper code="p160.317">
+          <code>160.317</code>
+          <name>Methods of Mathematical Physics</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>160.203</code>
+          </prerequisite>
+        </paper>
+        <paper code="p160.318">
+          <code>160.318</code>
+          <name>Differential Equations II</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>160.203</code>
+            <code>160.204</code>
+          </prerequisite>
+        </paper>
+        <paper code="p160.319">
+          <code>160.319</code>
+          <name>Mathematical Modelling</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>160.204</code>
+            <code>160.211</code>
+          </prerequisite>
+        </paper>
+        <paper code="p160.320">
+          <code>160.320</code>
+          <name>Mathematics in Education</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>160.2xx</code>
+          </prerequisite>
+        </paper>
+        <paper code="p160.380">
+          <code>160.380</code>
+          <name>Project</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <!--P P PD-->
+        </paper>
+        <paper code="p162.283">
+          <code>162.283</code>
+          <name>Medical Microbiology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>162.211</code>
+          </prerequisite>
+        </paper>
+        <paper code="p162.301">
+          <code>162.301</code>
+          <name>Advanced Medical Microbiology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>162.212</code>
+            <code>162.283</code>
+            <code>122.102</code>
+            <or>
+              <code>162.211</code>
+              <code>141.222</code>
+            </or>
+          </prerequisite>
+          <!--C 162.303-->
+          <!--R 162.384-->
+        </paper>
+        <paper code="p162.305">
+          <code>162.305</code>
+          <name>Food Microbiology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>162.212</code>
+            <code>122.102</code>
+            <or>
+              <code>162.211</code>
+              <code>141.222</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p124.101">
+          <code>124.101</code>
+          <name>Physics I(a)</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <!--R 124.111-->
+        </paper>
+        <paper code="p124.102">
+          <code>124.102</code>
+          <name>Physics I(b)</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          
+        </paper>
+        <paper code="p124.226">
+          <code>124.226</code>
+          <name>Quantum and Statistical Physics</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>124.101</code>
+            <code>124.102</code>
+            <code>160.101</code>
+          </prerequisite>
+        </paper>
+        <paper code="p124.230">
+          <code>124.230</code>
+          <name>Biophysics</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <or>
+              <code>124.101</code>
+              <code>123.111</code>
+            </or>
+            <or>
+              <code>123.101</code>
+              <code>124.102</code>
+              <code>123.102</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p124.233">
+          <code>124.233</code>
+          <name>Classical Mechanics and Waves</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+             <code>124.102</code>
+             <code>160.101</code>
+             <or>
+               <code>124.101</code>
+               <code>124.111</code>
+             </or>
+          </prerequisite>
+          <!--R 124.228-->
+        </paper>
+        <paper code="p236.201">
+          <code>236.201</code>
+          <name>Nanoscience</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>123.102</code>
+            <code>124.101 </code>
+          </prerequisite>
+          <!--R 142.312, 280.312-->
+        </paper>
+        <paper code="p124.325">
+          <code>124.325</code>
+          <name>Advanced Quantum Physics</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>124.226</code>
+            <code>124.233</code>
+            <code>160.203</code>
+          </prerequisite>
+        </paper>
+        <paper code="p124.327">
+          <code>124.327</code>
+          <name>Modern Statistical Physics and Thermodynamics</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>124.226</code>
+            <code>160.203</code>
+          </prerequisite>
+        </paper>
+        <paper code="p236.301">
+          <code>236.301</code>
+          <name>Advanced Nanoscience</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>236.201</code>
+          </prerequisite>
+          <!--R 142.412, 280.412, 123.325-->
+        </paper>
+        <paper code="p236.302">
+          <code>236.302</code>
+          <name>Nanoscience Research Project</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Double</semester></offering>
+          <prerequisite>
+            <code>236.201</code>
+            <!--and 3 other 200-level papers from BSc(Nano) schedule.-->
+          </prerequisite>
+        </paper>
+        <paper code="p124.100">
+          <code>124.100</code>
+          <name>Foundations of Physics</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Summer School</semester></offering>
+          <!--R 119.153, 124.101, 124.111-->
+        </paper>
+        <paper code="p124.111">
+          <code>124.111</code>
+          <name>Physics for Life Sciences</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <!--R 124.101-->
+        </paper>
+        <paper code="p124.129">
+          <code>124.129</code>
+          <name>Astronomy</name>
+          <points>15</points><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          
+        </paper>
+        <paper code="p124.229">
+          <code>124.229</code>
+          <name>Special Relativity and Cosmology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <or>
+              <code>124.101</code>
+              <code>124.111</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p124.241">
+          <code>124.241</code>
+          <name>Analogue Electronics</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <or>
+              <code>124.101</code>
+              <code>124.111</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p124.242">
+          <code>124.242</code>
+          <name>Digital Electronics</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <or>
+              <code>124.101</code>
+              <code>124.111</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p124.316">
+          <code>124.316</code>
+          <name>Advanced Experimental Physics</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <!--two of 124.226, 124.288, 124.229, 124.230, 124.233 (from 2010) or-->
+            <code>124.216</code>
+          </prerequisite>
+        </paper>
+        <paper code="p124.328">
+          <code>124.328</code>
+          <name>Applied Electromagnetism</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>160.203</code>
+            <or>
+              <code>124.233</code>
+              <code>124.228</code>
+            </or>
+          </prerequisite>
+          <!--R 124.326-->
+        </paper>
+        <paper code="p124.344">
+          <code>124.344</code>
+          <name>Signals and Information</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>124.242</code>
+            <code>160.204</code>
+          </prerequisite>
+        </paper>
+        <paper code="p124.345">
+          <code>124.345</code>
+          <name>Microelectronic Circuits</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>124.241</code>
+            <code>124.242</code>
+          </prerequisite>
+        </paper>
+        <paper code="p194.243">
+          <code>194.243</code>
+          <name>Physiological Strategies for Survival</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <or>
+              <code>194.101</code>
+              <code>199.101</code>
+            </or>
+          </prerequisite>
+          <!--R 194.245-->
+        </paper>
+        <paper code="p194.245">
+          <code>194.245</code>
+          <name>Animal Form and Function</name>
+          <points>15</points><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <or>
+              <code>194.101</code>
+              <code>199.101</code>
+            </or>
+          </prerequisite>
+          <!--R 194.243-->
+        </paper>
+        <paper code="p194.343">
+          <code>194.343</code>
+          <name>Applied Physiology and Animal Welfare</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <!--P two of 194.241-194.243-->
+        </paper>
+        <paper code="p194.344">
+          <code>194.344</code>
+          <name>Nerves and the Nervous System</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>194.241</code>
+            <code>194.242</code>
+            <code>194.243</code>
+          </prerequisite>
+        </paper>
+        <paper code="p194.345">
+          <code>194.345</code>
+          <name>Comparative Physiology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <or>
+              <code>194.241</code>
+              <code>194.242</code>
+              <code>194.243</code>
+              <code>199.212</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p284.101">
+          <code>284.101</code>
+          <name>Production Horticulture</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <!--R 171.127, 171.128-->
+        </paper>
+        <paper code="p120.217">
+          <code>120.217</code>
+          <name>Plant, Cell and Environment</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <or>
+              <and>
+                <code>120.101</code>
+                <code>162.101</code>
+              </and>
+              <code>119.154</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p284.201">
+          <code>284.201</code>
+          <name>Horticultural Production Systems</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <or>
+              <code>171.128</code>
+              <code>284.101</code>
+              <code>171.127</code>
+            </or>
+          </prerequisite>
+          <!--R 171.227-->
+        </paper>
+        <paper code="p284.301">
+          <code>284.301</code>
+          <name>Horticultural Crop Development and Yield</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>171.227</code>
+            <code>284.201</code>
+          </prerequisite>
+          <!--R 171.351-->
+        </paper>
+        <paper code="p284.342">
+          <code>284.342</code>
+          <name>Horticultural Productivity and Quality</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>171.227</code>
+            <code>284.201 </code>
+          </prerequisite>
+          <!--R 171.352-->
+        </paper>
+        <paper code="p285.341">
+          <code>285.341</code>
+          <name>Applied Plant Physiology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>120.217</code>
+          </prerequisite>
+          <!--R 171.346-->
+        </paper>
+        <paper code="p175.102">
+          <code>175.102</code>
+          <name>Psychology as a Natural Science</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>WLGN</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          
+        </paper>
+        <paper code="p175.201">
+          <code>175.201</code>
+          <name>Social Psychology</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>WLGN</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <!--P any 100-level BA or BHlthSci or BSc paper-->
+        </paper>
+        <paper code="p175.203">
+          <code>175.203</code>
+          <name>Introduction to Psychological Research</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>175.102</code>
+          </prerequisite>
+        </paper>
+        <paper code="p175.205">
+          <code>175.205</code>
+          <name>Brain and Behaviour</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Double</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>175.102</code>
+          </prerequisite>
+        </paper>
+        <paper code="p175.206">
+          <code>175.206</code>
+          <name>Memory and Cognition</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>175.102</code>
+          </prerequisite>
+        </paper>
+        <paper code="p175.210">
+          <code>175.210</code>
+          <name>Ng&#257; Tirohanga Rua o te Taha Hinengaro: Bicultural Perspectives in Psychology</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <!--P any 100-level BA or BHlthSci or BSc paper, R 175.312-->
+        </paper>
+        <paper code="p175.301">
+          <code>175.301</code>
+          <name>Community Psychology</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>175.203</code>
+          </prerequisite>
+        </paper>
+        <paper code="p175.302">
+          <code>175.302</code>
+          <name>Abnormal and Therapeutic Psychology</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>175.203</code>
+          </prerequisite>
+        </paper>
+        <paper code="p175.303">
+          <code>175.303</code>
+          <name>The Practice of Psychological Research</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>175.203</code>
+          </prerequisite>
+        </paper>
+        <paper code="p175.306">
+          <code>175.306</code>
+          <name>Assessment of Individual Differences</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>175.203</code>
+          </prerequisite>
+        </paper>
+        <paper code="p175.309">
+          <code>175.309</code>
+          <name>Forensic Psychology</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>175.203</code>
+          </prerequisite>
+        </paper>
+        <paper code="p175.311">
+          <code>175.311</code>
+          <name>Psychology of Women</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>175.203</code>
+          </prerequisite>
+        </paper>
+        <paper code="p175.316">
+          <code>175.316</code>
+          <name>Evolution, Culture and Mind</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>175.203</code>
+          </prerequisite>
+          <!--R 175.202-->
+        </paper>
+        <paper code="p175.317">
+          <code>175.317</code>
+          <name>Health Psychology</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>175.203</code>
+          </prerequisite>
+        </paper>
+        <paper code="p175.318">
+          <code>175.318</code>
+          <name>Experimental Psychology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Double</semester></offering>
+          <prerequisite>
+            <code>175.203</code>
+            <code>175.205</code>
+            <code>175.206</code>
+          </prerequisite>
+        </paper>
+        <paper code="p175.343">
+          <code>175.343</code>
+          <name>Personnel Psychology and Career Development</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>175.203</code>
+          </prerequisite>
+        </paper>
+        <paper code="p175.345">
+          <code>175.345</code>
+          <name>Organisational Psychology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>175.203</code>
+          </prerequisite>
+        </paper>
+        <paper code="p161.100">
+          <code>161.100</code>
+          <name>Principles of Statistics</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <!--R 115.101, 161.110, 161.120, 161.130-->
+        </paper>
+        <paper code="p161.120">
+          <code>161.120</code>
+          <name>Introductory Statistics</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <!--R 115.101, 161.100, 161.110, 161.130-->
+        </paper>
+        <paper code="p161.220">
+          <code>161.220</code>
+          <name>Data Analysis</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Summer School</semester></offering><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <or>
+              <code>115.101</code>
+              <code>161.1xx</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p161.221">
+          <code>161.221</code>
+          <name>Applied Linear Models</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>161.1xx</code>
+          </prerequisite>
+          <!--R 161.320-->
+        </paper>
+        <paper code="p161.304">
+          <code>161.304</code>
+          <name>Advanced Statistical Modelling</name>
+          <points>15</points><offering><mode>Internal</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <or>
+              <code>161.200</code>
+              <code>161.231</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p161.321">
+          <code>161.321</code>
+          <name>Sampling and Experimental Design</name>
+          <points>15</points><offering><mode>Block</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>161.2xx</code>
+          </prerequisite>
+        </paper>
+        <paper code="p161.322">
+          <code>161.322</code>
+          <name>Survey Design, Implementation and Analysis</name>
+          <points>15</points><offering><mode>Block</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <or>
+              <code>161.200</code>
+              <code>161.220</code>
+              <code>161.223</code>
+              <code>161.231</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p161.323">
+          <code>161.323</code>
+          <name>Multivariate Analysis</name>
+          <points>15</points><offering><mode>Block</mode><campus>AUCK</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>161.2xx</code>
+          </prerequisite>
+        </paper>
+        <paper code="p161.324">
+          <code>161.324</code>
+          <name>Data Mining</name>
+          <points>15</points><offering><mode>Block</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <or>
+              <code>161.220</code>
+              <code>161.221</code>
+            </or>
+          </prerequisite>
+          <!--R 161.223-->
+        </paper>
+        <paper code="p161.325">
+          <code>161.325</code>
+          <name>Statistical Methods for Quality Improvement</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <or>
+              <code>161.200</code>
+              <code>161.220</code>
+              <code>161.230</code>
+              <code>161.240</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p161.331">
+          <code>161.331</code>
+          <name>Biostatistics</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <or>
+              <code>161.220</code>
+              <code>161.221</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p161.342">
+          <code>161.342</code>
+          <name>Forecasting and Time Series</name>
+          <points>15</points><offering><mode>Distance</mode><campus></campus><semester>One</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <or>
+              <code>161.220</code>
+              <code>161.230</code>
+            </or>
+          </prerequisite>
+        </paper>
+        <paper code="p199.204">
+          <code>199.204</code>
+          <name>Animal Behaviour</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>199.101</code>
+            <code>161.1xx</code>
+          </prerequisite>
+        </paper>
+        <paper code="p199.211">
+          <code>199.211</code>
+          <name>Invertebrate Zoology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>One</semester></offering>
+          <prerequisite>
+            <code>199.101</code>
+          </prerequisite>
+        </paper>
+        <paper code="p199.212">
+          <code>199.212</code>
+          <name>Vertebrate Zoology</name>
+          <points>15</points><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering>
+          <prerequisite>
+            <code>199.101</code>
+          </prerequisite>
+        </paper>
 </papers>

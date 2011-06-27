@@ -23,9 +23,9 @@ def parse_tags(source):
             print er
             return
     for tag in tagstree.findall('./tag'):
-        description = tag.find('./description').text
+        name = tag.find('./name').text
         papers = [paper.text for paper in tag.findall('./code')]
-        tagsdict[tag.get('name')] = (description, papers, tag.get('type'))
+        tagsdict[tag.get('name')] = (name, papers, tag.get('type'))
 
 
 def parse(source):

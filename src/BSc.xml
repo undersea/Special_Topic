@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE degree SYSTEM "rules.dtd">
 <degree>
   <name>BSc</name>
@@ -68,5 +67,5 @@
       </rules>
 
     </major>
-  </schedule>
+  <major><name>Animal Science</name><tag name="animalsci"/></major><major><name>Biochemistry</name><tag name="biochem"/></major><major><name>Biological Sciences</name><tag name="biologicalsci"/></major><major><name>Biotechnology</name><tag name="biotech"/></major><major><name>Chemistry</name><tag name="chemistry"/></major><major><name>Earth Science</name><tag name="earthsci"/></major><major><name>Ecology</name><tag name="ecology"/></major><major><name>Environmental Science</name><tag name="environsci"/></major><major><name>Exercise and Sport Science</name><tag name="exersportsci"/></major><major><name>Genetics</name><tag name="genetics"/></major><major><name>Geography</name><tag name="geography"/></major><major><name>Human Nutrition</name><tag name="humannutrition"/></major><major><name>Mathematics</name><tag name="mathematics"/></major><major><name>Microbiology</name><tag name="microbiology"/></major><major><name>Nanoscience</name><tag name="nanoscience"/></major><major><name>Physics</name><tag name="physics"/></major><major><name>Physiology</name><tag name="physiology"/></major><major><name>Plant Science</name><tag name="plantsci"/></major><major><name>Psychology</name><tag name="psychology"/></major><major><name>Statistics</name><tag name="statistics"/></major><major><name>Zoology</name><tag name="zoology"/></major></schedule>
 </degree>

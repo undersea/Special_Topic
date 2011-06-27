@@ -2,7 +2,8 @@
 <!DOCTYPE tags SYSTEM "tags.dtd">
 <tags>
   <tag name="programming" type="template">
-    <description>Papers to take if wanting to become a programmer</description>
+    <name>Programming template</name>
+    <description>Recomended papers to take if wanting to become a programmer</description>
     <code>159.101</code>
     <code>159.102</code>
     <code>159.201</code>
@@ -11,7 +12,7 @@
     <code>159.356</code>
   </tag>
   <tag name="compsci">
-    <description>Computer Science Schedule</description>
+    <name>Computer Science</name>
     <code>159.101</code>
     <code>159.102</code>
     <code>159.201</code>
@@ -37,7 +38,7 @@
     <code>161.326</code>
   </tag>
   <tag name="agrisci">
-    <description>agrisci</description>
+    <name>Agricultural Science</name>
     <code>117.152</code>
     <code>189.151</code>
     <code>194.101</code>
@@ -61,5 +62,449 @@
     <code>283.305</code>
     <code>283.311</code>
     <code>285.301</code>
+  </tag>
+  <tag name="animalsci">
+    <name>Animal Science</name>
+    <code>117.152</code>
+    <code>122.102</code>
+    <code>123.101</code>
+    <code>162.103</code>
+    <code>162.101</code>
+    <code>194.101</code>
+    <code>117.254</code>
+    <code>117.255</code>
+    <code>122.233</code>
+    <code>194.241</code>
+    <code>117.342</code>
+    <code>117.344</code>
+    <code>117.345</code>
+    <code>117.347</code>
+    <code>117.348</code>
+    <code>117.371</code>
+    <code>117.381</code>
+    <code>117.361</code>
+  </tag>
+  <tag name="biochem">
+    <name>Biochemistry</name>
+    <code>122.102</code>
+    <code>123.103</code>
+    <code>123.101</code>
+    <code>162.103</code>
+    <code>162.101</code>
+    <code>122.231</code>
+    <code>122.232</code>
+    <code>122.233</code>
+    <code>123.202</code>
+    <code>123.204</code>
+    <code>162.211</code>
+    <code>122.322</code>
+    <code>122.327</code>
+    <code>122.328</code>
+    <code>122.382</code>
+    <code>123.312</code>
+    <code>123.326</code>
+    <code>194.346</code>
+    <code>203.300</code>
+    <code>203.303</code>
+    <code>203.307</code>
+    <code>247.300</code>
+  </tag>
+  <tag name="biologicalsci">
+    <name>Biological Sciences</name>
+    <code>214.101</code>
+    <code>214.201</code>
+    <code>214.202</code>
+    <code>203.341</code>
+    <code>203.342</code>
+    <code>247.300</code>
+  </tag>
+  <tag name="biotech">
+    <name>Biotechnology</name>
+    <code>122.102</code>
+    <code>123.103</code>
+    <code>123.101</code>
+    <code>123.102</code>
+    <code>162.101</code>
+    <code>162.103</code>
+    <code>122.231</code>
+    <code>122.232</code>
+    <code>162.211</code>
+    <code>162.212</code>
+    <code>280.211</code>
+    <code>120.304</code>
+    <code>122.322</code>
+    <code>122.328</code>
+    <code>123.326</code>
+    <code>162.303</code>
+    <code>162.307</code>
+    <code>162.312</code>
+    <code>203.300</code>
+    <code>203.303</code>
+    <code>247.300</code>
+  </tag>
+  <tag name="chemistry">
+    <name>Chemistry</name>
+    <code>123.101</code>
+    <code>123.102</code>
+    <code>123.103</code>
+    <code>123.201</code>
+    <code>123.202</code>
+    <code>123.203</code>
+    <code>123.204</code>
+    <code>123.311</code>
+    <code>123.312</code>
+    <code>123.313</code>
+    <code>123.325</code>
+    <code>123.326</code>
+  </tag>
+  <tag name="earthsci">
+    <name>Earth Science</name>
+    <code>121.103</code>
+    <code>145.121</code>
+    <code>189.151</code>
+    <code>233.101</code>
+    <code>233.202</code>
+    <code>233.205</code>
+    <code>233.250</code>
+    <code>233.251</code>
+    <code>233.301</code>
+    <code>233.302</code>
+    <code>233.310</code>
+    <code>233.350</code>
+  </tag>
+  <tag name="ecology">
+    <name>Ecology</name>
+    <code>120.101</code>
+    <code>162.103</code>
+    <code>162.101</code>
+    <code>199.101</code>
+    <code>120.218</code>
+    <code>162.211</code>
+    <code>188.263</code>
+    <code>196.205</code>
+    <code>196.207</code>
+    <code>196.213</code>
+    <code>199.206</code>
+    <code>196.313</code>
+    <code>196.315</code>
+    <code>196.316</code>
+    <code>196.317</code>
+    <code>196.318</code>
+    <code>196.321</code>
+    <code>196.325</code>
+    <code>120.303</code>
+    <code>162.304</code>
+    <code>188.363</code>
+    <code>199.310</code>
+    <code>199.312</code>
+    <code>199.317</code>
+    <code>283.322</code>
+    <code>283.311</code>
+  </tag>
+  <tag name="environsci">
+    <name>Environmental Science</name>
+    <code>121.103</code>
+    <code>145.121</code>
+    <code>161.130</code>
+    <code>233.101</code>
+    <code>121.211</code>
+    <code>121.212</code>
+    <code>188.263</code>
+    <code>196.205</code>
+    <code>121.311</code>
+    <code>121.312</code>
+    <code>188.363</code>
+  </tag>
+  <tag name="exersportsci">
+    <name>Exercise and Sport Science</name>
+    <code>194.101</code>
+    <code>214.170</code>
+    <code>151.232</code>
+    <code>194.241</code>
+    <code>194.242</code>
+    <code>234.201</code>
+    <code>214.270</code>
+    <code>234.203</code>
+    <code>128.300</code>
+    <code>151.332</code>
+    <code>194.350</code>
+    <code>234.301</code>
+    <code>234.302</code>
+    <code>234.303</code>
+    <code>234.304</code>
+  </tag>
+  <tag name="genetics">
+    <name>Genetics</name>
+    <code>162.103</code>
+    <code>162.101</code>
+    <code>123.101</code>
+    <code>122.102</code>
+    <code>162.211</code>
+    <code>203.202</code>
+    <code>203.203</code>
+    <code>122.231</code>
+    <code>122.232</code>
+    <code>196.207</code>
+    <code>122.328</code>
+    <code>203.300</code>
+    <code>203.303</code>
+    <code>203.305</code>
+    <code>203.307</code>
+    <code>122.322</code>
+    <code>117.345</code>
+    <code>120.302</code>
+    <code>120.304</code>
+    <code>162.312</code>
+    <code>247.300</code>
+  </tag>
+  <tag name="geography">
+    <name>Geography</name>
+    <code>145.111</code>
+    <code>145.121</code>
+    <code>145.201</code>
+    <code>145.213</code>
+    <code>145.214</code>
+    <code>145.216</code>
+    <code>145.218</code>
+    <code>145.222</code>
+    <code>145.223</code>
+    <code>145.224</code>
+    <code>145.225</code>
+    <code>121.211</code>
+    <code>233.251</code>
+    <code>145.301</code>
+    <code>145.303</code>
+    <code>145.304</code>
+    <code>145.311</code>
+    <code>145.318</code>
+    <code>145.320</code>
+    <code>145.327</code>
+    <code>121.311</code>
+    <code>233.301</code>
+    <code>233.304</code>
+  </tag>
+  <tag name="humannutrition">
+    <name>Human Nutrition</name>
+    <code>122.102</code>
+    <code>123.101</code>
+    <code>162.103</code>
+    <code>162.101</code>
+    <code>194.101</code>
+    <code>214.131</code>
+    <code>122.233</code>
+    <code>151.231</code>
+    <code>151.232</code>
+    <code>194.241</code>
+    <code>194.242</code>
+    <code>202.251</code>
+    <code>151.331</code>
+    <code>151.332</code>
+    <code>151.333</code>
+    <code>151.334</code>
+    <code>194.350</code>
+  </tag>
+  <tag name="mathematics">
+    <name>Mathematics</name>
+    <code>160.101</code>
+    <code>160.102</code>
+    <code>160.103</code>
+    <code>160.131</code>
+    <code>160.203</code>
+    <code>160.204</code>
+    <code>160.211</code>
+    <code>160.212</code>
+    <code>161.200</code>
+    <code>160.301</code>
+    <code>160.302</code>
+    <code>160.314</code>
+    <code>160.316</code>
+    <code>160.317</code>
+    <code>160.318</code>
+    <code>160.319</code>
+    <code>160.320</code>
+    <code>160.325</code>
+    <code>160.380</code>
+  </tag>
+  <tag name="microbiology">
+    <name>Microbiology</name>
+    <code>162.103</code>
+    <code>162.101</code>
+    <code>123.101</code>
+    <code>122.102</code>
+    <code>162.211</code>
+    <code>162.212</code>
+    <code>162.283</code>
+    <code>122.231</code>
+    <code>202.251</code>
+    <code>122.328</code>
+    <code>162.301</code>
+    <code>162.303</code>
+    <code>162.304</code>
+    <code>162.305</code>
+    <code>162.307</code>
+    <code>162.312</code>
+    <code>203.300</code>
+    <code>285.301</code>
+    <code>247.300</code>
+  </tag>
+  <tag name="nanoscience">
+    <name>Nanoscience</name>
+    <code>122.102</code>
+    <code>123.101</code>
+    <code>123.102</code>
+    <code>124.101</code>
+    <code>124.102</code>
+    <code>160.101</code>
+    <code>162.101</code>
+    <code>123.201</code>
+    <code>123.202</code>
+    <code>123.203</code>
+    <code>123.204</code>
+    <code>124.226</code>
+    <code>124.230</code>
+    <code>124.233</code>
+    <code>160.203</code>
+    <code>122.231</code>
+    <code>236.201</code>
+    <code>123.311</code>
+    <code>123.312</code>
+    <code>123.313</code>
+    <code>123.326</code>
+    <code>124.325</code>
+    <code>124.327</code>
+    <code>203.300</code>
+    <code>236.301</code>
+    <code>236.302</code>
+  </tag>
+  <tag name="physics">
+    <name>Physics</name>
+    <code>124.100</code>
+    <code>124.101</code>
+    <code>124.102</code>
+    <code>124.111</code>
+    <code>124.129</code>
+    <code>124.226</code>
+    <code>124.229</code>
+    <code>124.230</code>
+    <code>124.233</code>
+    <code>124.241</code>
+    <code>124.242</code>
+    <code>124.316</code>
+    <code>124.325</code>
+    <code>124.327</code>
+    <code>124.328</code>
+    <code>124.344</code>
+    <code>124.345</code>
+  </tag>
+  <tag name="physiology">
+    <name>Physiology</name>
+    <code>194.101</code>
+    <code>194.241</code>
+    <code>194.242</code>
+    <code>194.243</code>
+    <code>194.245</code>
+    <code>122.233</code>
+    <code>151.232</code>
+    <code>194.343</code>
+    <code>194.344</code>
+    <code>194.345</code>
+    <code>194.346</code>
+    <code>234.304</code>
+    <code>194.350</code>
+    <code>151.333</code>
+  </tag>
+  <tag name="plantsci">
+    <name>Plant Science</name>
+    <code>120.101</code>
+    <code>123.101</code>
+    <code>162.101</code>
+    <code>162.103</code>
+    <code>284.101</code>
+    <code>120.217</code>
+    <code>120.218</code>
+    <code>122.231</code>
+    <code>196.207</code>
+    <code>284.201</code>
+    <code>120.302</code>
+    <code>120.303</code>
+    <code>120.304</code>
+    <code>247.300</code>
+    <code>284.301</code>
+    <code>284.342</code>
+    <code>285.341</code>
+  </tag>
+  <tag name="psychology">
+    <name>Psychology</name>
+    <code>175.102</code>
+    <code>175.201</code>
+    <code>175.203</code>
+    <code>175.205</code>
+    <code>175.206</code>
+    <code>175.210</code>
+    <code>175.301</code>
+    <code>175.302</code>
+    <code>175.303</code>
+    <code>175.305</code>
+    <code>175.306</code>
+    <code>175.307</code>
+    <code>175.309</code>
+    <code>175.310</code>
+    <code>175.311</code>
+    <code>175.316</code>
+    <code>175.317</code>
+    <code>175.318</code>
+    <code>175.343</code>
+    <code>175.345</code>
+  </tag>
+  <tag name="statistics">
+    <name>Statistics</name>
+    <code>160.101</code>
+    <code>161.100</code>
+    <code>161.120</code>
+    <code>161.130</code>
+    <code>160.203</code>
+    <code>160.211</code>
+    <code>161.200</code>
+    <code>161.220</code>
+    <code>161.221</code>
+    <code>161.230</code>
+    <code>161.231</code>
+    <code>161.240</code>
+    <code>161.301</code>
+    <code>161.304</code>
+    <code>161.320</code>
+    <code>161.321</code>
+    <code>161.322</code>
+    <code>161.323</code>
+    <code>161.324</code>
+    <code>161.325</code>
+    <code>161.326</code>
+    <code>161.331</code>
+    <code>161.342</code>
+    <code>161.345</code>
+  </tag>
+  <tag name="zoology">
+    <name>Zoology</name>
+    <code>121.103</code>
+    <code>162.103</code>
+    <code>162.101</code>
+    <code>194.101</code>
+    <code>199.101</code>
+    <code>199.204</code>
+    <code>199.206</code>
+    <code>199.211</code>
+    <code>199.212</code>
+    <code>194.241</code>
+    <code>194.242</code>
+    <code>194.243</code>
+    <code>196.205</code>
+    <code>199.310</code>
+    <code>199.312</code>
+    <code>199.317</code>
+    <code>194.344</code>
+    <code>194.345</code>
+    <code>194.346</code>
+    <code>196.313</code>
+    <code>196.315</code>
   </tag>
 </tags>

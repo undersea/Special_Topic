@@ -29,7 +29,7 @@ class Degree(object):
             result = rule.check(programme, self.schedule[major][0])
             results.append(result)
             
-        return all(results) and len(result) > 0
+        return all(results) and len(results) > 0
 
     def __str__(self):
         return str(self.rules)
@@ -83,7 +83,9 @@ class LimitRule(Rule):
                     for papers in tmp:
                         tmp2.extend(papers)
                     tmp2.sort()
-                    tmp3 = [x[0] for x in tmp2]
+                    
+                    tmp3 = [x for x in tmp2]
+                    
                     not_inschedule_papers = [x for x in programme if x not in tmp3]
 
                     return self.points >= (len(not_inschedule_papers) * 15)

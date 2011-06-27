@@ -1,12 +1,19 @@
 import sys
 from decorator import decorator
+import gtk
 
 outstream = sys.stdout
 isdebug = True
 
 def dump(obj):
     for attr in dir(obj):
-        print >> outstream, '%s:' % attr, getattr(obj, attr)
+        if not attr.startswith('__') and not callable(getattr(obj, attr)):
+            print >> outstream, '%s:' % attr, getattr(obj, attr)
+    if isinstance(obj, gtk.ListStore):
+        for row in obj:
+            for x in row:
+                print >> outstream, '%10s' % (str(x)),
+            print >> outstream
     
 
 def setDebug(attr):
@@ -14,24 +21,31 @@ def setDebug(attr):
     isdebug = attr
 
 
-def debug(objlist):
+def setOutstream(out):
+    global outstream
+    outstream = out
+
+
+def debug(objdict):
     @decorator
-    def decorate(func):
+    def decorate(func, *args, **kwargs):
         def wrap(*args, **kwargs):
             if isdebug:
-                for x in objlist:
-                    print >>outstream, ">>>", type(x), x
-                    dump(x)
-                    print >>outstream, ">>> finished", type(x), x
+                for x in objdict:
+                    print >>outstream, ">>>", x, objdict[x]
+                    dump(objdict[x])
+                    print >>outstream, ">>> finished", x, objdict[x]
+                print >>outstream, ">>> calling", getattr(func, '__name__')
             result = func(*args, **kwargs)
             if isdebug:
-                for x in objlist:
-                    print >>outstream, "<<<", x
-                    dump(x)
-                    print >>outstream, "<<< finished", x
+                print >>outstream, "<<< called", getattr(func, '__name__')
+                for x in objdict:
+                    print >>outstream, "<<<", x, objdict[x]
+                    dump(objdict[x])
+                    print >>outstream, "<<< finished", x, objdict[x]
             return result
         
-        return wrap()
+        return wrap(*args, **kwargs)
         
     return decorate
 

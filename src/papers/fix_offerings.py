@@ -8,8 +8,10 @@ URL = 'http://www.massey.ac.nz/massey/learning/programme-course-paper/paper.cfm?
 if __name__ == '__main__' and len(sys.argv) > 1:
     papers = etree.parse(sys.argv[1])
     for paper in papers.findall('./paper'):
-        paper.remove(paper.find('./campus'))
-        paper.remove(paper.find('./semester'))
+        #paper.remove(paper.find('./campus'))
+        #paper.remove(paper.find('./semester'))
+        if paper.find('./offering') != None:
+	    continue
         root = html.parse(URL % (paper.find('./code').text))
         table = root.find('.//table[@class="tbloffering"]')
         try:

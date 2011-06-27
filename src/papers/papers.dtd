@@ -6,6 +6,7 @@
           corequisite?, restriction?)>
 <!ATTLIST paper code ID #REQUIRED>
 <!ELEMENT offering (mode?, campus, semester)>
+<!ELEMENT mode (#PCDATA)>
 <!ELEMENT code (#PCDATA)>
 <!ELEMENT campus (#PCDATA)>
 <!ELEMENT semester (#PCDATA)>
