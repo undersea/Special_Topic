@@ -183,6 +183,7 @@ def get_prerequisites(code, programme):
     return only papers that are not a choice of this or that
     add the rest as a rule to rulesstore
     """
+    global missing
     #clear the list
     del missing[:]
     
@@ -190,14 +191,18 @@ def get_prerequisites(code, programme):
     rule = paper['prerequisites']
     if rule != None:
         result = rule.check(programme)
+        """
         if (result == False and
             string.find(str(rule), 'or') == -1 and
             len([y for y in operators.missing
                  if 'x' not in y]) == len(operators.missing)):
             rulestore.append((str(rule), DEGREE.name,
                               copy.deepcopy(operators.missing), result,))
+            missing.append((str(x), DEGREE.name,
+                            copy.deepcopy(operators.missing), result,))
             operators.reset_missing()
             return list()
+        """
         missing = copy.deepcopy(operators.missing)
         operators.reset_missing()
         return [x for x, y in missing if not isinstance(x, bool)]
@@ -311,16 +316,26 @@ def sort_overflows(semesters, year, semester):
     tmp = semesters[year][semester].pop()
     semesters[year][semester].insert(0, tmp) #put back at begining
     paper = None
-    while (len(semesters[year][semester]) > 4 and
-           tmp != paper):
-        paper = semesters[year][semester].pop()
-        if not check_if_prerequisite(paper, semesters[1][0]):
-            semesters[year+1][semester].append(paper)
-        else:
-            semesters[year][semester].insert(0, paper)
+    done = False
+    while not done:
+        while (len(semesters[year][semester]) > 4 and
+               tmp != paper):
+            paper = semesters[year][semester].pop()
+            if not check_if_prerequisite(paper, semesters, year+1, semester):
+                semesters[year+1][semester].append(paper)
+            else:
+                semesters[year][semester].insert(0, paper)
+        if tmp == paper or len(semesters[year][semester]) <= 4:
+            done = True
 
-
-def check_if_prerequisite(paper, semesters):
+def check_if_prerequisite(paper, semesters, year, semester):
+    for yr in range(year, -1, -1):
+        for sem in range(semester, -1, -1):
+            for code in semesters[yr][sem]:
+                if paper in get_prerequisites(code, []):
+                    return True
+        
+    
     return False
 
 def check_programme(modal):
