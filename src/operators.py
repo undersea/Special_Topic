@@ -38,12 +38,15 @@ def orcheck(papers, programme):
 def andcheck(papers, programme):
     results = list()
     for paper in papers:
-        if isinstance(paper, tuple):
+        
+        if isinstance(paper, tuple) or isinstance(paper, list):
+            
             if paper[0] == 'or':
                 results.append(orcheck(paper[1:], programme))
             elif paper[0] == 'any':
                 results.append(anycheck(paper[1:], programme))
         else:
+            print isinstance(paper, tuple), paper
             results.append(code(paper, programme))
 
     return all(results) and len(results) > 0
@@ -79,6 +82,8 @@ def anycheck(levels, programme):
 
 def check(papers, programme, schedule=None):
     results = list()
+    #fix any possible white space issues by removing them
+    programme = [str(x.strip()) for x in programme]
     if inschedule != None and inschedule == True:
         if points != None:
             pass
@@ -98,10 +103,32 @@ def check(papers, programme, schedule=None):
                 return len(inschedule_papers) >= int(papers[0])
     else:
         if isinstance(papers, list) and len(papers) > 0 and not isinstance(papers[0], tuple):
+            
             for paper in papers:
-                results.append(code(paper, programme))
+                if isinstance(paper, tuple):
+            
+                    if paper[0] == 'and':
+                        results.append(andcheck(paper[1:], programme))
+                    elif paper[0] == 'any':
+                        results.append(anycheck(paper[1:], programme))
+                    elif paper[0] == 'oneof':
+                        results.append(oneof(paper[1:], programme))
+                    elif paper[0] == 'or':
+            
+                        results.append(orcheck(paper[1:], programme))
+                    elif isinstance(paper[0], tuple):
+                        results.append(check([(paper[0],)],
+                                             programme,
+                                             schedule))
+                    
+
+                else:
+
+                    results.append(code(paper, programme))
         elif len(papers) > 0:
+            
             for paper in papers[0]:
+                
                 if isinstance(paper, tuple):
             
                     if paper[0] == 'and':

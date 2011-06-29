@@ -99,20 +99,6 @@
       <column type="gboolean"/>
     </columns>
   </object>
-  <object class="GtkListStore" id="paper_choice_store">
-    <columns>
-      <!-- column-name code -->
-      <column type="gchararray"/>
-      <!-- column-name title -->
-      <column type="gchararray"/>
-      <!-- column-name add_image -->
-      <column type="gchararray"/>
-      <!-- column-name info_image -->
-      <column type="gchararray"/>
-      <!-- column-name font_size -->
-      <column type="gint"/>
-    </columns>
-  </object>
   <object class="GtkListStore" id="rulestore">
     <columns>
       <!-- column-name rule -->
@@ -143,6 +129,22 @@
         <col id="1" translatable="yes">Computer Science</col>
       </row>
     </data>
+  </object>
+  <object class="GtkListStore" id="paper_choice_store">
+    <columns>
+      <!-- column-name code -->
+      <column type="gchararray"/>
+      <!-- column-name title -->
+      <column type="gchararray"/>
+      <!-- column-name semesters -->
+      <column type="gchararray"/>
+      <!-- column-name add_image -->
+      <column type="gchararray"/>
+      <!-- column-name info_image -->
+      <column type="gchararray"/>
+      <!-- column-name font_size -->
+      <column type="gint"/>
+    </columns>
   </object>
   <object class="GtkWindow" id="window1">
     <signal name="delete_event" handler="gtk_main_quit"/>
@@ -346,6 +348,7 @@
                       <object class="GtkComboBox" id="combobox1">
                         <property name="visible">True</property>
                         <property name="model">degree_choice_store</property>
+                        <property name="entry_text_column">0</property>
                         <child>
                           <object class="GtkCellRendererText" id="cellrenderertext8"/>
                           <attributes>
@@ -354,6 +357,8 @@
                         </child>
                       </object>
                       <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
                         <property name="position">1</property>
                       </packing>
                     </child>
@@ -370,6 +375,7 @@
                       <object class="GtkComboBox" id="combobox2">
                         <property name="visible">True</property>
                         <property name="model">degree_choice_store</property>
+                        <property name="entry_text_column">0</property>
                         <child>
                           <object class="GtkCellRendererText" id="cellrenderertext7"/>
                           <attributes>
@@ -378,6 +384,9 @@
                         </child>
                       </object>
                       <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="padding">4</property>
                         <property name="position">3</property>
                       </packing>
                     </child>
@@ -432,6 +441,8 @@
                     </child>
                   </object>
                   <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
                     <property name="position">2</property>
                   </packing>
                 </child>
@@ -452,7 +463,81 @@
             <property name="visible">True</property>
             <property name="orientation">vertical</property>
             <child>
-              <placeholder/>
+              <object class="GtkHBox" id="hbox2">
+                <property name="visible">True</property>
+                <child>
+                  <object class="GtkVBox" id="vbox4">
+                    <property name="visible">True</property>
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkLabel" id="label3">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">&lt;b&gt;&lt;i&gt;Major 
+Filter&lt;/i&gt;&lt;/b&gt;</property>
+                        <property name="use_markup">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBox" id="major_filter_combo">
+                        <property name="visible">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkVBox" id="vbox5">
+                    <property name="visible">True</property>
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkLabel" id="label4">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">&lt;b&gt;&lt;i&gt;Year
+ Filter&lt;/i&gt;&lt;/b&gt;</property>
+                        <property name="use_markup">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBox" id="combobox4">
+                        <property name="visible">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
             </child>
             <child>
               <object class="GtkScrolledWindow" id="scrolledwindow1">
@@ -502,6 +587,21 @@
                           <object class="GtkCellRendererText" id="cellrenderertext4"/>
                           <attributes>
                             <attribute name="text">1</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn" id="treeviewcolumn2">
+                        <property name="sizing">fixed</property>
+                        <property name="fixed_width">100</property>
+                        <property name="min_width">20</property>
+                        <property name="expand">True</property>
+                        <property name="clickable">True</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="cellrenderertext9"/>
+                          <attributes>
+                            <attribute name="text">2</attribute>
                           </attributes>
                         </child>
                       </object>

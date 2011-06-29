@@ -123,7 +123,7 @@ def parserequired(required):
     if code != None:
         tmp = list()
         for x in code:
-            rule.papers.append(x.text)
+            rule.papers.append(x.text.strip())
         
     andpaper = required.findall('./and')
     if andpaper != None:
@@ -168,7 +168,7 @@ def parseand(andpaper):
     if code != None and len(code) > 0:
         for x in code:
             
-            tmp.append(x.text)
+            tmp.append(x.text.strip())
 
     return tuple(tmp)
 
@@ -197,7 +197,7 @@ def parseor(orpapers):
     code = orpapers.findall('./code')
     if code != None and len(code) > 0:
         for x in code:
-            tmp.append(x.text)
+            tmp.append(x.text.strip())
 
     return tuple(tmp)
 
@@ -213,7 +213,7 @@ def parseany(anypapers):
     code = anypapers.findall('./level')
     if code != None:
         for x in code:
-            tmp.append(x.text)
+            tmp.append(x.text.strip())
 
     return tuple(tmp)
 

@@ -138,10 +138,10 @@ if __name__ == '__main__':
     report_tree = builder.get_object('report_tree')
 
     treeviewcolumn7 = builder.get_object('treeviewcolumn7')
-    widgets.add_button(2, treeviewcolumn7, add_paper)
+    widgets.add_button(3, treeviewcolumn7, add_paper)
 
     treeviewcolumn8 = builder.get_object('treeviewcolumn8')
-    widgets.add_button(3, treeviewcolumn8, display_info)
+    widgets.add_button(4, treeviewcolumn8, display_info)
 
     paper_choice_store = builder.get_object('paper_choice_store')
 
@@ -151,15 +151,18 @@ if __name__ == '__main__':
     
 
     keys = [x for x in PAPERS.keys()
-            if 'pnth' in [str(str(y[1]).lower()) for y in PAPERS[x]['offerings']]
+            if ('pnth' in [str(str(y[1]).lower()) for y in PAPERS[x]['offerings']])
             ]
     keys.sort()
 
     for tag_key in TAGS:
         if TAGS[tag_key][2] != 'template':
-            paper_choice_store.append(("%s" % (TAGS[tag_key][0]), None, None, None, 20))
+            paper_choice_store.append(("%s" % (TAGS[tag_key][0]), '', None, None, None, 20))
             for code in [x for x in TAGS[tag_key][1] if x in keys]:
-                paper_choice_store.append((code, PAPERS[code]['name'],
+                semesters = string.join([x[2] for x in PAPERS[code]['offerings']
+                                         if (x[1] is not None and
+                                             str(x[1].lower()) == 'pnth')], ',')
+                paper_choice_store.append((code, PAPERS[code]['name'], semesters,
                                            'images/add_button.png',
                                            'images/info_button.png', 16))
 
@@ -287,14 +290,17 @@ def apply_action_activate_cb(action, *args):
         
     #do a count and make sure there is enough slots avalable
     #@TODO
+    #fix papers like 160.101 and others prerequisite requirements
+    sort_prerequisites(semesters, 0, 0)
+    sort_prerequisites(semesters, 0, 1)
+    sort_prerequisites(semesters, 1, 0)
+    sort_prerequisites(semesters, 1, 1)
+    
     sort_overflows(semesters, 0, 0)
-    sort_overflows(semesters, 1, 0)
-    #sort_overflows(semesters, 2, 0)
-
     sort_overflows(semesters, 0, 1)
+    
+    sort_overflows(semesters, 1, 0)
     sort_overflows(semesters, 1, 1)
-    #sort_overflows(semesters, 2, 1)
-
     
     print semesters
     
@@ -310,9 +316,84 @@ def apply_action_activate_cb(action, *args):
                     slot += 1
             #we need to check for missing papers and add them to the next year planner list
 
+def has_prerequisite(paper, programme):
+    prereqs = get_prerequisites(paper, [])
+    for tmp in prereqs:
+        if tmp in programme:
+            return True
+    return False
+
+
+def sort_prerequisites(semesters, year, semester):
+    if len(semesters[year][semester]) == 0:
+        return
+    
+    done = False
+    while not done:
+        again = False
+        for yr in range(year + 1):
+            print 'sort_prerequisites yr:', yr
+            for sem in range(semester + 1):
+                print 'sort_prerequisites sem:', sem
+                if len(semesters[yr][sem]) == 0:
+                    break
+                tmp = semesters[yr][sem].pop()
+                semesters[yr][sem].insert(0, tmp) #put back at begining
+                paper = None
+                while tmp != paper:
+                    paper = semesters[yr][sem].pop()
+                    same = False
+                    for yr2 in range(yr, 3):
+                        print 'sort_prerequisites yr2:', yr2
+                        for sem2 in range(sem, 2):
+                            print 'sort_prerequisites sem2:', sem2
+                            if has_prerequisite(paper, semesters[yr2][sem2]):
+                                #maybe it's available in semester 2
+                                if (sem2 == 0 and
+                                    len([x for x in PAPERS[paper]['offerings']
+                                         if (x[2] is not None and
+                                             str(x[2].lower()) == 'two')]) > 0):
+                                    semesters[yr2][sem2+1].append(paper)
+                                #otherwise put it in next years offerings
+                                elif yr2 != 2:
+                                    if len([x for x in PAPERS[paper]['offerings']
+                                            if (x[2] is not None and
+                                                str(x[2].lower()) == 'one')]) > 0:
+                                        semesters[yr2+1][0].append(paper)
+                                    else:
+                                        semesters[yr2+1][1].append(paper)
+                                else:
+                                    raise ConstraintException(
+                                        "%s can't be included" %
+                                        paper)
+                                again = True
+                                same = False
+                                break
+                            
+                            else:
+                                same = True
+                        
+                        if again:
+                            break
+                    if same:
+                        semesters[yr][sem].insert(0, paper)
+                    if again:
+                        break
+        else:
+            print 'sort_prerequisites done'
+            done = True
+            
+
+
+    
+
+
+
 def sort_overflows(semesters, year, semester):
     if len(semesters[year][semester]) == 0:
         return
+    #remove duplicates
+    semesters[year][semester] = list(set(semesters[year][semester]))
     tmp = semesters[year][semester].pop()
     semesters[year][semester].insert(0, tmp) #put back at begining
     paper = None
@@ -321,12 +402,28 @@ def sort_overflows(semesters, year, semester):
         while (len(semesters[year][semester]) > 4 and
                tmp != paper):
             paper = semesters[year][semester].pop()
-            if not check_if_prerequisite(paper, semesters, year+1, semester):
+            if (not check_if_prerequisite(paper,
+                                          semesters,
+                                          year+1,
+                                          semester) and
+                # does previous semester have a paper that
+                # has this as a prerequisite?
+                not check_if_prerequisite(paper,
+                                          semesters,
+                                          year,
+                                          semester-1)):
                 semesters[year+1][semester].append(paper)
             else:
                 semesters[year][semester].insert(0, paper)
-        if tmp == paper or len(semesters[year][semester]) <= 4:
+        
+        if ((tmp == paper or len(semesters[year][semester]) <= 4) or
+            len([x for x in semesters[year+1][semester]
+                 if int(float(x) * 1000 % 1000) / 100 == year+1]) == 0 and
+            len(semesters[year][semester]) < 4):
             done = True
+
+
+
 
 def check_if_prerequisite(paper, semesters, year, semester):
     for yr in range(year, -1, -1):
@@ -417,8 +514,23 @@ def on_rule_selected(tree):#, str_path, new_iter, *data):
                 return 0
             else:
                 return tmp
+
+    def is_valid(x):
+        tmp = x.strip()
+        if tmp in ['True', 'False']:
+            return True
+        elif 'x' in tmp:
+            return True
+
+        try:
+            float(tmp)
+            return True
+        except:
+            return False
+
+        return False
         
-    tmp = [True] + [convert(x) for x in tmp.split(',')]
+    tmp = [True] + [convert(x) for x in tmp.split(',') if is_valid(x)]
     print 'tmp', tmp
     reportstore.append(tmp)
     

@@ -1596,11 +1596,11 @@
           <name>Statistical Models</name>
           <points>15</points><offering><mode>Distance</mode><campus></campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>PNTH</campus><semester>Two</semester></offering><offering><mode>Internal</mode><campus>AUCK</campus><semester>Two</semester></offering>
           <prerequisite>
-            <code>160.101</code>
-            <or>
-              <code>115.101</code>
-              <code>161.1xx</code>
-            </or> 
+              <code>160.101</code>
+              <or>
+                <code>115.101</code>
+                <code>161.1xx</code>
+              </or>
           </prerequisite>
           <!--R 161.231-->
         </paper>
