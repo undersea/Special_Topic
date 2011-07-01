@@ -146,6 +146,37 @@
       <column type="gint"/>
     </columns>
   </object>
+  <object class="GtkListStore" id="major_store">
+    <columns>
+      <!-- column-name major -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">All</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkListStore" id="year_store">
+    <columns>
+      <!-- column-name year -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">All</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">One</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Two</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Three</col>
+      </row>
+    </data>
+  </object>
   <object class="GtkWindow" id="window1">
     <signal name="delete_event" handler="gtk_main_quit"/>
     <child>
@@ -162,77 +193,94 @@
                 <property name="visible">True</property>
                 <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkTreeView" id="programtree">
+                  <placeholder/>
+                </child>
+                <child>
+                  <object class="GtkScrolledWindow" id="scrolledwindow3">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="model">planstore</property>
-                    <property name="vadjustment">adjustment1</property>
-                    <property name="search_column">0</property>
-                    <property name="level_indentation">4</property>
-                    <property name="enable_grid_lines">both</property>
-                    <signal name="cursor_changed" handler="on_plan_cursor_changed"/>
+                    <property name="hscrollbar_policy">never</property>
+                    <property name="vscrollbar_policy">automatic</property>
                     <child>
-                      <object class="GtkTreeViewColumn" id="year_column_1">
-                        <property name="title">Year 1</property>
-                        <property name="expand">True</property>
-                        <property name="clickable">True</property>
+                      <object class="GtkTreeView" id="programtree">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="model">planstore</property>
+                        <property name="vadjustment">adjustment1</property>
+                        <property name="search_column">0</property>
+                        <property name="level_indentation">4</property>
+                        <property name="enable_grid_lines">both</property>
+                        <signal name="cursor_changed" handler="on_plan_cursor_changed"/>
                         <child>
-                          <object class="GtkCellRendererText" id="year_cellcombo_1">
-                            <property name="editable">True</property>
-                            <signal name="edited" handler="on_plancell_edit_1" object="int(0)"/>
+                          <object class="GtkTreeViewColumn" id="year_column_1">
+                            <property name="resizable">True</property>
+                            <property name="sizing">fixed</property>
+                            <property name="fixed_width">150</property>
+                            <property name="title">Year 1</property>
+                            <property name="expand">True</property>
+                            <property name="clickable">True</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="year_cellcombo_1">
+                                <property name="editable">True</property>
+                                <signal name="edited" handler="on_plancell_edit_1" object="int(0)"/>
+                              </object>
+                              <attributes>
+                                <attribute name="text">0</attribute>
+                              </attributes>
+                            </child>
                           </object>
-                          <attributes>
-                            <attribute name="text">0</attribute>
-                          </attributes>
                         </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkTreeViewColumn" id="year_column_2">
-                        <property name="title">Year 2</property>
-                        <property name="expand">True</property>
-                        <property name="clickable">True</property>
                         <child>
-                          <object class="GtkCellRendererText" id="year_cellcombo_2">
-                            <property name="editable">True</property>
-                            <signal name="edited" handler="on_plancell_edit_2" object="1"/>
+                          <object class="GtkTreeViewColumn" id="year_column_2">
+                            <property name="resizable">True</property>
+                            <property name="sizing">fixed</property>
+                            <property name="fixed_width">150</property>
+                            <property name="title">Year 2</property>
+                            <property name="expand">True</property>
+                            <property name="clickable">True</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="year_cellcombo_2">
+                                <property name="editable">True</property>
+                                <signal name="edited" handler="on_plancell_edit_2" object="1"/>
+                              </object>
+                              <attributes>
+                                <attribute name="text">1</attribute>
+                              </attributes>
+                            </child>
                           </object>
-                          <attributes>
-                            <attribute name="text">1</attribute>
-                          </attributes>
                         </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkTreeViewColumn" id="year_column_3">
-                        <property name="title">Year 3</property>
-                        <property name="expand">True</property>
-                        <property name="clickable">True</property>
                         <child>
-                          <object class="GtkCellRendererText" id="year_cellcombo_3">
-                            <property name="editable">True</property>
-                            <signal name="edited" handler="on_plancell_edit_3" object="2"/>
+                          <object class="GtkTreeViewColumn" id="year_column_3">
+                            <property name="resizable">True</property>
+                            <property name="sizing">fixed</property>
+                            <property name="fixed_width">150</property>
+                            <property name="title">Year 3</property>
+                            <property name="expand">True</property>
+                            <property name="clickable">True</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="year_cellcombo_3">
+                                <property name="editable">True</property>
+                                <signal name="edited" handler="on_plancell_edit_3" object="2"/>
+                              </object>
+                              <attributes>
+                                <attribute name="text">2</attribute>
+                              </attributes>
+                            </child>
                           </object>
-                          <attributes>
-                            <attribute name="text">2</attribute>
-                          </attributes>
                         </child>
                       </object>
                     </child>
                   </object>
                   <packing>
-                    <property name="position">0</property>
+                    <property name="position">1</property>
                   </packing>
-                </child>
-                <child>
-                  <placeholder/>
                 </child>
                 <child>
                   <placeholder/>
                 </child>
               </object>
               <packing>
-                <property name="resize">False</property>
+                <property name="resize">True</property>
                 <property name="shrink">True</property>
               </packing>
             </child>
@@ -454,7 +502,7 @@
             </child>
           </object>
           <packing>
-            <property name="resize">False</property>
+            <property name="resize">True</property>
             <property name="shrink">True</property>
           </packing>
         </child>
@@ -485,6 +533,13 @@ Filter&lt;/i&gt;&lt;/b&gt;</property>
                     <child>
                       <object class="GtkComboBox" id="major_filter_combo">
                         <property name="visible">True</property>
+                        <property name="model">major_store</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="cellrenderertext11"/>
+                          <attributes>
+                            <attribute name="text">0</attribute>
+                          </attributes>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -517,6 +572,13 @@ Filter&lt;/i&gt;&lt;/b&gt;</property>
                     <child>
                       <object class="GtkComboBox" id="combobox4">
                         <property name="visible">True</property>
+                        <property name="model">year_store</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="cellrenderertext10"/>
+                          <attributes>
+                            <attribute name="text">0</attribute>
+                          </attributes>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -568,7 +630,7 @@ Filter&lt;/i&gt;&lt;/b&gt;</property>
                             <property name="foreground_gdk">#000000000000</property>
                           </object>
                           <attributes>
-                            <attribute name="size-points">4</attribute>
+                            <attribute name="size-points">5</attribute>
                             <attribute name="text">0</attribute>
                           </attributes>
                         </child>
@@ -592,10 +654,21 @@ Filter&lt;/i&gt;&lt;/b&gt;</property>
                       </object>
                     </child>
                     <child>
+                      <object class="GtkTreeViewColumn" id="treeviewcolumn4">
+                        <property name="resizable">True</property>
+                        <property name="sizing">fixed</property>
+                        <property name="fixed_width">10</property>
+                        <property name="expand">True</property>
+                        <property name="clickable">True</property>
+                      </object>
+                    </child>
+                    <child>
                       <object class="GtkTreeViewColumn" id="treeviewcolumn2">
+                        <property name="resizable">True</property>
                         <property name="sizing">fixed</property>
                         <property name="fixed_width">100</property>
                         <property name="min_width">20</property>
+                        <property name="title">Semester</property>
                         <property name="expand">True</property>
                         <property name="clickable">True</property>
                         <child>
@@ -608,8 +681,9 @@ Filter&lt;/i&gt;&lt;/b&gt;</property>
                     </child>
                     <child>
                       <object class="GtkTreeViewColumn" id="treeviewcolumn7">
+                        <property name="resizable">True</property>
                         <property name="sizing">fixed</property>
-                        <property name="fixed_width">100</property>
+                        <property name="fixed_width">50</property>
                         <property name="min_width">20</property>
                         <property name="expand">True</property>
                         <property name="clickable">True</property>
@@ -619,10 +693,15 @@ Filter&lt;/i&gt;&lt;/b&gt;</property>
                       <object class="GtkTreeViewColumn" id="treeviewcolumn8">
                         <property name="resizable">True</property>
                         <property name="sizing">fixed</property>
-                        <property name="fixed_width">100</property>
+                        <property name="fixed_width">50</property>
                         <property name="min_width">20</property>
                         <property name="expand">True</property>
                         <property name="clickable">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn" id="treeviewcolumn3">
+                        <property name="sizing">fixed</property>
                       </object>
                     </child>
                   </object>

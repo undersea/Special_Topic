@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+
+
 import sys, string, copy
 
 from debug.stats import debug, setOutstream, setDebug
@@ -103,7 +106,7 @@ def on_plancell_edit_3(renderer, npath, new_text, *data):
         if len([x for x in paper['offerings']
                 if (x[1] is not None and
                     str(x[1].lower()) == 'pnth')]) > 0  or len(new_text) == 0:
-            planstore.set_value(niter, 2, new_text)
+            planstore.set_value(niter, 2, "%s %s" % (new_text, paper['name'][:10]))
         else:
             print new_text, 'Does not contain a palmerston north offering'
     except:
@@ -148,7 +151,7 @@ if __name__ == '__main__':
     PAPERS = parse_papers('papers/papers.xml')
     TAGS = tagsdict
 
-    
+    major_store = builder.get_object('major_store')
 
     keys = [x for x in PAPERS.keys()
             if ('pnth' in [str(str(y[1]).lower()) for y in PAPERS[x]['offerings']])
@@ -157,6 +160,7 @@ if __name__ == '__main__':
 
     for tag_key in TAGS:
         if TAGS[tag_key][2] != 'template':
+            major_store.append((str(TAGS[tag_key][0]),))
             paper_choice_store.append(("%s" % (TAGS[tag_key][0]), '', None, None, None, 20))
             for code in [x for x in TAGS[tag_key][1] if x in keys]:
                 semesters = string.join([x[2] for x in PAPERS[code]['offerings']
@@ -165,7 +169,8 @@ if __name__ == '__main__':
                 paper_choice_store.append((code, PAPERS[code]['name'], semesters,
                                            'images/add_button.png',
                                            'images/info_button.png', 16))
-
+            
+            paper_choice_store.append(([None]*5)+[0])
     for x in keys:
         paperstore.append((x,))
     
@@ -232,9 +237,15 @@ def apply_action_activate_cb(action, *args):
     #sort by level into 3 separate lists (only supports up to 300 level)
     levels = []
 
-    levels.append([x for x in programme if int(float(x) * 1000 % 1000) / 100 == 1])
-    levels.append([y for y in programme if int(float(y) * 1000 % 1000) / 100 == 2])
-    levels.append([z for z in programme if int(float(z) * 1000 % 1000) / 100 == 3])
+    levels.append([x.split(' ')[0]
+                   for x in programme
+                   if int(float(x.split(' ')[0]) * 1000 % 1000) / 100 == 1])
+    levels.append([y.split(' ')[0]
+                   for y in programme
+                   if int(float(y.split(' ')[0]) * 1000 % 1000) / 100 == 2])
+    levels.append([z.split(' ')[0]
+                   for z in programme
+                   if int(float(z.split(' ')[0]) * 1000 % 1000) / 100 == 3])
              
     
     #separate then into semesters
@@ -311,7 +322,12 @@ def apply_action_activate_cb(action, *args):
             slot = 0
             for paper in semesters[year][semester]:
                 if paper not in appended:
-                    planstore[(4 * semester) + slot][year] = paper
+                    planstore[(4 *
+                               semester) +
+                              slot][year] = (
+                        "%s %s" % (paper,
+                                   PAPERS[paper]['name'])
+                        )
                     appended.append(paper)
                     slot += 1
             #we need to check for missing papers and add them to the next year planner list
@@ -437,7 +453,7 @@ def check_if_prerequisite(paper, semesters, year, semester):
 
 def check_programme(modal):
     programme = []
-    [programme.extend([y for y in x if y is not None]) for x in modal]
+    [programme.extend([y.split(' ')[0] for y in x if y is not None]) for x in modal]
 
     #clear the list
     del missing[:]
