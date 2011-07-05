@@ -116,7 +116,52 @@ def on_plancell_edit_3(renderer, npath, new_text, *data):
             print new_text, 'is not a valid paper'
 
 
+def on_major_filter_changed(widget, *data):
+	print 'on_major_filter_changed:', widget, data
+	print major_store[widget.get_active()][1]
+	
+	paper_choice_store.clear()
+	if major_store[widget.get_active()][1] == None:
+		add_tag ()
+	else:
+		add_tag (major_store[widget.get_active()][1])
 
+def fill_major_store():
+	for tag_key in TAGS:
+		if TAGS[tag_key][2] != 'template':
+			major_store.append((str(TAGS[tag_key][0]), tag_key,))
+	
+def add_tag(tag='All'):
+	print tag
+	if tag == 'All':
+		for tag_key in TAGS:
+		    if TAGS[tag_key][2] != 'template':
+		        print tag_key
+		        paper_choice_store.append(("%s" % (TAGS[tag_key][0]), '', None, None, None, 20))
+		        for code in [x for x in TAGS[tag_key][1] if x in keys]:
+		            semesters = string.join([x[2] for x in PAPERS[code]['offerings']
+		                                     if (x[1] is not None and
+		                                         str(x[1].lower()) == 'pnth')], ',')
+		            paper_choice_store.append((code, PAPERS[code]['name'], semesters,
+		                                       'images/add_button.png',
+		                                       'images/info_button.png', 16))
+		        
+		        paper_choice_store.append(([None]*5)+[0])
+	else:
+		tag_key = tag
+		if TAGS[tag_key][2] != 'template':
+		    paper_choice_store.append(("%s" % (TAGS[tag_key][0]), '', None, None, None, 20))
+		    for code in [x for x in TAGS[tag_key][1] if x in keys]:
+		        semesters = string.join([x[2] for x in PAPERS[code]['offerings']
+		                                 if (x[1] is not None and
+		                                     str(x[1].lower()) == 'pnth')], ',')
+		        paper_choice_store.append((code, PAPERS[code]['name'], semesters,
+		                                   'images/add_button.png',
+		                                   'images/info_button.png', 16))
+		    
+		    paper_choice_store.append(([None]*5)+[0])
+	
+	
 if __name__ == '__main__':
     global PAPERS, DEGREE
     setDebug(True)
@@ -158,26 +203,21 @@ if __name__ == '__main__':
             ]
     keys.sort()
 
-    for tag_key in TAGS:
-        if TAGS[tag_key][2] != 'template':
-            major_store.append((str(TAGS[tag_key][0]),))
-            paper_choice_store.append(("%s" % (TAGS[tag_key][0]), '', None, None, None, 20))
-            for code in [x for x in TAGS[tag_key][1] if x in keys]:
-                semesters = string.join([x[2] for x in PAPERS[code]['offerings']
-                                         if (x[1] is not None and
-                                             str(x[1].lower()) == 'pnth')], ',')
-                paper_choice_store.append((code, PAPERS[code]['name'], semesters,
-                                           'images/add_button.png',
-                                           'images/info_button.png', 16))
-            
-            paper_choice_store.append(([None]*5)+[0])
+    
+    
+    add_tag()
+
+    fill_major_store()
+
+
     for x in keys:
         paperstore.append((x,))
-    
-
+	
     apply_action = builder.get_object('apply_action')
 
 
+
+	
 def cancel_action_activate_cb(action, *args):
     """
     Simply remove any proposed changes to the programme of study
@@ -692,7 +732,16 @@ def fillinplan():
     
 
 if __name__ == "__main__":
-    sigs = builder.connect_signals({'gtk_main_quit': gtk.main_quit, 'on_planstore_row_changed': on_planstore_row_changed, 'on_rule_selected': on_rule_selected, 'cancel_action_activate_cb': cancel_action_activate_cb, 'apply_action_activate_cb': apply_action_activate_cb, 'on_possible_activated': widgets.on_possible_activated, 'on_plancell_edit_1': on_plancell_edit_1, 'on_plancell_edit_2': on_plancell_edit_2, 'on_plancell_edit_3': on_plancell_edit_3 })
+    sigs = builder.connect_signals({'gtk_main_quit': gtk.main_quit, 
+									'on_planstore_row_changed': on_planstore_row_changed, 
+									'on_rule_selected': on_rule_selected, 
+									'cancel_action_activate_cb': cancel_action_activate_cb, 
+									'apply_action_activate_cb': apply_action_activate_cb,
+									'on_possible_activated': widgets.on_possible_activated, 
+									'on_plancell_edit_1': on_plancell_edit_1, 
+									'on_plancell_edit_2': on_plancell_edit_2, 
+									'on_plancell_edit_3': on_plancell_edit_3,
+									'on_major_filter_changed': on_major_filter_changed})
 
     fillinplan()
     
