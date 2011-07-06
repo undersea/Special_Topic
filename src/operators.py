@@ -46,7 +46,6 @@ def andcheck(papers, programme):
             elif paper[0] == 'any':
                 results.append(anycheck(paper[1:], programme))
         else:
-            print isinstance(paper, tuple), paper
             results.append(code(paper, programme))
 
     return all(results) and len(results) > 0

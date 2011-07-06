@@ -22,7 +22,7 @@ if __debug == True:
 
 #assert that the required version is available
 try:
-    pygtk.require20()
+    pygtk.require('2.0')
 except AssertionError, e:
     print "Required verion of pygtk not available"
     print e
@@ -32,7 +32,7 @@ major = 'Computer Science'
 missing = []
 add_papers = []
 remove_papers = []
-
+Extra_Papers = []
 
 def add_paper(widget, row, column, *data):
     print widget, row, column, data
@@ -74,7 +74,8 @@ def on_plancell_edit_1(renderer, npath, new_text, *data):
             planstore.set_value(niter, 0, new_text)
         else:
             print new_text, 'is not a valid paper'
-    pass
+    apply_action.activate()
+    fillinplan()
 
 
 def on_plancell_edit_2(renderer, npath, new_text, *data):
@@ -94,7 +95,8 @@ def on_plancell_edit_2(renderer, npath, new_text, *data):
             planstore.set_value(niter, 1, new_text)
         else:
             print new_text, 'is not a valid paper'
-    pass
+    apply_action.activate()
+    fillinplan()
 
 
 def on_plancell_edit_3(renderer, npath, new_text, *data):
@@ -115,6 +117,8 @@ def on_plancell_edit_3(renderer, npath, new_text, *data):
         else:
             print new_text, 'is not a valid paper'
 
+    apply_action.activate()
+    fillinplan()
 
 def on_major_filter_changed(widget, *data):
 	print 'on_major_filter_changed:', widget, data
@@ -132,8 +136,8 @@ def fill_major_store():
 			major_store.append((str(TAGS[tag_key][0]), tag_key,))
 	
 def add_tag(tag='All'):
-	print tag
-	if tag == 'All':
+	print 'tag:', tag
+	if tag == 'All' or len(tag) == 0:
 		for tag_key in TAGS:
 		    if TAGS[tag_key][2] != 'template':
 		        print tag_key
@@ -171,6 +175,8 @@ if __name__ == '__main__':
     DEGREE = parse("BSc.xml")
     builder = gtk.Builder()
     builder.add_from_file('interface.glade')
+
+    extras_buffer = builder.get_object('extras_textbuffer')
     
     main_window = builder.get_object('window1')
 
@@ -257,23 +263,25 @@ def get_prerequisites(code, programme):
 
     return list()
 
-@debug({'planstore':planstore, 'rulesstore': rulestore,})
+@debug({'Extra_Papers': Extra_Papers, 'planstore':planstore, 'rulesstore': rulestore,})
 def apply_action_activate_cb(action, *args):
     print 'apply', action, args
 
     #get current programme
     programme = []
-    [programme.extend([y for y in x if y is not None and len(y) > 0]) for x in planstore]
+    [programme.extend([y.split()[0] for y in x if y is not None and len(y) > 0]) for x in planstore]
     #remove unwanted papers
     programme = [x for x in programme if x not in remove_papers and x != '']
     #add new papers
     programme.extend(add_papers)
 
-    #make sure no duplicates are present
+    #make sure no duplicates are present and the extras are included
     programme = set(programme)
+    programme.update(Extra_Papers)
 
-    print programme
-
+    #remove previous extras
+    del Extra_Papers[:]
+    
     #sort by level into 3 separate lists (only supports up to 300 level)
     levels = []
 
@@ -352,26 +360,38 @@ def apply_action_activate_cb(action, *args):
     
     sort_overflows(semesters, 1, 0)
     sort_overflows(semesters, 1, 1)
+
     
-    print semesters
+    
     
     #repopulate the planner table
     appended = list()
     for year in range(len(semesters)):
         for semester in range(len(semesters[year])):
             slot = 0
-            for paper in semesters[year][semester]:
+            semester_papers = list(set(semesters[year][semester]))
+            for paper in semester_papers:
                 if paper not in appended:
                     planstore[(4 *
                                semester) +
-                              slot][year] = (
-                        "%s %s" % (paper,
-                                   PAPERS[paper]['name'])
-                        )
+                               slot][year] = (
+                        			"%s %s" % (paper,
+                                   	PAPERS[paper]['name'])
+                        	 )
                     appended.append(paper)
                     slot += 1
             #we need to check for missing papers and add them to the next year planner list
-
+            if len(semester_papers) > 4:
+                Extra_Papers.extend(semester_papers[4:])
+    print Extra_Papers
+    if len(Extra_Papers) > 0:
+        extras_buffer.set_text("Papers That have dropped off\n%s" % 
+                                (string.join(Extra_Papers, ', ')))
+    else:
+        extras_buffer.set_text('')
+    del add_papers[:]
+    del remove_papers[:]
+                
 def has_prerequisite(paper, programme):
     prereqs = get_prerequisites(paper, [])
     for tmp in prereqs:
@@ -388,9 +408,7 @@ def sort_prerequisites(semesters, year, semester):
     while not done:
         again = False
         for yr in range(year + 1):
-            print 'sort_prerequisites yr:', yr
             for sem in range(semester + 1):
-                print 'sort_prerequisites sem:', sem
                 if len(semesters[yr][sem]) == 0:
                     break
                 tmp = semesters[yr][sem].pop()
@@ -400,9 +418,7 @@ def sort_prerequisites(semesters, year, semester):
                     paper = semesters[yr][sem].pop()
                     same = False
                     for yr2 in range(yr, 3):
-                        print 'sort_prerequisites yr2:', yr2
                         for sem2 in range(sem, 2):
-                            print 'sort_prerequisites sem2:', sem2
                             if has_prerequisite(paper, semesters[yr2][sem2]):
                                 #maybe it's available in semester 2
                                 if (sem2 == 0 and
@@ -436,7 +452,7 @@ def sort_prerequisites(semesters, year, semester):
                     if again:
                         break
         else:
-            print 'sort_prerequisites done'
+           
             done = True
             
 
@@ -505,13 +521,13 @@ def check_programme(modal):
         for x in DEGREE.rules:
             result = x.check(programme, DEGREE.schedule)
             if not result:
-                missing.append((str(x), DEGREE.name, copy.deepcopy(operators.missing), result,))
+                missing.append((str(x), DEGREE.name + ' Degree', copy.deepcopy(operators.missing), result,))
             
             operators.reset_missing()
         for x in DEGREE.schedule[major][1]:
             result = x.check(programme, DEGREE.schedule[major][0])
             if not result:
-                missing.append((str(x), major, copy.deepcopy(operators.missing), result,))
+                missing.append((str(x), major + ' Major', copy.deepcopy(operators.missing), result,))
             operators.reset_missing()
     for code in programme:
         try:
@@ -522,15 +538,35 @@ def check_programme(modal):
             if rule != None:
                 result = rule.check(programme)
                 if not result:
-                    missing.append((str(rule), code, copy.deepcopy(operators.missing), result,))
+                    missing.append((str(rule), code + ' Prerequisite', copy.deepcopy(operators.missing), result,))
                         
                 operators.reset_missing()
     max_columns = 1
     rulestore.clear()
-    for missed in missing:
-        if len(missed[1]) > max_columns:
-            max_columns = len(missed[2])
-        it = rulestore.append((missed[0],missed[1], "TODO"))
+    missing_degrees = [x for x in missing if x[1].find('Degree') != -1]
+    if len(missing_degrees) > 0:
+        it = rulestore.append(('Degree requirements', None, None))
+        for missed in missing_degrees:
+            if len(missed[1]) > max_columns:
+                max_columns = len(missed[2])
+            it = rulestore.append((missed[0],missed[1], "TODO"))
+        it = rulestore.append((None, None, None))
+    missing_majors = [x for x in missing if x[1].find('Major') != -1]
+    if len(missing_majors) > 0:
+        it = rulestore.append(('Major requirements', None, None))
+        for missed in missing_majors:
+            if len(missed[1]) > max_columns:
+                max_columns = len(missed[2])
+            it = rulestore.append((missed[0],missed[1], "TODO"))
+        it = rulestore.append((None, None, None))
+    missing_papers = [x for x in missing if x[1].find('Prerequisite') != -1]
+    if len(missing_papers) > 0:
+        it = rulestore.append(('Paper requirements', None, None))
+        for missed in missing_papers:
+            if len(missed[1]) > max_columns:
+                max_columns = len(missed[2])
+            it = rulestore.append((missed[0],missed[1], "TODO"))
+        it = rulestore.append((None, None, None))
     
 
 
@@ -651,7 +687,7 @@ def on_planstore_row_changed(model, str_path, new_iter):
 
 def fillinplan():
     programme = []
-    [programme.extend([y for y in x if y is not None and len(y) > 0]) for x in planstore]
+    [programme.extend([y.split()[0] for y in x if y is not None and len(y) > 0]) for x in planstore]
     tmpx = 0
     tmpy = 0
     for x in DEGREE.rules:
@@ -699,7 +735,7 @@ def fillinplan():
         operators.reset_missing()
     #get current programme
     programme = []
-    [programme.extend([y for y in x if y is not None and len(y) > 0]) for x in planstore]
+    [programme.extend([y.split()[0] for y in x if y is not None and len(y) > 0]) for x in planstore]
     for code in programme:
         rule = PAPERS[code]['prerequisites']
         if rule != None:

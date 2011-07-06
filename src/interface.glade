@@ -12,6 +12,7 @@
     <property name="tooltip">Apply proposed changes to main programme</property>
     <property name="stock_id">gtk-apply</property>
     <property name="hide_if_empty">False</property>
+    <property name="visible">False</property>
     <signal name="activate" handler="apply_action_activate_cb" swapped="no"/>
   </object>
   <object class="GtkAction" id="cancel_action">
@@ -19,6 +20,7 @@
     <property name="tooltip">Cancel any proposed updates to programme</property>
     <property name="stock_id">gtk-media-rewind</property>
     <property name="hide_if_empty">False</property>
+    <property name="visible">False</property>
     <signal name="activate" handler="cancel_action_activate_cb" swapped="no"/>
   </object>
   <object class="GtkListStore" id="degree_choice_store">
@@ -35,6 +37,7 @@
       </row>
     </data>
   </object>
+  <object class="GtkTextBuffer" id="extras_textbuffer"/>
   <object class="GtkListStore" id="liststore1">
     <columns>
       <!-- column-name year1_but -->
@@ -376,6 +379,26 @@
                   </packing>
                 </child>
                 <child>
+                  <object class="GtkScrolledWindow" id="scrolledwindow4">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="shadow_type">in</property>
+                    <child>
+                      <object class="GtkTextView" id="textview1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="no_show_all">True</property>
+                        <property name="buffer">extras_textbuffer</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+                <child>
                   <object class="GtkHBox" id="hbox1">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -498,7 +521,7 @@
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">False</property>
-                    <property name="position">2</property>
+                    <property name="position">3</property>
                   </packing>
                 </child>
               </object>
