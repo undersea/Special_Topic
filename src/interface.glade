@@ -773,19 +773,25 @@ Filter&lt;/i&gt;&lt;/b&gt;</property>
     <columns>
       <!-- column-name year -->
       <column type="gchararray"/>
+      <!-- column-name id -->
+      <column type="gchararray"/>
     </columns>
     <data>
       <row>
         <col id="0" translatable="yes">All</col>
+        <col id="1" translatable="yes">0</col>
       </row>
       <row>
         <col id="0" translatable="yes">One</col>
+        <col id="1" translatable="yes">1</col>
       </row>
       <row>
         <col id="0" translatable="yes">Two</col>
+        <col id="1" translatable="yes">2</col>
       </row>
       <row>
         <col id="0" translatable="yes">Three</col>
+        <col id="1" translatable="yes">3</col>
       </row>
     </data>
   </object>

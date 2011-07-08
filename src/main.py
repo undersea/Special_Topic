@@ -125,15 +125,33 @@ def on_major_filter_changed(widget, *data):
 	#print major_store[widget.get_active()][1]
 	
 	
-	if major_store[widget.get_active()][1] == None:
-		add_tag ()
-	else:
-		add_tag (major_store[widget.get_active()][1])
+    if major_store[widget.get_active()][1] == None:
+        if year_store[year_filter_combo.get_active()][1] == 0:
+            add_tag ()
+        else:
+            add_tag(year=year_store[year_filter_combo.get_active()][1] )
+    else:
+        if year_store[year_filter_combo.get_active()][1] == 0:
+            add_tag (major_store[widget.get_active()][1] )
+        else:        
+            add_tag (major_store[widget.get_active()][1], year_store[year_filter_combo.get_active()][1])
 
 
 
 def on_year_filter_changed(widget, *data):
-    pass
+    print 'year', year_store[widget.get_active()][1]
+    print 'major', major_store[major_filter_combo.get_active()][1]
+    if major_store[major_filter_combo.get_active()][1] == None:
+        print 'year', year_store[widget.get_active()][1]
+        if year_store[widget.get_active()][1] == 0:
+            add_tag ()
+        else:
+            add_tag(year=year_store[widget.get_active()][1] )
+    else:
+        if year_store[widget.get_active()][1] == 0:
+            add_tag (major_store[major_filter_combo.get_active()][1])
+        else:
+            add_tag(major_store[major_filter_combo.get_active()][1], year=year_store[widget.get_active()][1] )
 
         
 def fill_major_store():
@@ -152,7 +170,7 @@ def add_tag(tag='All', year='All'):
                     semesters = string.join([x[2] for x in PAPERS[code]['offerings']
                                              if (x[1] is not None and
                                                  str(x[1].lower()) == 'pnth')], ', ')
-                    if year != 'All' and len(year) > 0:
+                    if year != 'All' and len(year) > 0 and year != '0':
                         try:
                             if int(year) == int(float(code) *10) % 10:
                                 paper_choice_store.append((code,
@@ -173,38 +191,40 @@ def add_tag(tag='All', year='All'):
                 
                 paper_choice_store.append(([None]*5)+[0])
     else:
-        for tag_key in TAGS:
-            if TAGS[tag_key][2] != 'template':
-                paper_choice_store.append(("%s" % (TAGS[tag_key][0]), '', None, None, None, 20))
-                for code in [x for x in TAGS[tag_key][1] if x in keys]:
-                    semesters = string.join([x[2] for x in PAPERS[code]['offerings']
-                                             if (x[1] is not None and
-                                                 str(x[1].lower()) == 'pnth')], ',')
-                    if year != 'All' and len(year) > 0:
-                        print year, code
-                        try:
-                            if int(year) == int(float(code) *10) % 10:
-                                paper_choice_store.append((code,
-                                                           PAPERS[code]['name'],
-                                                           semesters,
-	                                                       'images/add_button.png',
-	                                                       'images/info_button.png',
-                                                           16))
-                        except Exception, e:
-                            print e
-                            pass
-                    else:
-                        print code
-                        paper_choice_store.append((code, 
-                                                   PAPERS[code]['name'], 
-                                                   semesters,
-	                                               'images/add_button.png',
-	                                               'images/info_button.png',
-                                                   16))
-		            
-		        
-		        paper_choice_store.append(([None]*5)+[0])
-	
+        if tag == 'All':
+            return
+        tag_key = tag
+        if TAGS[tag_key][2] != 'template':
+            paper_choice_store.append(("%s" % (TAGS[tag_key][0]), '', None, None, None, 20))
+            for code in [x for x in TAGS[tag_key][1] if x in keys]:
+                semesters = string.join([x[2] for x in PAPERS[code]['offerings']
+                                         if (x[1] is not None and
+                                             str(x[1].lower()) == 'pnth')], ',')
+                if year != 'All' and len(year) > 0 and year != '0':
+                    print year, code,
+                    try:
+                        if int(year) == int(float(code) *10) % 10:
+                            paper_choice_store.append((code,
+                                                       PAPERS[code]['name'],
+                                                       semesters,
+                                                       'images/add_button.png',
+                                                       'images/info_button.png',
+                                                       16))
+                    except Exception, e:
+                        print e
+                        pass
+                else:
+                    print code,
+                    paper_choice_store.append((code, 
+                                               PAPERS[code]['name'], 
+                                               semesters,
+                                               'images/add_button.png',
+                                               'images/info_button.png',
+                                               16))
+                    print len(paper_choice_store),
+	            
+	        
+	print
 	
 if __name__ == '__main__':
     global PAPERS, DEGREE
@@ -243,6 +263,7 @@ if __name__ == '__main__':
     TAGS = tagsdict
 
     major_store = builder.get_object('major_store')
+    year_store = builder.get_object('year_store')
 
     keys = [x for x in PAPERS.keys()
             if ('pnth' in [str(str(y[1]).lower()) for y in PAPERS[x]['offerings']])
@@ -818,7 +839,8 @@ if __name__ == "__main__":
 									'on_plancell_edit_1': on_plancell_edit_1, 
 									'on_plancell_edit_2': on_plancell_edit_2, 
 									'on_plancell_edit_3': on_plancell_edit_3,
-									'on_major_filter_changed': on_major_filter_changed})
+									'on_major_filter_changed': on_major_filter_changed,
+									'on_year_filter_changed': on_year_filter_changed})
 
     fillinplan()
     
