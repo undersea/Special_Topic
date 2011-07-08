@@ -164,6 +164,7 @@
   </object>
   <object class="GtkWindow" id="window1">
     <property name="can_focus">False</property>
+    <property name="opacity">0.90000000000000002</property>
     <signal name="delete-event" handler="gtk_main_quit" swapped="no"/>
     <child>
       <object class="GtkHPaned" id="hpaned1">
@@ -607,7 +608,7 @@ Filter&lt;/i&gt;&lt;/b&gt;</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkComboBox" id="combobox4">
+                      <object class="GtkComboBox" id="year_filter_combo">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="model">year_store</property>

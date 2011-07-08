@@ -121,49 +121,89 @@ def on_plancell_edit_3(renderer, npath, new_text, *data):
     fillinplan()
 
 def on_major_filter_changed(widget, *data):
-	print 'on_major_filter_changed:', widget, data
-	print major_store[widget.get_active()][1]
+	#print 'on_major_filter_changed:', widget, data
+	#print major_store[widget.get_active()][1]
 	
-	paper_choice_store.clear()
+	
 	if major_store[widget.get_active()][1] == None:
 		add_tag ()
 	else:
 		add_tag (major_store[widget.get_active()][1])
 
+
+
+def on_year_filter_changed(widget, *data):
+    pass
+
+        
 def fill_major_store():
 	for tag_key in TAGS:
 		if TAGS[tag_key][2] != 'template':
 			major_store.append((str(TAGS[tag_key][0]), tag_key,))
 	
-def add_tag(tag='All'):
-	print 'tag:', tag
-	if tag == 'All' or len(tag) == 0:
-		for tag_key in TAGS:
-		    if TAGS[tag_key][2] != 'template':
-		        print tag_key
-		        paper_choice_store.append(("%s" % (TAGS[tag_key][0]), '', None, None, None, 20))
-		        for code in [x for x in TAGS[tag_key][1] if x in keys]:
-		            semesters = string.join([x[2] for x in PAPERS[code]['offerings']
-		                                     if (x[1] is not None and
-		                                         str(x[1].lower()) == 'pnth')], ',')
-		            paper_choice_store.append((code, PAPERS[code]['name'], semesters,
-		                                       'images/add_button.png',
-		                                       'images/info_button.png', 16))
+def add_tag(tag='All', year='All'):
+    print "%s%s%s"% ('"', tag, '"')
+    paper_choice_store.clear()
+    if tag == 'All' or len(tag) == 0:
+        for tag_key in TAGS:
+            if TAGS[tag_key][2] != 'template':
+                paper_choice_store.append(("%s" % (TAGS[tag_key][0]), '', None, None, None, 20))
+                for code in [x for x in TAGS[tag_key][1] if x in keys]:
+                    semesters = string.join([x[2] for x in PAPERS[code]['offerings']
+                                             if (x[1] is not None and
+                                                 str(x[1].lower()) == 'pnth')], ', ')
+                    if year != 'All' and len(year) > 0:
+                        try:
+                            if int(year) == int(float(code) *10) % 10:
+                                paper_choice_store.append((code,
+                                                           PAPERS[code]['name'],
+                                                           semesters,
+                                                           'images/add_button.png',
+                                                           'images/info_button.png',
+                                                           16))
+                        except:
+                            pass
+                    else:
+                        paper_choice_store.append((code, 
+                                                   PAPERS[code]['name'], 
+                                                   semesters,
+                                                   'images/add_button.png',
+                                                   'images/info_button.png',
+                                                   16))
+                
+                paper_choice_store.append(([None]*5)+[0])
+    else:
+        for tag_key in TAGS:
+            if TAGS[tag_key][2] != 'template':
+                paper_choice_store.append(("%s" % (TAGS[tag_key][0]), '', None, None, None, 20))
+                for code in [x for x in TAGS[tag_key][1] if x in keys]:
+                    semesters = string.join([x[2] for x in PAPERS[code]['offerings']
+                                             if (x[1] is not None and
+                                                 str(x[1].lower()) == 'pnth')], ',')
+                    if year != 'All' and len(year) > 0:
+                        print year, code
+                        try:
+                            if int(year) == int(float(code) *10) % 10:
+                                paper_choice_store.append((code,
+                                                           PAPERS[code]['name'],
+                                                           semesters,
+	                                                       'images/add_button.png',
+	                                                       'images/info_button.png',
+                                                           16))
+                        except Exception, e:
+                            print e
+                            pass
+                    else:
+                        print code
+                        paper_choice_store.append((code, 
+                                                   PAPERS[code]['name'], 
+                                                   semesters,
+	                                               'images/add_button.png',
+	                                               'images/info_button.png',
+                                                   16))
+		            
 		        
 		        paper_choice_store.append(([None]*5)+[0])
-	else:
-		tag_key = tag
-		if TAGS[tag_key][2] != 'template':
-		    paper_choice_store.append(("%s" % (TAGS[tag_key][0]), '', None, None, None, 20))
-		    for code in [x for x in TAGS[tag_key][1] if x in keys]:
-		        semesters = string.join([x[2] for x in PAPERS[code]['offerings']
-		                                 if (x[1] is not None and
-		                                     str(x[1].lower()) == 'pnth')], ',')
-		        paper_choice_store.append((code, PAPERS[code]['name'], semesters,
-		                                   'images/add_button.png',
-		                                   'images/info_button.png', 16))
-		    
-		    paper_choice_store.append(([None]*5)+[0])
 	
 	
 if __name__ == '__main__':
@@ -221,7 +261,8 @@ if __name__ == '__main__':
 	
     apply_action = builder.get_object('apply_action')
 
-
+    major_filter_combo = builder.get_object('major_filter_combo')
+    year_filter_combo = builder.get_object('year_filter_combo')
 
 	
 def cancel_action_activate_cb(action, *args):

@@ -56,6 +56,21 @@
     This has to be done at the code level.  It would have been nice if
     this could be done through the designer, with the results
     immediately viewable.
+** Paper Prerequisite resolution and which order to take papers in
+*** Vague prerequisite requirements
+    The prerequisites, co-requisites, and restrictions are specified in
+    a informal manner.  They are sometimes not clear, and working out
+    what they mean is very hard at times.  Also to have a application
+    parse these rules is extremely difficult, needing a extremely
+    flexible natural language parser to resolve specification.  This
+    made it necessary to manually go through each paper and translate
+    these requirements into a machine readable form.  It was not
+    possible to accurately interpret these rules, and were quite often
+    just left out.
+*** Making sure a paper was not listed before a prerequisite
+*** Papers dropping off the plan
+   
+
 * Future work
 ** Constraints satisfaction implementation?
 ** AI path finding techniques
@@ -86,4 +101,8 @@
    papers are offered in and if they can be slotted into that
    semester, given that papers could be offered in both semesters, or
    be double semester papers.
+** Improve the user feedback
+   At the moment, if any errors occur, the program does not let the
+   user know this.  The reason, nor any possible solutions are not
+   presented to the user if a problem should occur.
 * Conclusion

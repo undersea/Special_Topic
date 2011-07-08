@@ -9,7 +9,7 @@ class PrerequisiteRule(rules.RequiredRule):
         self.paper = paper
 
     def __str__(self):
-        return '%s %s' % (self.paper, super(PrerequisiteRule, self).__str__())
+        return '%s' % (super(PrerequisiteRule, self).__str__())
 
 
 class CorequisiteRule(PrerequisiteRule):
