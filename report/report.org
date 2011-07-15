@@ -1,7 +1,7 @@
 #+TITLE:     Student degree planner for BSc Computer Science
 #+AUTHOR:    James Hurford
 #+EMAIL:     terrasea@gmail.com
-#+DATE:      2011-06-23 Thu
+#+DATE:      
 #+DESCRIPTION:
 #+KEYWORDS:
 #+LANGUAGE:  en
@@ -14,95 +14,533 @@
 #+LINK_HOME: 
 #+XSLT:
 
+#+LaTeX_CLASS_OPTIONS: [a4paper, 12pt]
+#+LaTeX_HEADER: \setlength{\parindent}{0pt}
+#+LaTeX_HEADER: \setlength{\parskip}{1em}
 
-* What is it
 
-* How does it work
+* Introduction
+  A need for a program to assist students in deciding what papers to
+  take to complete their chosen degree is missing.  This report
+  outlines the efforts gone towards designing such a program.  This
+  prototype addresses this problem though the design of a user
+  interface, a grammar system, a automatic paper sorting system and a
+  database in which to store the needed information in. 
 
-** List sorting, creation, and filtering
-   #+ATTR_LATEX: width=\textwidth
-   [[./DegreePlanner.png]]
-** Basic logic decisions (Not quiet AI, but getting there)
-   Based upon rules defined in the degree object, the program is  able
-   to determine if they have fulfilled the degree requirements or not
-   and to display what rules they have to pass to do this.  Most of
-   the degree rules cover a choice of to many papers to easily display
-   them in the GUI, but it can display a string representation of what
-   the rule is.  Also if the rule involves papers which they have no
-   choice, and their is no options, these papers can be automatically
-   added.
+  
+  used to check if the paper selections are valid,
 
-   The GUI displays a grid of slots to be filled with paper numbers.
-   They are shown in three columns of eight slots, with a total of 24 slots to
-   be filled.  Each column represents a year, and the first four slots
-   of that column representing the first semester, the last four
-   representing the second.  Using information derived from the paper
-   database, the program can determine which semester the paper can be
-   slotted into.  It also can determine which year it can belong to by
-   parsing the paper number and using the third from last digit to
-   determine the year.
-** User decision making required
-   The system cannot decide for the student what paper they are going
-   to choose, if they have a choice.  The only option is to ask them
-   to decide.
-* Technology used
-** Python
-** Gtk
-*** TreeView
-** Glade interface designer
-* Problems
-** Glade interface designer
-*** Doesn't allow you to dynamically create models
-    This has to be done at the code level.  It would have been nice if
-    this could be done through the designer, with the results
-    immediately viewable.
-** Paper Prerequisite resolution and which order to take papers in
-*** Vague prerequisite requirements
-    The prerequisites, co-requisites, and restrictions are specified in
-    a informal manner.  They are sometimes not clear, and working out
-    what they mean is very hard at times.  Also to have a application
-    parse these rules is extremely difficult, needing a extremely
-    flexible natural language parser to resolve specification.  This
-    made it necessary to manually go through each paper and translate
-    these requirements into a machine readable form.  It was not
-    possible to accurately interpret these rules, and were quite often
-    just left out.
-*** Making sure a paper was not listed before a prerequisite
-*** Papers dropping off the plan
+* User Interface
+
+  To really get a feel for what is needed for a degree planner to work
+  a quick user interface was put together.  This is shown in figure \ref{fig:overview}.
+  
+  #+ATTR_LATEX: width=\textwidth,placement=[H]
+  #+CAPTION: A view of the user interface
+  #+LABEL: fig:overview
+  [[./DegreePlanner-shot.png]]
+
+  This does not mean much without some explanation of the various
+  sections of the interface.  You can see in figure
+  \ref{fig:overview-labeled} the picture has be section off and labeled.
+
+  #+ATTR_LATEX: width=\textwidth,placement=[H]
+  #+CAPTION: A view of the user interface with each part outlined in text and labeled.
+  #+LABEL: fig:overview-labeled
+  [[./DegreePlanner_labeled_areas.png]]
+
+
+
+** Selected papers pane
+   Is the area showing the possible degree plan.  It is divided into
+   three columns and eight rows.  Each column represents a year, and
+   the each cell in that column represents a slot for putting a paper
+   in.  The first four slots, in a column, represent semester one, the
+   last four the second semester.  The reason for allowing only four
+   slots a semester was a partially arbitrary one, as well as for
+   practical reasons. By restricting the slots to four a semester
+   makes it easier to decide where a paper should go.  To illustrate
+   why it makes things easier, , you have to think what happens if you
+   have five papers or more selected for a particular year and
+   semester.  How do you determine if there are to many papers taken
+   in a semester and if they exceed this maximum, and all the papers
+   are wanted, how do you determine which one should be taken that
+   year, and which ones can be done in the following year?
+
+** Paper browsing and selection area
+   Originally the application did not have this.  The selection of
+   papers was done via a drop down menu within each cell.  This seemed
+   like a good idea at the time, but the problem was there are to many
+   papers to choose from.  It also was not easy to figure out what the
+   papers were from the menu entries.  It was decided instead to have
+   a larger scrollable table on the right hand side.  Each row
+   contains the paper code, title, a add button, and a information
+   button.  The add button, shown in figure \ref{fig:addpaper} is clicked to add the selected paper to the
+   plan.  Ideally, the user would be able to specify where in the plan
+   the paper got put, but for practical reasons, this had to be cone
+   algorithmically.  While it is possible to allow the user to select
+   where the paper is put, the decision was made not to allow this.
+   Trying to make sure papers stay where they are placed is
+   complicated, requires more checks than we were willing to use, and
+   could also be invalid.  With time limits some features had to be
+   dropped, and that was one of them.  The other button was meant to
+   bring up a information dialog, or show the information in one of
+   the panels, like where the dropped papers is located.  This was to
+   be a description of the paper, as seen on the paper information
+   page on the Massey web site calendar prescription.  A mock up is
+   shown in figure \ref{fig:information}.
+
+   #+ATTR_LATEX: width=\textwidth,placement=[H]
+   #+CAPTION: A view showing the button for adding papers to the programme of study
+   #+LABEL: fig:addpaper
+   [[./DegreePlanner_add.png]]
+
+   #+ATTR_LATEX: width=\textwidth,placement=[H]
+   #+CAPTION: A view showing what would happen if the 'More information' button was pressed in the paper browsing and selection area
+   #+LABEL: fig:information
+   [[./DegreePlanner-info.png]]
+
    
+** Paper browsing and selection filter
+   While the use of the paper browsing window did make it easier to
+   search for and add papers, there are still a lot of papers to
+   search through.  To help with this a couple of drop down menus were
+   added to filter the papers by major and year.  This is not perfect
+   but it does help a lot.  
 
+   One thing that was noticed, was when
+   adding a paper there is no indication in the paper browsing list
+   as to which papers have already been added.  This can confuse the
+   user, with to much information but not much contextual meta data.
+   So they know that they this paper is available, but unless they
+   visually search through the selected papers pane they do not have
+   any indication that they have already taken it. There is two ideas on
+   what to do about that.  One is to remove the paper from the list,
+   the other is to give a visual cue, indicating if it has been added
+   to the programme of study or not.
+
+** Selected papers pane
+   Is a grid of three columns and eight rows.  The first four rows
+   represent the first semester, and the last 4 the second.  Each
+   column represented a year, going left to right, starting with the
+   first year.  This is where the paper selection is displayed.
+   Originally only the paper code was displayed, as space was scarce.
+   This ended up being confusing, as the paper codes do not mean
+   anything to the user.  It was decided to add the title, but to stop
+   the title from taking up to much room, only display part of it, and
+   make the rest able to be revealed by expanding the column width.
+   This would mean that the user would have an easier time identifying
+   the paper, and if needed could reveal the whole title.  This took
+   the cognitive load off the user, while still conserving the space
+   used by the table cell.
+
+   The cells displayed here are, at the moment the only way to remove
+   papers from the plan.  They are editable, and to remove a paper,
+   the user simply activates the cell, which brings up a text field,
+   and deletes the text, pressing the enter button when finished.  A
+   paper can also be added to the plan by doing the same procedure,
+   but this time typing in a valid paper code.  The paper will not
+   necessarily stay in the cell that was edited, when adding papers
+   though, as the position in the plan is determined by a algorithm.
+
+** Unsatisfied requirements list
+   This displays the unsatisfied rules that a programme plan must pass
+   to gain the desired degree and major combination.  A degree, major
+   and the papers taken have requirements that must be meet before any
+   of them can be completed.
+
+   This was originally just a straight
+   list of the requirements inserted into the table in whatever order
+   they came.  There was no grouping of the types of requirements,
+   paper, major or degree, and they only showed up if they were
+   not meet.  The grouping was later added, so now requirements are
+   grouped together by type.  
+
+   The reason this was done was to reduce
+   the cognitive load.  It is a lot less confusing if a user can, at a
+   glance, tell if the requirement is a degree, major or paper.  
+
+   The requirement still disappears when it is meet.  While when the
+   design of the program was first undertaken, it seemed like good
+   idea to only show the requirements that have not been meet.  On
+   reflection though, it seems it might be a good idea to leave them
+   there and put some visual cues as to if the requirement is meet or
+   not.  This could be in the form of a change in colour.
+*** The unfulfilled rules section has three columns
+    To help the user understand what is going on the section is
+    displayed as a table with three columns.
+    + Pending required - telling them what it is they need
+    + Reason - telling them what they need the pending required for
+    + Completed - currently does nothing, but is there as a place
+      holder with the idea that what they already have fulfilled for
+      this requirement is listed here.
+    
+
+** Selected requirement paper list
+   When the requirement in unsatisfied requirements list is selected,
+   if that requirement has a list of paper requirements, they are
+   shown here.  This is a row with whose rows are dynamically created
+   to accommodate the list of papers.  Each paper is represented by
+   its paper code, and to the right of it is a check-box.  This
+   check-box is checked if the paper is already in the plan.  The
+   check-box allows the user to add or remove the requirement. 
+   
+   However if the paper requirement is listed as a ambiguous code, for example
+   161.1xx, where it is not clear as to what the exact paper is, the
+   checkbox is not present.  The reason for this decision is to stop
+   the user from expecting the program to sort out which paper to
+   select.  A list of possible papers could be generated from the
+   paper database, but for this prototype it was decided not to
+   include that functionality.
+
+   There is also the fact that the user may not know what the paper is
+   with just the paper code to reference, and in the version that was
+   created, the list of dependencies includes papers not offered
+   anymore, or on the Palmerston North campus.  These problems could
+   be overcome, by adding a paper title to the end of the code, as in
+   what is done with the selected papers pane, and just showing part
+   of that title.
+** Text area for displaying dropped papers
+   In processing the list of papers that the user has selected, when
+   the number of available slots is used up and there are still more
+   papers than some papers will be dropped.  These papers are kept in
+   a separate list and displayed in this text area.  This is really
+   intended for debugging purposes, and to show that the paper has not
+   disappeared.
+
+   The fact that it is needed shows some of the deficiencies in this
+   program.  
+** Currently the degree and major choice has only one option.
+   This is to narrow done the search space, but to give idea of what
+   it would look like if the other degrees and majors were options.
+   Did not want to have to create a planner for all the degrees given
+   that the domain is so large. Only had one semester to do it in.
+
+* Grammar system
+  A means of checking if the selection of papers was valid or not was
+  needed. The idea was to have a set of rules that you checked by
+  passing a list of papers to and based upon these papers and a few
+  other details, passed or failed.  For the paper selection to be a
+  complete valid programme of study it had to pass all the rules.  If
+  we could do that then half the battle for creating this assistant
+  was won.
+
+  To achieve this, a grammar that the program could parse and use to
+  determine if something has passed this particular condition or not
+  is needed.  Each rule was a boolean algebra equation, with a few
+  special operators added in to take into account the special rules
+  set out for papers, degrees, and majors. 
+
+** 3 different types of basic rules are used throughout
+   The degree seems to have Required, At Least, and Limit.  BSc uses
+   all 3 of those rules, the CS Major uses just Required and At
+   Least.  Most of the papers use a modified version of Required rule.
+
+   + At Least and Limit were simple check the count of papers with a
+     limited set of filters available
+     + Level of paper, as in 100, 200, or 300
+     + Whether they were in the schedule or not
+     + Number of points, be that minimum or maximum taken
+   + Required is the most used rule since it is used by
+     + the degree and major requirements
+     + all papers use required rule to determine if prerequisites have
+       been meet
+
+** Boolean algebra used
+   Covering all the possibilities was tried, but that proved to be a
+   task to large to do in the time available.  
+
+*** Operators or procedures covered
+    These include And, Or, OneOf, Any.  
+
+**** And and Or
+     Are self explanatory.  
+**** OneOf
+     OneOf is used when there are a array of papers that you can do
+     but you need only one of them to do this paper.  Or could have
+     been used to do this operation, so this is really just a
+     convenient way of encoding a prerequisite where a choice of one
+     paper among many is needed.
+**** Any
+     This give the ability to specify the prerequisite of, for
+     example, any 100 level paper.
+     
+*** Operators not covered
+**** TwoOf
+     Given a choice of several papers the student had to do two of
+     these papers.  This was discovered near the end of this project.
+     It was decided to ignore this one for the moment, as it was not
+     necessary to demonstrate the applications abilities.
+
+* Paper and prerequisite sorting
+  When a paper is added the program algorithmically sorts the papers
+  into their optimal position in the plan.  The process is constrained
+  by 
+
+  + paper prerequisites
+  + what level they are
+  + what semester they are offered in
+  + how many papers can be done in a semester.
+
+** Sorting process
+   When the paper is added the constraints are resolved through the
+   process outlined below.
+  
+   1) Get current proposed programme of study
+   
+   2) Sort papers into their levels 
+    
+   3) Separate each of the levels into semesters
+
+   4) Sort the papers by their prerequisites.  Making sure that a
+      prerequisite for a paper does not occur after it.
+
+   5) Try and fit all the papers into the plan where there are to many
+      papers for one semester.  If a paper is not a prerequisite try
+      and fit it into the next year.  If it is a prerequisite, try and see if the
+      paper it is a prerequisite for can be put in the next year after
+      that, then put it in the next year.
+    
+  
+
+
+  The program does not stop the user
+  from adding papers if the slots are full, it just adds them and the
+  extras are printed to the bottom left text area, shown in figure
+  \ref{fig:overview-dropped}.  These extras may
+  include required papers.  If this happens, and this paper is a
+  requirement for the degree, major or one of the papers, the unfulfilled
+  requirement is displayed in the pending requirement list.
+  
+  It would be helpful to stop the papers required for major and
+  degree or a prerequisite from being dropped off.  The Major and
+  degree required papers should be kept at all costs.  That is not
+  done currently.
+     
+  #+ATTR_LATEX: width=\textwidth,placement=[H]
+  #+CAPTION: A example of what happens if papers can not all be put in the programme plan
+  #+LABEL: fig:overview-dropped
+  [[./DegreePlanner-dropped.png]]
+* Stored them in XML files.
+  These take on the form of data stores, where information is stored
+  about the degree, major and papers.  Currently three files are used,
+
+** One for degree
+   + Holds rules for degree
+   + List of majors including their rules
+   + Each major provides a tag link to lookup in the tags file
+     + The tag specified provides a list of paper codes that are part
+       of the major schedule
+** Tags
+   + Holds a list of tags
+   + Each tag has a list of papers
+   + Can be used for listing major schedule papers
+
+** Papers
+   + The actual list of papers with their details
+   + Each paper contains data on the paper code, name, offerings
+     + Each offering tag contains info on if it is
+       + internal or extramural
+       + what campus if applicable
+       + what semester which includes
+   + A optional description element can be included, but I had not
+     enough time to input all the details and description was one of
+     the sacrifices I made.
+* Problems
+** Vague prerequisite requirements
+   The prerequisites, co-requisites, and restrictions are specified in
+   a informal manner.  They are sometimes not clear, and working out
+   what they mean is very hard at times.  Also to have a application
+   parse these rules is extremely difficult, needing a extremely
+   flexible natural language parser to resolve specification.  This
+   made it necessary to manually go through each paper and translate
+   these requirements into a machine readable form.  It was not
+   possible to accurately interpret these rules, and were quite often
+   just left out.
+** Papers dropping off the plan
+  When the program runs out of slots to put papers in and more are
+  added, then papers that you might not want to drop off drop off.
+  What drops off depends on the order they are considered in.  If you
+  have a list of 5 papers
+  + 156.234
+  + 134.256
+  + 123.265
+  + 345.288
+  + 117.254
+  
+  Then the first 4 will be kept and the last one dropped, if a slot
+  can't be found in the 3rd year, as in all 3rd year slots are full.
+  Of coarse what could happens is that 117.254 gets put in 3rd year and
+  something in the 3rd year gets dropped instead.  A factor come
+  into account here
+  + The paper must not be a prerequisite for one of the papers in the
+    same semester it is in the next year, if it is then it gets dropped
+** Visually scrapped the information from the Massey website.
+   There was no access to any of the databases used by Massey, so the
+   only source of information available to this program had to be
+   visually scrapped from the website.  This was a time consuming
+   process, which could have been better spent solving the actual
+   problem.  It is also error prone, due to human error, and lack of
+   up to date information.  After the information was scrapped it was
+   noticed that some of the papers that were on the web page were
+   listed as no longer being offered on another page.  This was not a
+   real problem for this prototype, however, since it does not have to
+   be very accurate to demonstrate the program.
 * Future work
-** Constraints satisfaction implementation?
-** AI path finding techniques
-
 ** Redesign of UI
+   The program is a prototype, and it has served its purpose in
+   demonstrating what can be done to assist a user in planning their
+   degree, but there is always room for improvement.
+*** Spatial issues
+    Space could be freed up, and the programme plan could be expanded
+    to be a central part of the application, which it does not seem to
+    be at the moment.  The panels which support the central planning
+    panel, should be to its left and right.  The idea is sketched in figure
+    \ref{fig:improve}.  This may give the illusion of more space and
+    focus the user onto the area they need to pay attention to, with
+    fewer distractions from the other panels.
 
-** Improve the process determining what is required to complete a degree
+    #+ATTR_LATEX: width=\textwidth,placement=[H]
+    #+CAPTION: A proposed improvement of the user interface
+    #+LABEL: fig:improve
+    [[./DegreePlanner-improvement.png]]
+
+*** Improve the user feedback
+    At the moment, if any errors occur, the program does not let the
+    user know this.  The reason, nor any possible solutions are not
+    presented to the user if a problem should occur.
 
 ** Create a template system
-
-** Implement dependency checking in a tag to allow it to specify a paper via a rule
+   A template system was discussed.  It would take the form of a tag,
+   with a set of papers, or even other tags, associated with it.  For
+   instance, if a student was interested in programming, they could use the
+   programming template to fill in the recommended papers for
+   programming.
 
 ** Improve the rules parsing code
-** Make the program determine where to fit all the papers
-   Determine where papers fit from a level of say one hundred level
-   where the number of these papers is more than eight, placing them
-   in the appropriate places in the following years.  currently it
-   only puts papers of one hundred level in year one column, papers of
-   two hundred level in year two column, and papers of three hundred
-   level in year three column.  This works if the one, two and three
-   hundred level papers are only eight each.  If anyone of the levels
-   of papers counts go above eight, one of these papers will be
-   dropped.  This could be done by changing the criteria of what goes
-   into two hundred and three hundred level columns.  If there are
-   overflows in either one hundred or two hundred, slot the overflows
-   into the next level.  The problem of determining which ones to put
-   in the next level, has to be determined by what semesters the
-   papers are offered in and if they can be slotted into that
-   semester, given that papers could be offered in both semesters, or
-   be double semester papers.
-** Improve the user feedback
-   At the moment, if any errors occur, the program does not let the
-   user know this.  The reason, nor any possible solutions are not
-   presented to the user if a problem should occur.
+   More work needs to be done on this, as they are not perfect, and
+   need more operations added.  Near the end of the project, when
+   adding in more papers, it was noticed there were prerequisites with
+   conditions, like two of a selection of papers.  This could be done
+   by using or, but it would be less clumsy to write it as it is
+   written in the schedule.
 * Conclusion
+
+
+
+* Grammar was used to make life easier for inputting new rules or papers. :noexport:
+  If all it requires is to create a set of conditions for meeting
+  prerequisites and rules then parse them and check against this
+  parsed set of rules, makes it so much easier to add a new paper or
+  rule to the system.  I tried to cover most circumstances, but was
+  not able to anticipate all instances, and these instances like two
+  of this selection of papers, were not included.  I did not want to
+  be bogged down by trying to cover everything.  There were
+  prerequisite rules which I did not understand, and really need some
+  clarification.  Someone should not need a PhD to be able to figure
+  out what the writer means.  Clarification is needed.
+
+* Using the MVC pattern (model/view/controller)                    :noexport:
+
+* List sorting, creation, and filtering                            :noexport:
+  
+* Basic logic decisions (Not quiet AI, but getting there)          :noexport:
+  Based upon rules defined in the degree object, the program is  able
+  to determine if they have fulfilled the degree requirements or not
+  and to display what rules they have to pass to do this.  Most of
+  the degree rules cover a choice of to many papers to easily display
+  them in the GUI, but it can display a string representation of what
+  the rule is.  Also if the rule involves papers which they have no
+  choice, and their is no options, these papers can be automatically
+  added.
+
+  The GUI displays a grid of slots to be filled with paper numbers.
+  They are shown in three columns of eight slots, with a total of 24 slots to
+  be filled.  Each column represents a year, and the first four slots
+  of that column representing the first semester, the last four
+  representing the second.  Using information derived from the paper
+  database, the program can determine which semester the paper can be
+  slotted into.  It also can determine which year it can belong to by
+  parsing the paper number and using the third from last digit to
+  determine the year.
+* User decision making required                                    :noexport:
+  The system cannot decide for the student what paper they are going
+  to choose, if they have a choice.  The only option is to ask them
+  to decide.
+* Restricting to only 3 year degree, and only doing BSc.           :noexport:
+  To try and do all the degrees is a huge task, and I don't have the
+  time to do this.
+* Creating templates, and allowing these to be added to the programme. :noexport:
+  There need to be a option list displayed, and a add button, plus
+  some templates and put the template rules in.
+   
+
+
+* Originally had the planner cells have a drop down menu to select the papers :noexport:
+  Problem is there are to many papers to put in one menu, thus the
+  side panel was introduced to allow easy searching of papers with
+  more useful info like actual titles, what semester they were
+  offered in and a button to add to plan, and a button to show the
+  description.  The description function was not implemented, as
+  the time was better used to do other things, but it is a trivial
+  task to include a panel to display the description and put the info
+  onto that.
+
+* Feed back on what is needed is a requirement                     :noexport:
+  + To achieve this made another panel with a list of requirements
+    not meet.
+  + These requirements are grouped according to whether they were to
+    do with the degree, major or individual paper requirements.
+  + The requirements with specific requirements like optional
+    requirements where you can choose one or the other were listed
+    here, but if the requirement was very specific like 159.101 and
+    159.102, then these papers will be automatically added.  This
+    saves the user some clicks to add these requirements to the list
+    themselves.  However if the requirements are either or options
+    the it is left to the user to choose which one to do.  The
+    programme can't algorithmically decide what to include in these
+    cases.
+
+
+
+** When requirement selected will display any options in the needed panel
+   + If the option is a p=unambiguos paper code then it will be
+     displayed along with a check box which is checked if the paper is
+     already in the plan list, and can be unticked or ticked to add or
+     remove this paper from the plan.
+   + if the option is ambiguous ie, 161.1xx, then the user is required
+     to select it from the list of papers in the right panel with the
+     list of papers in it.  It could be possible to determine these
+     papers from the first part ie [x for x in papers if
+     x.startswith(option[:4])]
+
+
+
+** Papers in the plan are shown as a code followed by the title.
+   + was originally just the code but was decided that this is
+     meaningless to user as who can remember what paper a code
+     represents, so the title was added.  However since titles can be
+     long, had the cell only show part of the title, enough to give a
+     better idea what the paper is, and if needed can reveal all the
+     title by adjusting the column width.
+
+
+
+** To delete a paper from list 
+   had to make cells editable, and simply delete the text, thus
+   removing from plan  This is cumbersome, it would be simpler to have
+   a clear button next to each slot to clear it saving the user a lot
+   of hassle, but at the time of development, I couldn't think of
+   another way.
+** the requirements include code of papers that don't exist anymore
+   this is a problem as my program currently does not filter these out
+   as options.  It looks to the user, who is none the wiser as though
+   they are legit choices.
+* Display plan as grid, columns representing years and 1st 4 rows being 1st semester last 4 being 2nd :noexport:
+** This is under the assumption that only 4 papers a semester will be taken
+** This makes it easy to organise where papers should go
+* 2 pass sorting to make sure prerequisites are done and that papers are not put before a prerequisite :noexport:
+
+* What is it                                                       :noexport:
+
+* How does it work                                                 :noexport:
